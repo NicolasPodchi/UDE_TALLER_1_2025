@@ -1,0 +1,11 @@
+#ifndef TIPOECUACION_H_INCLUDED
+#define TIPOECUACION_H_INCLUDED
+
+typedef enum
+{
+    PRIMER_GRADO,
+    SEGUNDO_GRADO
+
+} tipoEcuacion;
+
+#endif // TIPOECUACION_H_INCLUDED
