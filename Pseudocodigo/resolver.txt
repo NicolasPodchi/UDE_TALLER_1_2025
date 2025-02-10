@@ -1,0 +1,6 @@
+SI la ecuacion tiene tres coeficientes ENTONCES 
+    resultado = ((-b) + sqrt (b^2 - 4ac)) / (2a)
+    MOSTRAR x = resultado 
+SINO
+    resultado = (-b) / a
+    mostrar x = resultado

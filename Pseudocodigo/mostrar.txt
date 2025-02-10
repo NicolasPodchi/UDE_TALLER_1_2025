@@ -1,0 +1,22 @@
+//MODULO ARBOL
+
+MOSTRAR ARBOL
+
+SI arbol de ecuaciones no está vacío ENTONCES
+	mostrar ecuación de la izquierda
+	mostrar ecuación actual
+	mostrar ecuación de la derecha
+FIN SI
+
+
+//MODULO ECUACIONES
+
+MOSTRAR ECUACION
+
+IMPRIMIR identificador
+SI es una ecuación de primer grado ENTONCES
+	IMPRIMIR ecuación de primer grado
+SINO
+	IMPRIMIR ecuación de segundo grado
+FIN SI
+

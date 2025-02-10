@@ -1,15 +1,16 @@
 #ifndef ARBOLECUACION_H_INCLUDED
 #define ARBOLECUACION_H_INCLUDED
+#include "ecuacion.h"
 
-typedef struct
+typedef struct nodoA
 {
-    long int ci;
-    strings nombre;
-    strings apellido;
-    strings direccion;
-    long int telefono;
-    int cant_reclamos;
-} cliente;
+    ecuacion info;
+    nodoA * hIzq;
+    nodoA * hDer;
+
+} nodoArbol;
+
+typedef nodoArbol * arbolEcuacion;
 
 
 

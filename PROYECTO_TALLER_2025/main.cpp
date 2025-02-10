@@ -1,9 +1,6 @@
-#include <iostream>
-
-using namespace std;
+#include "../2.Solucion/arbolEcuacion"
 
 int main()
 {
-    cout << "Hello world!" << endl;
-    return 0;
+    
 }
