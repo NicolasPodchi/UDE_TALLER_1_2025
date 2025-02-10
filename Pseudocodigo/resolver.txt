@@ -1,6 +1,30 @@
-SI la ecuacion tiene tres coeficientes ENTONCES 
-    resultado = ((-b) + sqrt (b^2 - 4ac)) / (2a)
-    MOSTRAR x = resultado 
-SINO
-    resultado = (-b) / a
-    mostrar x = resultado
+...Usuario ingresa comando
+
+Obtener comando del usuario.
+Realizar parsing y obtener lista de strings.
+Analizar primer palabra de la lista (comando) y verificar que coincide con alguna de las funciones definidas.
+SI el comando es válido y corresponde a 'resolver'
+     SI hay 2 parámetros ingresados
+        Buscar ID en el arbol con mismo valor que el segundo parámetros
+        SI encuentro el ID
+            obtener discriminante (tipo de ecuacion)
+            SI corresponde a una ecuacion de primer grado
+                x = (-segundo coeficiente) / primer coeficiente
+                mostrar x
+            SINO
+                SI (segundo coeficiente^2 - 4 * primer coeficiente * tercer coeficiente) es menor que cero 
+                    Desplegar mensaje ecuacion sin solucion
+                SINO
+                    SI (segundo coeficiente^2 - 4 * primer coeficiente * tercer coeficiente) es igual que cero 
+                        resultado = (-segundo coeficiente) / primer coeficiente
+                        mostrar X = resultado 
+                    SINO
+                        x1 = ((-b) + sqrt (b2 – 4ac)) / (2a)
+                        x2 = ((-b) - sqrt (b2 – 4ac)) / (2a)
+                        mostrar x1 x2
+        SINO
+            Desplegar error para ID incorrecto 
+    SINO
+        Desplegar error para cantidad de parámetros
+
+

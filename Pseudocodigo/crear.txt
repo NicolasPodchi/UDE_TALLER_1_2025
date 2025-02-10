@@ -1,0 +1,42 @@
+pseudo codigo 
+
+CREAR
+
+//pairsing coso
+analizar primer palabra detectada verificar que coincide con alguna de las 7funciones definidas, 
+proceder a ver si es haY algunn identificador para la ecuacion
+comprobar si hay minimo 2 coeficientes y maximo 3 
+		en caso de q no se cumpla desplegar ensaje de error. 
+ si esta todo ok 
+		verificar si existe alguna ecuacion con el mismo nombre en caso de que si 
+			desplegar msj de error que ponga otro nombre, 
+sino se crea la ecuacion y se almacena en en el arbol binario de busqueda
+
+// VERSION POCHI
+
+...Usuario ingresa comando
+
+Obtener comando del usuario.
+Realizar parsing y obtener lista de strings.
+Analizar primer palabra de la lista (comando) y verificar que coincide con alguna de las funciones definidas.
+Si el comando es válido y corresponde a 'crear'
+    Validar parámetros
+    Si los parámetros son válidos
+        Validar ID de la ecuación
+        Si el ID no esta repetido en el arbol de ecuaciones
+            Validar coeficientes
+            Si todos los coeficientes son válidos
+                Determinar tipo de ecuación y obtener discriminante
+                Crear ecuación.
+                Guardar ecuación en el arbol.
+                Desplegar "Resultado: [ID]: [Ecuación]"
+            Sino
+                Desplegar error para coeficientes inválidos.
+        Sino
+            Desplegar error para ID repetido
+    Sino
+        Desplegar error para parámetros inválidos
+
+Solicitar siguiente comando...
+        
+            
