@@ -3,8 +3,8 @@
 #include <math.h>
 
 typedef struct {
-    int primercoeficiente;
-    int segundocoeficiente;
+    int primerCoeficiente;
+    int segundoCoeficiente;
 } ecuacionPrimerGrado;
 
 

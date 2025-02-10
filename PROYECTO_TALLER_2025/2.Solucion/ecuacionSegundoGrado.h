@@ -2,9 +2,9 @@
 #define ECUACIONSEGUNDOGRADO_H_INCLUDED
 
 typedef struct {
-    int unocoeficiente;
-    int doscoeficiente;
-    int trescoeficiente;
+    int unoCoeficiente;
+    int dosCoeficiente;
+    int tresCoeficiente;
 } ecuacionSegundoGrado;
 
 
