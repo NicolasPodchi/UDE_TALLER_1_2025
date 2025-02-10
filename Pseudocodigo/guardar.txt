@@ -1,1 +1,45 @@
 //MODULO arbolEcuacion
+
+GUARDAR
+
+"guardar ident"
+
+-pairising
+Comprobar primer palabra detectada que sea alguna de las  7 funciones posibles,
+ si es "guardar" debe estar a continuacion el identificador de alguna ecuacion, 
+                   verificar que ya ete cargada en el abb,
+recorrer el abb hasta enocontrar dicha ecuacion 
+ almacenarla en un archivo
+
+
+ // VERSION POCHI
+
+
+
+ // VERSION POCHI
+
+
+ ...Usuario ingresa comando
+
+Obtener comando del usuario
+Realizar parsing y obtener lista de strings
+Analizar primer palabra de la lista (comando) y verificar que coincide con alguna de las funciones definidas
+Si el comando es válido y corresponde a 'guardar'
+    Validar parámetros
+    Si los parámetros son válidos
+        Validar ID en memoria (ABB)
+        Si el ID existe en memoria
+            Validar ID en archivos
+            Si ningun archivo tiene el ID
+                Obtener ecuación por el ID
+                Bajar datos de la ecuación en [ID].dat
+            Sino
+                Desplegar error para ID existente en archivos
+        Sino
+            Desplegar error para ID no existe en memoria
+    Sino
+        Desplegar error para parámetros inválidos
+
+Solicitar siguiente comando...
+        
+
