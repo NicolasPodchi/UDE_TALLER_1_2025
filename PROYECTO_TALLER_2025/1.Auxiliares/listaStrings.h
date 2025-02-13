@@ -8,6 +8,6 @@ typedef struct nodoL
     nodoL * sig;
 } nodoLista;
 
-typedef nodoLista * listaStr
+typedef nodoLista * listaStr;
 
 #endif // LISTASTRINGS_H_INCLUDED
