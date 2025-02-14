@@ -10,4 +10,12 @@ typedef struct nodoL
 
 typedef nodoLista * listaStr;
 
+void crearLista (listaStr &l);
+
+boolean vacia (listaStr l);
+
+void parsing (strings s, listaStr &l);
+
+
+
 #endif // LISTASTRINGS_H_INCLUDED
