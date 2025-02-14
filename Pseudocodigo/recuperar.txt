@@ -4,7 +4,7 @@ Obtener comando del usuario
 Realizar parsing y obtener lista de strings
 Analizar primer palabra de la lista (comando) y verificar que coincide con alguna de las funciones definidas
 Si el comando es válido y corresponde a 'recuperar'
-    Validar parámetros
+    Validar parámetros (cantidad)
     Si los parámetros son válidos
         Validar ID en archivos
         Si algún archivo tiene el ID
@@ -20,3 +20,8 @@ Si el comando es válido y corresponde a 'recuperar'
         Desplegar error para parámetros inválidos
 
 Solicitar siguiente comando...
+
++++++++++++++++++++++ CABEZALES +++++++++++++++++++++
+
+-- ecuacion
+void levantarEcuacion (ecuacion &e, FILE * f);

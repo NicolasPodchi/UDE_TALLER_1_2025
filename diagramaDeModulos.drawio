@@ -90,7 +90,7 @@
           </mxGeometry>
         </mxCell>
         <mxCell id="Ifs4EJyfpHLIlJbVhgTI-23" value="tipoEcuacion.h" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
-          <mxGeometry x="169" y="465" width="120" height="60" as="geometry" />
+          <mxGeometry x="199" y="465" width="120" height="60" as="geometry" />
         </mxCell>
         <mxCell id="Ifs4EJyfpHLIlJbVhgTI-38" value="listaStrDinamico.cpp" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
           <mxGeometry x="626" y="745" width="120" height="60" as="geometry" />

@@ -1,22 +1,23 @@
-//MODULO ARBOL
+Obtener comando del usuario
+Realizar parsing y obtener lista de strings
+Analizar primer palabra de la lista (comando) y verificar que coincide con alguna de las funciones definidas
+Si el comando es válido y corresponde a 'mostrar'
+	Validar parámetros (cantidad)
+    Si los parámetros son válidos
+		SI arbol de ecuaciones no está vacío ENTONCES
+			Mostrar arbol de ecuaciones recorrido en orden
+		Sino
+			Desplegar error sin ecuaciones para mostrar
+    Sino
+        Desplegar error para parámetros inválidos
 
-MOSTRAR ARBOL
+Solicitar siguiente comando...
 
-SI arbol de ecuaciones no está vacío ENTONCES
-	mostrar ecuación de la izquierda
-	mostrar ecuación actual
-	mostrar ecuación de la derecha
-FIN SI
++++++++++++++++++++++ CABEZALES +++++++++++++++++++++
 
+-- arbolEcuacion
+boolean arbolVacio(arbolEcuacion a);
+void mostrarArbol(arbolEcuacion a);
 
-//MODULO ECUACIONES
-
-MOSTRAR ECUACION
-
-IMPRIMIR identificador
-SI es una ecuación de primer grado ENTONCES
-	IMPRIMIR ecuación de primer grado
-SINO
-	IMPRIMIR ecuación de segundo grado
-FIN SI
-
+-- ecuacion
+void mostrarEcuacion(ecuacion e);

@@ -1,0 +1,36 @@
+
+...Usuario ingresa comando
+
+Obtener comando del usuario
+Realizar parsing y obtener lista de strings
+Analizar primer palabra de la lista (comando) y verificar que coincide con alguna de las funciones definidas
+Si el comando es válido y corresponde a 'sumar'
+    Validar parámetros
+    Si los parámetros son válidos
+        Validar los IDs a sumar en memoria (ABB)
+        Si los IDs a sumar existen en memoria
+            Validar tercer ID para ecuacion de resultado
+            Si no existe una ecuacion en memoria con el ID de resultado
+                Obtener ecuaciones a sumar
+                Si ambas son del mismo grado
+                    Determinar grado de la nueva ecuacion
+                    Crear una nueva ecuacion con el grado determinado y con el ID especificado en el comando
+                    Asignar valor a cada coeficiente sumando
+                Sino
+                    Crear ecuacion de segundo grado
+                    Asignar como coeficiente principal el coeficiente principal de la ecuacion de segundo grado
+                    Asignar valor a los otros coeficientes sumando
+                FIN SI
+            Sino
+                Desplegar error para tercer ID ya existe en memoria
+        Sino
+            Desplegar error para IDs no existen en memoria
+    Sino
+        Desplegar error para parámetros inválidos
+
+Solicitar siguiente comando...
+
++++++++++++++++++++++ CABEZALES +++++++++++++++++++++
+
+-- ecuacion
+ecuacion sumarEcuaciones(ecuacion e1, ecuacion e2);

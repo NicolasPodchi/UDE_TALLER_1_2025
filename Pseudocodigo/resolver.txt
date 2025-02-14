@@ -5,7 +5,7 @@ Realizar parsing y obtener lista de strings.
 Analizar primer palabra de la lista (comando) y verificar que coincide con alguna de las funciones definidas.
 SI el comando es válido y corresponde a 'resolver'
      SI hay 2 parámetros ingresados
-        Buscar ID en el arbol con mismo valor que el segundo parámetros
+        Buscar ID en el arbol con mismo valor que el segundo parámetro
         SI encuentro el ID
             obtener discriminante (tipo de ecuacion)
             SI corresponde a una ecuacion de primer grado
@@ -27,4 +27,10 @@ SI el comando es válido y corresponde a 'resolver'
     SINO
         Desplegar error para cantidad de parámetros
 
+Solicitar siguiente comando...
+
++++++++++++++++++++++ CABEZALES +++++++++++++++++++++
+
+-- ecuacion
+void resolverEcuacion(ecuacion e);
 
