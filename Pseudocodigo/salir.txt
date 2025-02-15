@@ -1,0 +1,11 @@
+Obtener comando del usuario
+Realizar parsing y obtener lista de strings
+Analizar primer palabra de la lista (comando) y verificar que coincide con alguna de las funciones definidas
+SI el comando es válido y corresponde a 'salir'
+	Validar parámetros (cantidad)
+    SI los parámetros son válidos
+        Recorrer ABB en posorden y eliminar sus nodos (datos y punteros) de forma recursiva
+    SINO
+        Desplegar error parámetros inválidos
+Desplegar mensaje de salida del sistema
+Finalizar programa

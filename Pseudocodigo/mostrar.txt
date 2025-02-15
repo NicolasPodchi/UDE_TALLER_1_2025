@@ -5,13 +5,17 @@ Si el comando es válido y corresponde a 'mostrar'
 	Validar parámetros (cantidad)
     Si los parámetros son válidos
 		SI arbol de ecuaciones no está vacío ENTONCES
-			Mostrar arbol de ecuaciones recorrido en orden
+			Recorrer ABB en orden 
+			imprimir ID de la ecuacion actual
+			SI el tipo de ecuacion es de primer grado 
+				imprimir primerCoeficiente x + segundoCoeficiente = 0
+			SINO 
+				imprimir primerCoeficiente x^2 + segundoCoeficiente x+ tercerCoeficiente = 0
 		Sino
 			Desplegar error sin ecuaciones para mostrar
     Sino
         Desplegar error para parámetros inválidos
-
-Solicitar siguiente comando...
+Solicitar siguiente comando...
 
 +++++++++++++++++++++ CABEZALES +++++++++++++++++++++
 
@@ -21,3 +25,9 @@ void mostrarArbol(arbolEcuacion a);
 
 -- ecuacion
 void mostrarEcuacion(ecuacion e);
+
+-- ecuacionPrimerGrado
+void mostrarEcuacionPrimerGrado(ecuacion e);
+
+-- ecuacionSegundoGrado
+void mostrarEcuacionSegundoGrado(ecuacion e);
