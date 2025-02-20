@@ -1,18 +1,18 @@
-#include "string_dinamico.h"
+#include "strDinamico.h"
 #include <stdio.h>
-void strcrear (strings &s)
+void strcrear (strDinamico &s)
 {
     s = new char[1];
     s[0]='\0';
 }
 
-void strdestruir(strings &s)
+void strdestruir(strDinamico &s)
 {
     delete[]s;
     s = NULL;
 }
 
-int strlar (strings s)
+int strlar (strDinamico s)
 {
     int i=0;
     while (s[i] != '\0')
@@ -20,7 +20,7 @@ int strlar (strings s)
     return i;
 }
 
-void strcop (strings &s1, strings s2)
+void strcop (strDinamico &s1, strDinamico s2)
 {
     delete[]s1;
     int largo = strlar(s2);
@@ -35,11 +35,11 @@ void strcop (strings &s1, strings s2)
 }
 
 //LEER STRING
-void scan(strings &cadena)
+void scan(strDinamico &cadena)
 {
     strcrear(cadena);
 
-    strings cadenaAux;
+    strDinamico cadenaAux;
     cadenaAux = new char [MAX];
 
     int i = 0;
@@ -59,42 +59,7 @@ void scan(strings &cadena)
     strdestruir(cadenaAux);
 }
 
-void strcon(strings &s1, strings s2)
-{
-    strings aux;
-    strcrear (aux);
-    strcop (aux, s1);
-    int largo = strlar (s1) + strlar (s2) + 1;
-    if (largo > MAX)
-        largo = MAX;
-    delete [] s1;
-    s1 = new char[largo];
-    int i = 0;
-    while (aux[i] != '\0')
-    {
-        s1[i] = aux[i];
-        i++;
-    }
-    int j = 0;
-    while (s2[j] != '\0' && i < MAX-1)
-    {
-        s1[i] = s2[j];
-        i++;
-        j++;
-    }
-    s1[i] = '\0';
-    strdestruir (aux);
-}
-
-void strswp (strings &s1, strings s2)
-{
-    strings aux;
-    aux = s1;
-    s1 = s2;
-    s2 = aux;
-}
-
-void print (strings s)
+void print (strDinamico s)
 {
     int i = 0;
     while(s[i]!= '\0')
@@ -104,25 +69,7 @@ void print (strings s)
     }
 }
 
-boolean strmen (strings s1, strings s2)
-{
-    int i = 0;
-    boolean encontre = FALSE;
-    boolean menor = FALSE;
-    while ((!encontre) && (s1[i] != '\0') && (s2[i] != '\0'))
-    {
-        if (s1[i] != s2[i])
-            encontre = TRUE;
-        if (s1[i] < s2[i])
-            menor = TRUE;
-        i++;
-    }
-    if ((!encontre) && (s2[i]!='\0'))
-        menor = TRUE;
-    return menor;
-}
-
-boolean streq (strings s1, strings s2)
+boolean streq (strDinamico s1, strDinamico s2)
 {
     int i = 0;
     boolean iguales = TRUE;
@@ -138,8 +85,47 @@ boolean streq (strings s1, strings s2)
 
 }
 
+boolean validarAlfabetico(strDinamico s)
+{
+    boolean esAlfabeitco = TRUE;
+    int i=0;
+    while(s[i]!='\0' && esAlfabeitco)
+    {
+        if(s[i]>=65 && s[i]<=90 || s[i]>=97 && s[i]<=122)
+            i++;
+        else
+            esAlfabeitco = FALSE;
+    }
+    return esAlfabeitco;
+}
+
+boolean validarStringNumerico(strDinamico s)
+{
+    boolean esNumerico = TRUE;
+    int i=0;
+    while(s[i]!='\0' && esNumerico)
+    {
+        if(s[i]>=48 && s[i]<=57)
+            i++;
+        else
+            esNumerico = FALSE;
+    }
+    return esNumerico;
+}
+
+//Precondición: s debe ser un string numerico
+int convertirAEntero(strDinamico s)
+{
+    int i=0;
+    int resultado = 0;
+    while(s[i]!='\0')
+    {
+
+    }
+}
+
 //PRECONDICIÓN: El archivo viene abierto para escritura.
-void bajar_string(strings s, FILE * f)
+void bajar_string(strDinamico s, FILE * f)
 {
     int i=0;
     while(s[i]!='\0')
@@ -151,10 +137,10 @@ void bajar_string(strings s, FILE * f)
 }
 
 //PRECONDICIÓN: El archivo viene abierto para lectura.
-void levantar_string(strings &s,FILE * f)
+void levantar_string(strDinamico &s,FILE * f)
 {
     int i = 0;
-    strings aux = new char[MAX];
+    strDinamico aux = new char[MAX];
     char c;
     fread(&c,sizeof(char),1,f);
     while(c!='\0' && !feof(f))

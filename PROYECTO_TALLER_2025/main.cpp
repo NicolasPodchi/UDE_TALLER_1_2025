@@ -1,6 +1,6 @@
-#include "../2.Solucion/arbolEcuacion"
+#include "../2.Solucion/arbolEcuacion.h"
 
 int main()
 {
-    
+
 }

@@ -1,0 +1,27 @@
+# depslib dependency file v1.0
+1739131425 source:c:\users\fauss\onedrive\escritorio\lic inf ude\2025\taller i\ude_taller_1_2025\proyecto_taller_2025\1.auxiliares\boolean.cpp
+	<stdio.h>
+	"boolean.h"
+
+1739131425 c:\users\fauss\onedrive\escritorio\lic inf ude\2025\taller i\ude_taller_1_2025\proyecto_taller_2025\1.auxiliares\boolean.h
+
+1739482218 source:c:\users\fauss\onedrive\escritorio\lic inf ude\2025\taller i\ude_taller_1_2025\proyecto_taller_2025\1.auxiliares\listastrings.cpp
+
+1740007289 source:c:\users\fauss\onedrive\escritorio\lic inf ude\2025\taller i\ude_taller_1_2025\proyecto_taller_2025\1.auxiliares\strdinamico.cpp
+	"strDinamico.h"
+	<stdio.h>
+
+1740007289 c:\users\fauss\onedrive\escritorio\lic inf ude\2025\taller i\ude_taller_1_2025\proyecto_taller_2025\1.auxiliares\strdinamico.h
+	"boolean.h"
+	<stdio.h>
+
+1739131425 source:c:\users\fauss\onedrive\escritorio\lic inf ude\2025\taller i\ude_taller_1_2025\proyecto_taller_2025\2.solucion\arbolecuacion.cpp
+
+1739131425 source:c:\users\fauss\onedrive\escritorio\lic inf ude\2025\taller i\ude_taller_1_2025\proyecto_taller_2025\2.solucion\ecuacion.cpp
+
+1739131425 source:c:\users\fauss\onedrive\escritorio\lic inf ude\2025\taller i\ude_taller_1_2025\proyecto_taller_2025\2.solucion\ecuacionprimergrado.cpp
+
+1739131425 source:c:\users\fauss\onedrive\escritorio\lic inf ude\2025\taller i\ude_taller_1_2025\proyecto_taller_2025\2.solucion\ecuacionsegundogrado.cpp
+
+1739131425 source:c:\users\fauss\onedrive\escritorio\lic inf ude\2025\taller i\ude_taller_1_2025\proyecto_taller_2025\2.solucion\tipoecuacion.cpp
+

@@ -3,32 +3,33 @@
 #include "boolean.h"
 #include <stdio.h>
 const int MAX = 80;
-typedef char * strings;
+typedef char * strDinamico;
 
-void strcrear (strings &s);
+void strcrear (strDinamico &s);
 
-void scan(strings &s);
+void strdestruir(strDinamico &s);
 
-void print (strings s);
+void scan(strDinamico &s);
 
-void strdestruir(strings &s);
+void print (strDinamico s);
 
-void strcop (strings &s1, strings s2);
+int strlar (strDinamico s);
 
-int strlar (strings s);
+void strcop (strDinamico &s1, strDinamico s2);
 
-void strcon(strings &s1, strings s2);
+boolean streq (strDinamico s1, strDinamico s2);
 
-void strswp (strings &s1, strings s2);
+boolean validarAlfabetico(strDinamico s);
 
-boolean strmen (strings s1, strings s2);
+boolean validarStringNumerico(strDinamico s);
 
-boolean streq (strings s1, strings s2);
+//Precondición: s debe ser un string numerico
+int convertirAEntero(strDinamico s);
 
-//PRECONDICION: El archivo viene abierto para escritura
-void bajar_string(strings s, FILE * f);
+//Precondición: El archivo viene abierto para escritura
+void bajarString(strDinamico s, FILE * f);
 
-//PRECONDICIÓN: El archivo viene abierto para lectura.
-void levantar_string(strings &s,FILE * f);
+//Precondición: El archivo viene abierto para escritura
+void levantarString(strDinamico &s,FILE * f);
 
 #endif // STRING_DINAMICO_H_INCLUDED
