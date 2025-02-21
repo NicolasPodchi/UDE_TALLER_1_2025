@@ -1,43 +1,21 @@
-#include "strDinamico.h"
 #include <stdio.h>
-void strcrear (strDinamico &s)
+#include "strDinamico.h"
+
+void strCrear (strDinamico &s)
 {
     s = new char[1];
     s[0]='\0';
 }
 
-void strdestruir(strDinamico &s)
+void strDestruir(strDinamico &s)
 {
     delete[]s;
     s = NULL;
 }
 
-int strlar (strDinamico s)
-{
-    int i=0;
-    while (s[i] != '\0')
-        i++;
-    return i;
-}
-
-void strcop (strDinamico &s1, strDinamico s2)
-{
-    delete[]s1;
-    int largo = strlar(s2);
-    s1 = new char[largo+1];
-    int i =0;
-    while(s2[i]!='\0')
-    {
-        s1[i]=s2[i];
-        i++;
-    }
-    s1[i]='\0';
-}
-
-//LEER STRING
 void scan(strDinamico &cadena)
 {
-    strcrear(cadena);
+    strCrear(cadena);
 
     strDinamico cadenaAux;
     cadenaAux = new char [MAX];
@@ -55,8 +33,8 @@ void scan(strDinamico &cadena)
         i++;
     }
     cadenaAux[i] = '\0';
-    strcop(cadena, cadenaAux);
-    strdestruir(cadenaAux);
+    strCop(cadena, cadenaAux);
+    strDestruir(cadenaAux);
 }
 
 void print (strDinamico s)
@@ -69,7 +47,29 @@ void print (strDinamico s)
     }
 }
 
-boolean streq (strDinamico s1, strDinamico s2)
+int strLar (strDinamico s)
+{
+    int i=0;
+    while (s[i] != '\0')
+        i++;
+    return i;
+}
+
+void strCop (strDinamico &s1, strDinamico s2)
+{
+    delete[]s1;
+    int largo = strLar(s2);
+    s1 = new char[largo+1];
+    int i =0;
+    while(s2[i]!='\0')
+    {
+        s1[i]=s2[i];
+        i++;
+    }
+    s1[i]='\0';
+}
+
+boolean strEq (strDinamico s1, strDinamico s2)
 {
     int i = 0;
     boolean iguales = TRUE;
@@ -85,7 +85,7 @@ boolean streq (strDinamico s1, strDinamico s2)
 
 }
 
-boolean validarAlfabetico(strDinamico s)
+boolean validarStringAlfabetico(strDinamico s)
 {
     boolean esAlfabeitco = TRUE;
     int i=0;
@@ -113,19 +113,22 @@ boolean validarStringNumerico(strDinamico s)
     return esNumerico;
 }
 
-//Precondición: s debe ser un string numerico
-int convertirAEntero(strDinamico s)
+//Precondición: s no puede ser vacío ni tener espacios vacíos al principio y/o al final, debe ser un string numérico.
+int convertirStringAEntero(strDinamico s)
 {
-    int i=0;
-    int resultado = 0;
+    int i=0, resultado = 0;
+
     while(s[i]!='\0')
     {
+        int nro = s[i] - 48;
+        resultado =  (resultado * 10) + nro;
 
+        i++;
     }
 }
 
-//PRECONDICIÓN: El archivo viene abierto para escritura.
-void bajar_string(strDinamico s, FILE * f)
+//Precondición: El archivo viene abierto para escritura.
+void bajarString(strDinamico s, FILE * f)
 {
     int i=0;
     while(s[i]!='\0')
@@ -136,8 +139,8 @@ void bajar_string(strDinamico s, FILE * f)
     fwrite(&s[i],sizeof(char),1,f);
 }
 
-//PRECONDICIÓN: El archivo viene abierto para lectura.
-void levantar_string(strDinamico &s,FILE * f)
+//Precondición: El archivo viene abierto para lectura.
+void levantarString(strDinamico &s,FILE * f)
 {
     int i = 0;
     strDinamico aux = new char[MAX];
@@ -150,6 +153,6 @@ void levantar_string(strDinamico &s,FILE * f)
         i++;
     }
     aux[i]='\0';
-    strcop(s,aux);
-    strdestruir(aux);
+    strCop(s,aux);
+    strDestruir(aux);
 }

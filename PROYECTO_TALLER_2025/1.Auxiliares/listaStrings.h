@@ -1,5 +1,6 @@
 #ifndef LISTASTRINGS_H_INCLUDED
 #define LISTASTRINGS_H_INCLUDED
+
 #include "strDinamico.h"
 
 typedef struct nodoL
@@ -12,10 +13,11 @@ typedef nodoLista * listaStr;
 
 void crearLista (listaStr &l);
 
-boolean vacia (listaStr l);
+listaStrDinamico parsing(strDinamico s);
 
-void parsing (strings s, listaStr &l);
+int cantidadParametros(listaStrDinamico l);
 
-
+//Precondición: p debe pertenecer a una posición con datos dentro de l
+strDinamico obtenerParametroEnPosicion(listaStrDinamico l, int p);
 
 #endif // LISTASTRINGS_H_INCLUDED
