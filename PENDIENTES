@@ -1,0 +1,20 @@
+DOCUMENTACION: https://docs.google.com/document/d/1F2HnvNZHLrS2K0qL9egjdZsNcU-7bl9eX9v3n5ItWq0/edit?tab=t.0
+
++ 	APLICAR FORMATO E/S/M A PSEUDOCÓDIGOS
++   AGREGAR FUNCION PARA VALIDACIÓN DE VALOR NUMÉRICO?
++   parsing
+
+    bucle
+        el string inicial es vacio?
+        
+        //s no es vacio
+        eliminar espacios en blanco al principio (procedimiento)
+
+        dividir string - obtener string y devolver primer palabra y el resto
+    fin bucle
+
++ a la validación de string numerico y la conversión de string a numero contemplar casos de valores negativos
++ no retornar string, solo por referencia
++ agregar insBack a lista de strings
++ cambiar orden en cronograma entre modulo ecuacion y primer/segundo grado
+
