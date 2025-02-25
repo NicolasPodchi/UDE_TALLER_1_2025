@@ -4,7 +4,7 @@
 void strCrear (strDinamico &s)
 {
     s = new char[1];
-    s[0]='\0';
+    s[0] = '\0';
 }
 
 void strDestruir(strDinamico &s)
@@ -49,7 +49,7 @@ void print (strDinamico s)
 
 int strLar (strDinamico s)
 {
-    int i=0;
+    int i = 0;
     while (s[i] != '\0')
         i++;
     return i;
@@ -60,13 +60,13 @@ void strCop (strDinamico &s1, strDinamico s2)
     delete[]s1;
     int largo = strLar(s2);
     s1 = new char[largo+1];
-    int i =0;
-    while(s2[i]!='\0')
+    int i = 0;
+    while(s2[i] != '\0')
     {
-        s1[i]=s2[i];
+        s1[i] = s2[i];
         i++;
     }
-    s1[i]='\0';
+    s1[i] = '\0';
 }
 
 boolean strEq (strDinamico s1, strDinamico s2)
@@ -87,16 +87,16 @@ boolean strEq (strDinamico s1, strDinamico s2)
 
 boolean validarStringAlfabetico(strDinamico s)
 {
-    boolean esAlfabeitco = TRUE;
+    boolean esAlfabetico = TRUE;
     int i=0;
-    while(s[i]!='\0' && esAlfabeitco)
+    while(s[i]!='\0' && esAlfabetico)
     {
-        if(s[i]>=65 && s[i]<=90 || s[i]>=97 && s[i]<=122)
+        if((s[i] >= 65 && s[i] <= 90) || (s[i] >= 97 && s[i] <= 122))
             i++;
         else
-            esAlfabeitco = FALSE;
+            esAlfabetico = FALSE;
     }
-    return esAlfabeitco;
+    return esAlfabetico;
 }
 
 boolean validarStringNumerico(strDinamico s)
@@ -105,7 +105,7 @@ boolean validarStringNumerico(strDinamico s)
     int i=0;
     while(s[i]!='\0' && esNumerico)
     {
-        if(s[i]>=48 && s[i]<=57)
+        if((s[i] >= 48 && s[i] <= 57) || (i == 0 && s[i] == 45))
             i++;
         else
             esNumerico = FALSE;
@@ -113,21 +113,108 @@ boolean validarStringNumerico(strDinamico s)
     return esNumerico;
 }
 
-//Precondici髇: s no puede ser vac韔 ni tener espacios vac韔s al principio y/o al final, debe ser un string num閞ico.
+//Precondici贸n: s no puede ser vac锟給 ni tener espacios vac锟給s al principio y/o al final, debe ser un string num锟絩ico.
 int convertirStringAEntero(strDinamico s)
 {
-    int i=0, resultado = 0;
+    int i = 0, resultado = 0;
+    boolean negativo = FALSE;
 
     while(s[i]!='\0')
     {
-        int nro = s[i] - 48;
-        resultado =  (resultado * 10) + nro;
+        if(s[i] != 45)
+        {
+            int nro = s[i] - 48;
+            resultado =  (resultado * 10) + nro;
+        }
+        else
+        {
+            negativo = TRUE;
+        }
 
         i++;
     }
+
+    if(negativo == TRUE)
+        return resultado * -1;
+    else
+        return resultado;
 }
 
-//Precondici髇: El archivo viene abierto para escritura.
+//Precondici贸n: s es un string alfabetico no vac铆o.
+void eliminarEspaciosVaciosAlInicio(strDinamico &s1, strDinamico s2)
+{
+    delete[]s1;
+    int i = 0, iInsertar = 0; // i UTILIZADO PARA RECORRER s2, iInsertar utilizado para inserci贸n en s1
+    boolean espacioEliminado = FALSE;
+
+    while(s2[i] != '\0')
+    {
+        if(espacioEliminado == TRUE || s2[i] != 32)
+        {
+            if(espacioEliminado == FALSE)
+            {
+                s1 = new char[(strLar(s2) - i) + 1];
+                espacioEliminado = TRUE;
+            }
+
+            s1[iInsertar] = s2[i];
+            iInsertar++;
+        }
+
+        i++;
+    }
+
+    s1[iInsertar] = '\0';
+}
+
+int strLarPrimerPalabra (strDinamico s)
+{
+    int i = 0;
+    while (s[i] != '\0' && s[i] != 32)
+        i++;
+    return i;
+}
+
+//Precondici贸n: s es un string alfabetico no vac铆o y el primer caracter no es un esp谩cio.
+void obtenerPrimerPalabra(strDinamico &s1, strDinamico &s2, strDinamico sEntrada)
+{
+    delete[]s1;
+    delete[]s2;
+
+    int largoPrimerPalabra = strLarPrimerPalabra(sEntrada);// CANTIDAD DE CARACTERES DE LA PRIMER PALABRA DE sEntrada
+    s1 = new char[largoPrimerPalabra + 1];// CANTIDAD DE CARACTERES DE LA PRIMER PALABRA DE sEntrada + 1 PARA EL CARACTER NULO
+    s2 = new char[(strLar(sEntrada) - largoPrimerPalabra) + 1];// CANTIDAD DE CARACTERES QUE OCUPA EL RESTO DEL STRING + 1 PARA EL CARACTER NULO
+
+    int i = 0, iInsertar = 0; // i UTILIZADO PARA RECORRER sEntrada, iInsertar utilizado para inserci贸n en s1 y s2
+    boolean resto = FALSE;
+
+    while(sEntrada[i] != '\0')
+    {
+        if(resto == FALSE)
+        {
+            s1[iInsertar] = sEntrada[i];
+
+            // SI EL CARACTER QUE ACABO DE INSERTAR, FUE EL ULTIMO DE LA PRIMER PALABRA, PASO AL RESTO
+            if(iInsertar == largoPrimerPalabra - 1)
+            {
+                s1[iInsertar + 1] = '\0';
+                resto = TRUE;
+                iInsertar = -1;
+            }
+        }
+        else
+        {
+            s2[iInsertar] = sEntrada[i];
+        }
+
+        i++;
+        iInsertar++;
+    }
+
+    s2[iInsertar] = '\0';
+}
+
+//Precondici贸n: El archivo viene abierto para escritura.
 void bajarString(strDinamico s, FILE * f)
 {
     int i=0;
@@ -139,7 +226,7 @@ void bajarString(strDinamico s, FILE * f)
     fwrite(&s[i],sizeof(char),1,f);
 }
 
-//Precondici髇: El archivo viene abierto para lectura.
+//Precondici贸n: El archivo viene abierto para lectura.
 void levantarString(strDinamico &s,FILE * f)
 {
     int i = 0;

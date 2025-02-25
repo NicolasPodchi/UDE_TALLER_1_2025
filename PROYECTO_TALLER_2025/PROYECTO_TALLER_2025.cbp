@@ -34,8 +34,8 @@
 		</Compiler>
 		<Unit filename="1.Auxiliares/boolean.cpp" />
 		<Unit filename="1.Auxiliares/boolean.h" />
-		<Unit filename="1.Auxiliares/listaStrings.cpp" />
-		<Unit filename="1.Auxiliares/listaStrings.h" />
+		<Unit filename="1.Auxiliares/listaStrDinamico.cpp" />
+		<Unit filename="1.Auxiliares/listaStrDinamico.h" />
 		<Unit filename="1.Auxiliares/strDinamico.cpp" />
 		<Unit filename="1.Auxiliares/strDinamico.h" />
 		<Unit filename="2.Solucion/arbolEcuacion.cpp" />

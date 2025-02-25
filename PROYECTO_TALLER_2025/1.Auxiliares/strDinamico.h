@@ -28,6 +28,14 @@ boolean validarStringNumerico(strDinamico s);
 //Precondición: s no puede ser vacío ni tener espacios vacíos al principio y/o al final, debe ser un string numérico.
 int convertirStringAEntero(strDinamico s);
 
+//Precondición: s es un string alfabetico no vacío.
+void eliminarEspaciosVaciosAlInicio(strDinamico &s1, strDinamico s2);
+
+int strLarPrimerPalabra (strDinamico s);
+
+//Precondición: s es un string alfabetico no vacío y el primer caracter no es un espácio.
+void obtenerPrimerPalabra(strDinamico &s1, strDinamico &s2, strDinamico sEntrada);
+
 //Precondición: El archivo viene abierto para escritura.
 void bajarString(strDinamico s, FILE * f);
 
