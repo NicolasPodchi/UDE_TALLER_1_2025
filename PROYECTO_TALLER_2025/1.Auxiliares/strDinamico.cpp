@@ -140,7 +140,7 @@ int convertirStringAEntero(strDinamico s)
         return resultado;
 }
 
-//Precondición: s es un string alfabetico no vacío.
+//Precondición: s2 es un string alfabetico no vacío.
 void eliminarEspaciosVaciosAlInicio(strDinamico &s1, strDinamico s2)
 {
     delete[]s1;
@@ -163,7 +163,8 @@ void eliminarEspaciosVaciosAlInicio(strDinamico &s1, strDinamico s2)
 
         i++;
     }
-
+    if(espacioEliminado == FALSE)
+        s1 = new char[1];
     s1[iInsertar] = '\0';
 }
 
