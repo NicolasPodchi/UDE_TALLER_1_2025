@@ -33,13 +33,14 @@
 
 1740181695 source:c:\ude\taller verano 2025\proyecto\ude_taller_1_2025\proyecto_taller_2025\2.solucion\arbolecuacion.cpp
 
-1740181695 source:c:\ude\taller verano 2025\proyecto\ude_taller_1_2025\proyecto_taller_2025\2.solucion\ecuacion.cpp
+1740623193 source:c:\ude\taller verano 2025\proyecto\ude_taller_1_2025\proyecto_taller_2025\2.solucion\ecuacion.cpp
+	"ecuacion.h"
 
-1740619333 source:c:\ude\taller verano 2025\proyecto\ude_taller_1_2025\proyecto_taller_2025\2.solucion\ecuacionprimergrado.cpp
+1740621017 source:c:\ude\taller verano 2025\proyecto\ude_taller_1_2025\proyecto_taller_2025\2.solucion\ecuacionprimergrado.cpp
 	<stdio.h>
 	"ecuacionPrimerGrado.h"
 
-1740617797 source:c:\ude\taller verano 2025\proyecto\ude_taller_1_2025\proyecto_taller_2025\2.solucion\ecuacionsegundogrado.cpp
+1740622760 source:c:\ude\taller verano 2025\proyecto\ude_taller_1_2025\proyecto_taller_2025\2.solucion\ecuacionsegundogrado.cpp
 	<stdio.h>
 	"ecuacionSegundoGrado.h"
 
@@ -53,17 +54,18 @@
 	<stdio.h>
 	"boolean.h"
 
-1740446349 source:c:\ude\taller verano 2025\proyecto\ude_taller_1_2025\proyecto_taller_2025\main.cpp
+1740619621 source:c:\ude\taller verano 2025\proyecto\ude_taller_1_2025\proyecto_taller_2025\main.cpp
 	"1.Auxiliares/listaStrDinamico.h"
+	"2.Solucion/ecuacionPrimerGrado.h"
 
-1740447967 source:c:\ude\taller verano 2025\proyecto\ude_taller_1_2025\proyecto_taller_2025\1.auxiliares\listastrdinamico.cpp
+1740619821 source:c:\ude\taller verano 2025\proyecto\ude_taller_1_2025\proyecto_taller_2025\1.auxiliares\listastrdinamico.cpp
 	<stdio.h>
 	"listaStrDinamico.h"
 
 1740442451 c:\ude\taller verano 2025\proyecto\ude_taller_1_2025\proyecto_taller_2025\1.auxiliares\listastrdinamico.h
 	"strDinamico.h"
 
-1740181695 c:\ude\taller verano 2025\proyecto\ude_taller_1_2025\proyecto_taller_2025\2.solucion\ecuacion.h
+1740623186 c:\ude\taller verano 2025\proyecto\ude_taller_1_2025\proyecto_taller_2025\2.solucion\ecuacion.h
 	"../1.Auxiliares/strDinamico.h"
 	"tipoEcuacion.h"
 	"ecuacionPrimerGrado.h"
@@ -74,5 +76,5 @@
 1740619478 c:\ude\taller verano 2025\proyecto\ude_taller_1_2025\proyecto_taller_2025\2.solucion\ecuacionprimergrado.h
 	<math.h>
 
-1740617257 c:\ude\taller verano 2025\proyecto\ude_taller_1_2025\proyecto_taller_2025\2.solucion\ecuacionsegundogrado.h
+1740622816 c:\ude\taller verano 2025\proyecto\ude_taller_1_2025\proyecto_taller_2025\2.solucion\ecuacionsegundogrado.h
 
