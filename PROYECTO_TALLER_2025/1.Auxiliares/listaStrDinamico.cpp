@@ -52,22 +52,47 @@ void obtenerParametroEnPosicion(listaStrDinamico l, int p, strDinamico & s)
 
 listaStrDinamico parsing(strDinamico s)
 {
-    strDinamico sSinEspacios, primerPalabra, resto;
+    strDinamico sSinEspacios, primerPalabra, segundaPalabra, resto;
+    strCrear(sSinEspacios);
+    strCrear(primerPalabra);
+    strCrear(segundaPalabra);
+    strCrear(resto);
 
     listaStrDinamico l;
     crearListaStrings(l);
 
     eliminarEspaciosVaciosAlInicio(sSinEspacios, s);
 
-    while(strLar(sSinEspacios) != 0)
-    {
+//    while(strLar(sSinEspacios) != 0)
+//    {
         obtenerPrimerPalabra(primerPalabra, resto, sSinEspacios);
         insBack(l, primerPalabra);
 
-        eliminarEspaciosVaciosAlInicio(sSinEspacios, s);
-    }
+        eliminarEspaciosVaciosAlInicio(sSinEspacios, resto);
+
+        obtenerPrimerPalabra(segundaPalabra, resto, sSinEspacios);
+        insBack(l, segundaPalabra);
+
+        eliminarEspaciosVaciosAlInicio(sSinEspacios, resto);
+//    }
 
     return l;
+}
+
+//PRECONDICION: La lista debe haberse inicializado anteriormente
+void mostrarLista (listaStrDinamico l)
+{
+    while (l!=NULL)
+    {
+        strDinamico prueba;
+        strCrear(prueba);
+        strCop(prueba, l->info);
+
+        print(l->info);
+        printf("\n");
+
+        l=l->sig;
+    }
 }
 
 

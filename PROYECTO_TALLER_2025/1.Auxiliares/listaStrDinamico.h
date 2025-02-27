@@ -11,7 +11,7 @@ typedef struct nodoL
 
 typedef nodoLista * listaStrDinamico;
 
-void crearLista (listaStrDinamico &l);
+void crearListaStrings (listaStrDinamico &l);
 
 void insBack (listaStrDinamico &l, strDinamico s);
 
@@ -23,5 +23,7 @@ int cantidadParametros(listaStrDinamico l);
 void obtenerParametroEnPosicion(listaStrDinamico l, int p, strDinamico & s);
 
 listaStrDinamico parsing(strDinamico s);
+
+void mostrarLista (listaStrDinamico l);
 
 #endif // LISTASTRINGS_H_INCLUDED

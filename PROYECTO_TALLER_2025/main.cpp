@@ -31,9 +31,14 @@ int main()
 //    printf(" \n RESTO > \n");
 //     print(resto);
 
-    ecuacionPrimerGrado nuevaEcuacion;
-    nuevaEcuacion.primerCoeficiente = 8;
-    nuevaEcuacion.segundoCoeficiente = -2;
+//    ecuacionPrimerGrado nuevaEcuacion;
+//    nuevaEcuacion.primerCoeficiente = 8;
+//    nuevaEcuacion.segundoCoeficiente = -2;
+//
+//    mostrarEcuacionPrimerGrado(nuevaEcuacion);
 
-    mostrarEcuacionPrimerGrado(nuevaEcuacion);
+    strDinamico coso = "uno dos tres";
+    listaStrDinamico cosoLista = parsing(coso);
+
+    mostrarLista(cosoLista);
 }

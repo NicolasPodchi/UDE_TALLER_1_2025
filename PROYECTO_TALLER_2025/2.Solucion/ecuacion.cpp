@@ -20,18 +20,27 @@ ecuacionSegundoGrado getEcuacionSegundoGrado(ecuacion e)
     return e.datos.segundoGrado;
 }
 
-//void crearEcuacion(listaStrDinamico l, ecuacion &e)
-//{
-//    int primerCoeficiente, segundoCoeficiente;
-//    if(cantidadParametros(l)==4)
-//    {
-//        e.discriminante = PRIMER_GRADO;
-//        l=l->sig;
-//        strCop(e.id,l->info);
-//        l=l->sig;
-//        e.
-//    }
-//}
+void crearEcuacionPrimerGrado( ecuacion &e, strDinamico id, int primerCoeficiente, int segundoCoeficiente)
+{
+    e.discriminante = PRIMER_GRADO;
+    strCop(e.id, id);
+    e.datos.primerGrado = crearEcuacionPrimerGrado(primerCoeficiente, segundoCoeficiente);
+}
+
+void crearEcuacionSegundoGrado(ecuacion &e, strDinamico id, int primerCoeficiente, int segundCoeficiente, int tercerCoeficiente)
+{
+    e.discriminante = SEGUNDO_GRADO;
+    strCop(e.id, id);
+    e.datos.segundoGrado = crearEcuacionSegundoGrado(primerCoeficiente, segundCoeficiente, tercerCoeficiente);
+}
+
+void mostrarEcuacion(ecuacion e)
+{
+    if(e.discriminante ==PRIMER_GRADO)
+        mostrarEcuacionPrimerGrado(e.datos.primerGrado);
+    else
+        mostrarEcuacionSegundoGrado(e.datos.segundoGrado);
+}
 
 ////PRECONDICIÓN: El archivo viene abierto para escritura
 //void bajarEcuacion (ecuacion e, FILE * f)

@@ -28,7 +28,11 @@ ecuacionPrimerGrado getEcuacionPrimerGrado(ecuacion e);
 
 ecuacionSegundoGrado getEcuacionSegundoGrado(ecuacion e);
 
-//void crearEcuacion(listaStrDinamico l, ecuacion &e);
+void crearEcuacionPrimerGrado( ecuacion &e, strDinamico id, int primerCoeficiente, int segundoCoeficiente);
+
+void crearEcuacionSegundoGrado(ecuacion &e, strDinamico id, int primerCoeficiente, int segundCoeficiente, int tercerCoeficiente);
+
+void mostrarEcuacion(ecuacion e);
 
 boolean existeIdEcuacionArchivo(strDinamico id, FILE * f);
 
