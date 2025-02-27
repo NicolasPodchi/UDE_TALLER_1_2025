@@ -6,7 +6,7 @@ void crearListaStrings (listaStrDinamico &l)
     l = NULL;
 }
 
-//Precondición: La lista debe haberse inicializado anteriormente
+//Precondiciï¿½n: La lista debe haberse inicializado anteriormente
 void insBack (listaStrDinamico &l, strDinamico s)
 {
     if(l!=NULL)
@@ -36,7 +36,7 @@ int cantidadParametros(listaStrDinamico l)
         return 1 + cantidadParametros(l -> sig);
 }
 
-//Precondición: p debe pertenecer a una posición con datos dentro de l
+//Precondiciï¿½n: p debe pertenecer a una posiciï¿½n con datos dentro de l
 void obtenerParametroEnPosicion(listaStrDinamico l, int p, strDinamico & s)
 {
     int i = 0;
