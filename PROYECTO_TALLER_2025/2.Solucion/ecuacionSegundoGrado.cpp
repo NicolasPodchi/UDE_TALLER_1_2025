@@ -28,15 +28,60 @@ int getTercerCoeficiente (ecuacionSegundoGrado e)
 
 void mostrarPrimerCoeficiente (ecuacionSegundoGrado e)
 {
-    printf("%d", e.primerCoeficiente);
+    if(e.primerCoeficiente != 1)
+    {
+        printf("%d", e.primerCoeficiente);
+    }
+
+    printf("x^2 ");
 }
 
 void mostrarSegundoCoeficiente (ecuacionSegundoGrado e)
 {
-    printf("%d", e.segundoCoeficiente);
+   if(e.segundoCoeficiente != 0)
+    {
+        int SegundoCoeficienteMostrar = e.segundoCoeficiente;
+
+        if(e.segundoCoeficiente < 0)
+        {
+            printf("- ");
+            SegundoCoeficienteMostrar = SegundoCoeficienteMostrar * -1;
+        }
+        else
+        {
+            printf("+ ");
+        }
+
+        printf("%d", SegundoCoeficienteMostrar);
+        printf("x ");
+    }
+
 }
 
 void mostrarTercerCoeficiente (ecuacionSegundoGrado e)
 {
-    printf("%d", e.tercerCoeficiente);
+    if(e.tercerCoeficiente != 0)
+    {
+        int tercercoeficienteMOtrar = e.tercerCoeficiente;
+
+        if(e.tercerCoeficiente < 0)
+        {
+            printf("- ");
+            tercercoeficienteMOtrar = tercercoeficienteMOtrar * -1;
+        }
+        else
+        {
+            printf("+ ");
+        }
+
+        printf("%d ", tercercoeficienteMOtrar);
+    }
+}
+
+void mostrarEcuacionSegundoGrado (ecuacionSegundoGrado NuevaEcuacion)
+{
+    mostrarPrimerCoeficiente(NuevaEcuacion);
+    mostrarSegundoCoeficiente(NuevaEcuacion);
+    mostrarTercerCoeficiente(NuevaEcuacion);
+    printf("= 0");
 }

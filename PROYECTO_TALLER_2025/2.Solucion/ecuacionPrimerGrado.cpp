@@ -59,3 +59,8 @@ void mostrarEcuacionPrimerGrado(ecuacionPrimerGrado e)
     printf("= 0");
 }
 
+void bajarEcuacionPrimerGrado (ecuacionPrimerGrado e, FILE * f)
+{
+    fwrite(&e.primerCoeficiente,sizeof(int),1,f);
+    fwrite(&e.segundoCoeficiente,sizeof(int),1,f);
+}

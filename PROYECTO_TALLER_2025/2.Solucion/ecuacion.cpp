@@ -40,7 +40,7 @@ void bajarEcuacion (ecuacion e, FILE * f)
 
     if(e.discriminante == PRIMER_GRADO)
     {
-        bajarEcuacionPrimerGrado();
+        bajarEcuacionPrimerGrado(e.datos.primerGrado);
     }
     else
     {

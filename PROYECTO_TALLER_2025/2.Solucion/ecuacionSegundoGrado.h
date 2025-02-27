@@ -21,4 +21,6 @@ void mostrarSegundoCoeficiente (ecuacionSegundoGrado e);
 
 void mostrarTercerCoeficiente (ecuacionSegundoGrado e);
 
+void mostrarEcuacionSegundoGrado (ecuacionSegundoGrado NuevaEcuacion);
+
 #endif // ECUACIONSEGUNDOGRADO_H_INCLUDED
