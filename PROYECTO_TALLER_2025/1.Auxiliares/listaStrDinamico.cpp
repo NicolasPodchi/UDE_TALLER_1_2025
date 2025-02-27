@@ -9,6 +9,10 @@ void crearListaStrings (listaStrDinamico &l)
 //Precondici�n: La lista debe haberse inicializado anteriormente
 void insBack (listaStrDinamico &l, strDinamico s)
 {
+    strDinamico sInsertar;
+    strCrear(sInsertar);
+    strCop(sInsertar, s);
+
     if(l!=NULL)
     {
         listaStrDinamico aux = l;
@@ -18,13 +22,13 @@ void insBack (listaStrDinamico &l, strDinamico s)
         }
         aux -> sig = new nodoLista;
         aux -> sig -> sig = NULL;
-        aux -> sig -> info = s;
+        aux -> sig -> info = sInsertar;
     }
     else
     {
         l = new nodoLista;
         l -> sig = NULL;
-        l -> info = s;
+        l -> info = sInsertar;
     }
 }
 
@@ -52,29 +56,20 @@ void obtenerParametroEnPosicion(listaStrDinamico l, int p, strDinamico & s)
 
 listaStrDinamico parsing(strDinamico s)
 {
-    strDinamico sSinEspacios, primerPalabra, segundaPalabra, resto;
-    strCrear(sSinEspacios);
-    strCrear(primerPalabra);
-    strCrear(segundaPalabra);
-    strCrear(resto);
+    strDinamico sSinEspacios, primerPalabra, resto;
 
     listaStrDinamico l;
     crearListaStrings(l);
 
     eliminarEspaciosVaciosAlInicio(sSinEspacios, s);
 
-//    while(strLar(sSinEspacios) != 0)
-//    {
+    while(strLar(sSinEspacios) != 0)
+    {
         obtenerPrimerPalabra(primerPalabra, resto, sSinEspacios);
         insBack(l, primerPalabra);
 
         eliminarEspaciosVaciosAlInicio(sSinEspacios, resto);
-
-        obtenerPrimerPalabra(segundaPalabra, resto, sSinEspacios);
-        insBack(l, segundaPalabra);
-
-        eliminarEspaciosVaciosAlInicio(sSinEspacios, resto);
-//    }
+    }
 
     return l;
 }

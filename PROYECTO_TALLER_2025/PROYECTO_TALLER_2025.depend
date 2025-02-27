@@ -33,7 +33,7 @@
 
 1740181695 source:c:\ude\taller verano 2025\proyecto\ude_taller_1_2025\proyecto_taller_2025\2.solucion\arbolecuacion.cpp
 
-1740623193 source:c:\ude\taller verano 2025\proyecto\ude_taller_1_2025\proyecto_taller_2025\2.solucion\ecuacion.cpp
+1740626372 source:c:\ude\taller verano 2025\proyecto\ude_taller_1_2025\proyecto_taller_2025\2.solucion\ecuacion.cpp
 	"ecuacion.h"
 
 1740621017 source:c:\ude\taller verano 2025\proyecto\ude_taller_1_2025\proyecto_taller_2025\2.solucion\ecuacionprimergrado.cpp
@@ -46,7 +46,7 @@
 
 1740181695 source:c:\ude\taller verano 2025\proyecto\ude_taller_1_2025\proyecto_taller_2025\2.solucion\tipoecuacion.cpp
 
-1740615732 source:c:\ude\taller verano 2025\proyecto\ude_taller_1_2025\proyecto_taller_2025\1.auxiliares\strdinamico.cpp
+1740626981 source:c:\ude\taller verano 2025\proyecto\ude_taller_1_2025\proyecto_taller_2025\1.auxiliares\strdinamico.cpp
 	<stdio.h>
 	"strDinamico.h"
 
@@ -58,14 +58,14 @@
 	"1.Auxiliares/listaStrDinamico.h"
 	"2.Solucion/ecuacionPrimerGrado.h"
 
-1740626159 source:c:\ude\taller verano 2025\proyecto\ude_taller_1_2025\proyecto_taller_2025\1.auxiliares\listastrdinamico.cpp
+1740626998 source:c:\ude\taller verano 2025\proyecto\ude_taller_1_2025\proyecto_taller_2025\1.auxiliares\listastrdinamico.cpp
 	<stdio.h>
 	"listaStrDinamico.h"
 
 1740623704 c:\ude\taller verano 2025\proyecto\ude_taller_1_2025\proyecto_taller_2025\1.auxiliares\listastrdinamico.h
 	"strDinamico.h"
 
-1740623186 c:\ude\taller verano 2025\proyecto\ude_taller_1_2025\proyecto_taller_2025\2.solucion\ecuacion.h
+1740626335 c:\ude\taller verano 2025\proyecto\ude_taller_1_2025\proyecto_taller_2025\2.solucion\ecuacion.h
 	"../1.Auxiliares/strDinamico.h"
 	"tipoEcuacion.h"
 	"ecuacionPrimerGrado.h"

@@ -143,7 +143,6 @@ int convertirStringAEntero(strDinamico s)
 //Precondición: s2 es un string alfabetico no vacío.
 void eliminarEspaciosVaciosAlInicio(strDinamico &s1, strDinamico s2)
 {
-    delete[]s1;
     int i = 0, iInsertar = 0; // i UTILIZADO PARA RECORRER s2, iInsertar utilizado para inserción en s1
     boolean espacioEliminado = FALSE;
 
@@ -163,7 +162,7 @@ void eliminarEspaciosVaciosAlInicio(strDinamico &s1, strDinamico s2)
 
         i++;
     }
-    
+
     if(espacioEliminado == FALSE)
         s1 = new char[1];
 
@@ -181,9 +180,6 @@ int strLarPrimerPalabra (strDinamico s)
 //Precondición: s es un string alfabetico no vacío y el primer caracter no es un espácio.
 void obtenerPrimerPalabra(strDinamico &s1, strDinamico &s2, strDinamico sEntrada)
 {
-    delete[]s1;
-    delete[]s2;
-
     int largoPrimerPalabra = strLarPrimerPalabra(sEntrada);// CANTIDAD DE CARACTERES DE LA PRIMER PALABRA DE sEntrada
     s1 = new char[largoPrimerPalabra + 1];// CANTIDAD DE CARACTERES DE LA PRIMER PALABRA DE sEntrada + 1 PARA EL CARACTER NULO
     s2 = new char[(strLar(sEntrada) - largoPrimerPalabra) + 1];// CANTIDAD DE CARACTERES QUE OCUPA EL RESTO DEL STRING + 1 PARA EL CARACTER NULO

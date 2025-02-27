@@ -12,5 +12,3 @@ al momento de tener un numero negativo, ver si poner el guion o signo de suma pa
 
 
 al sumar dos ecuaciones de segundo grado donde se cancelan los primeros coeficientes al sumarlos, queda una ecuación de primer grado y hay que cambiarle el tipo tras la suma.
-
-revisar parsing: primer palabra genera conflicto
