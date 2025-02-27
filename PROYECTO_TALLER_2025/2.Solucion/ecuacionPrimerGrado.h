@@ -7,7 +7,16 @@ typedef struct {
     int segundoCoeficiente;
 } ecuacionPrimerGrado;
 
-ecuacionPrimerGrado crearPrimerGrado (int primerCoeficiente, int segundoCoeficiente);
+ecuacionPrimerGrado crearEcuacionPrimerGrado (int primerCoeficiente, int segundoCoeficiente);
 
+int getPrimerCoeficiente (ecuacionPrimerGrado e);
+
+int getSegundoCoeficiente (ecuacionPrimerGrado e);
+
+void mostrarPrimerCoeficiente (ecuacionPrimerGrado e);
+
+void mostrarSegundoCoeficiente (ecuacionPrimerGrado e);
+
+void mostrarEcuacionPrimerGrado(ecuacionPrimerGrado e);
 
 #endif // ECUACIONPRIMERGRADO_H_INCLUDED

@@ -1,19 +1,10 @@
 DOCUMENTACION: https://docs.google.com/document/d/1F2HnvNZHLrS2K0qL9egjdZsNcU-7bl9eX9v3n5ItWq0/edit?tab=t.0
 CRONOGRAMA: https://docs.google.com/spreadsheets/d/1fpNfVUlGLPTU7jaGP-HvtZcUJT9DbfOv0nIqYazr4m4/edit?gid=0#gid=0
 
+DOCUMENTACION >>
+
 + 	APLICAR FORMATO E/S/M A PSEUDOCÓDIGOS
-+   parsing
-
-    bucle
-        el string inicial es vacio?
-        
-        //s no es vacio
-        eliminar espacios en blanco al principio (procedimiento)
-
-        dividir string - obtener string y devolver primer palabra y el resto
-    fin bucle
-
-+ cambiar orden en cronograma entre modulo ecuacion y primer/segundo grado
++ 	CORREGIR DIAGRAMA, EN ECUACION DE PRIMER Y SEGUNDO GRADO LAS FLECHAS NO PUEDEN SALIR DE LOS CPP
 
 
 al momento de mostrar ecuaciones de primer y segundo grado tener en cuenta casos donde coeficientes 1 y 2 son 1 (mostrar solo la x
@@ -21,3 +12,4 @@ al momento de tener un numero negativo, ver si poner el guion o signo de suma pa
 
 
 al sumar dos ecuaciones de segundo grado donde se cancelan los primeros coeficientes al sumarlos, queda una ecuación de primer grado y hay que cambiarle el tipo tras la suma.
+
