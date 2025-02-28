@@ -19,4 +19,6 @@ void mostrarSegundoCoeficiente (ecuacionPrimerGrado e);
 
 void mostrarEcuacionPrimerGrado(ecuacionPrimerGrado e);
 
+void bajarEcuacionPrimerGrado (ecuacionPrimerGrado e, FILE * f);
+
 #endif // ECUACIONPRIMERGRADO_H_INCLUDED

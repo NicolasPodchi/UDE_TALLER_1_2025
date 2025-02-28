@@ -37,8 +37,13 @@ int main()
 //
 //    mostrarEcuacionPrimerGrado(nuevaEcuacion);
 
-    strDinamico coso = "uno dos tres";
+    strDinamico coso;
+    strCrear(coso);
+    scan(coso);
+
     listaStrDinamico cosoLista = parsing(coso);
+
+    printf("cantidad parametros>>> %d\n", cantidadParametros(cosoLista));
 
     mostrarLista(cosoLista);
 }

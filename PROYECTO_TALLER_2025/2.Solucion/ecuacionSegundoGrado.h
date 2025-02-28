@@ -23,4 +23,6 @@ void mostrarTercerCoeficiente (ecuacionSegundoGrado e);
 
 void mostrarEcuacionSegundoGrado (ecuacionSegundoGrado NuevaEcuacion);
 
+void bajarEcuacionSegundoGrado (ecuacionSegundoGrado e, FILE * f);
+
 #endif // ECUACIONSEGUNDOGRADO_H_INCLUDED

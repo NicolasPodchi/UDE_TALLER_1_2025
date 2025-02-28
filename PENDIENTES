@@ -1,3 +1,4 @@
+ZOOM: https://zoom.us/j/93647547019?pwd=LKj5zHUnDvl3J3XjWnxJBC2XBPGNo6.1
 DOCUMENTACION: https://docs.google.com/document/d/1F2HnvNZHLrS2K0qL9egjdZsNcU-7bl9eX9v3n5ItWq0/edit?tab=t.0
 CRONOGRAMA: https://docs.google.com/spreadsheets/d/1fpNfVUlGLPTU7jaGP-HvtZcUJT9DbfOv0nIqYazr4m4/edit?gid=0#gid=0
 
@@ -12,3 +13,8 @@ al momento de tener un numero negativo, ver si poner el guion o signo de suma pa
 
 
 al sumar dos ecuaciones de segundo grado donde se cancelan los primeros coeficientes al sumarlos, queda una ecuación de primer grado y hay que cambiarle el tipo tras la suma.
+
+dividir solucion de ecuacion en varias partes
+    funcion principal en modulo ecuacion -- se encarga de mostrar por pantall
+    calculo de discriminante (en cada tipo de ecuacion)
+    calculo final en cada tipo de ecuacion

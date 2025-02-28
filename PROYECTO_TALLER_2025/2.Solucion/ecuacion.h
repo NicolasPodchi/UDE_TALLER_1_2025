@@ -28,15 +28,15 @@ ecuacionPrimerGrado getEcuacionPrimerGrado(ecuacion e);
 
 ecuacionSegundoGrado getEcuacionSegundoGrado(ecuacion e);
 
-void crearEcuacionPrimerGrado( ecuacion &e, strDinamico id, int primerCoeficiente, int segundoCoeficiente);
+ecuacion crearEcuacionPrimerGrado(strDinamico id, int primerCoeficiente, int segundoCoeficiente);
 
-void crearEcuacionSegundoGrado(ecuacion &e, strDinamico id, int primerCoeficiente, int segundCoeficiente, int tercerCoeficiente);
+ecuacion crearEcuacionSegundoGrado(strDinamico id, int primerCoeficiente, int segundCoeficiente, int tercerCoeficiente);
 
 void mostrarEcuacion(ecuacion e);
 
 boolean existeIdEcuacionArchivo(strDinamico id, FILE * f);
 
-//Precondicion: La ecuación debe existir en el ABB de ecuaciones
+//Precondicion: La ecuaciï¿½n debe existir en el ABB de ecuaciones
 void resolverEcuacion(ecuacion e);
 
 void mostrarEcuacion(ecuacion e);
@@ -44,10 +44,12 @@ void mostrarEcuacion(ecuacion e);
 //Precondicion: e1 y e2 EXISTEN en el ABB de ecuaciones e id NO existe en el ABB
 ecuacion sumarEcuaciones(ecuacion e1, ecuacion e2, strDinamico id);
 
-//Precondición: El archivo viene abierto para escritura
+void resolverEcuacion(ecuacion e, boolean &DosResultados, float &Resu1, float &Resu2);
+
+//Precondiciï¿½n: El archivo viene abierto para escritura
 void bajarEcuacion (ecuacion e, FILE * f);
 
-//Precondición: El archivo viene abierto para escritura
+//Precondiciï¿½n: El archivo viene abierto para escritura
 void levantarEcuacion (ecuacion &e, FILE * f);
 
 #endif // ECUACION_H_INCLUDED

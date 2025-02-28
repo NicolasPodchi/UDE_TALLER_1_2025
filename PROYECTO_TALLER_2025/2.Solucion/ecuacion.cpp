@@ -20,53 +20,74 @@ ecuacionSegundoGrado getEcuacionSegundoGrado(ecuacion e)
     return e.datos.segundoGrado;
 }
 
-void crearEcuacionPrimerGrado( ecuacion &e, strDinamico id, int primerCoeficiente, int segundoCoeficiente)
+ecuacion crearEcuacionPrimerGrado(strDinamico id, int primerCoeficiente, int segundoCoeficiente)
 {
-    e.discriminante = PRIMER_GRADO;
-    strCop(e.id, id);
-    e.datos.primerGrado = crearEcuacionPrimerGrado(primerCoeficiente, segundoCoeficiente);
+    ecuacion nuevaEcuacion;
+
+    nuevaEcuacion.discriminante = PRIMER_GRADO;
+    strCop(nuevaEcuacion.id, id);
+    nuevaEcuacion.datos.primerGrado = crearEcuacionPrimerGrado(primerCoeficiente, segundoCoeficiente);
 }
 
-void crearEcuacionSegundoGrado(ecuacion &e, strDinamico id, int primerCoeficiente, int segundCoeficiente, int tercerCoeficiente)
+ecuacion crearEcuacionSegundoGrado(strDinamico id, int primerCoeficiente, int segundCoeficiente, int tercerCoeficiente)
 {
-    e.discriminante = SEGUNDO_GRADO;
-    strCop(e.id, id);
-    e.datos.segundoGrado = crearEcuacionSegundoGrado(primerCoeficiente, segundCoeficiente, tercerCoeficiente);
+    ecuacion nuevaEcuacion;
+
+    nuevaEcuacion.discriminante = SEGUNDO_GRADO;
+    strCop(nuevaEcuacion.id, id);
+    nuevaEcuacion.datos.segundoGrado = crearEcuacionSegundoGrado(primerCoeficiente, segundCoeficiente, tercerCoeficiente);
 }
 
 void mostrarEcuacion(ecuacion e)
 {
-    if(e.discriminante ==PRIMER_GRADO)
+    if (e.discriminante == PRIMER_GRADO)
         mostrarEcuacionPrimerGrado(e.datos.primerGrado);
     else
         mostrarEcuacionSegundoGrado(e.datos.segundoGrado);
 }
 
-////PRECONDICIÓN: El archivo viene abierto para escritura
-//void bajarEcuacion (ecuacion e, FILE * f)
+//void resolverEcuacion(ecuacion e, boolean &DosResultados, float &Resu1, float &Resu2)
 //{
-//    bajarString(e.id, f);
 //
-//    if(e.discriminante == PRIMER_GRADO)
+//    ecuacionPrimerGrado EcuacionAuxiliar;
+//    if (getTipo(e) == PRIMER_GRADO)
 //    {
-//        bajarEcuacionPrimerGrado(e.datos.primerGrado);
+//        EcuacionAuxiliar = getEcuacionPrimerGrado(e);  //-b/a
+//        Resu1 = ResolverPrimerGrado(EcuacionAuxiliar); // fijarse si es mejor usar el getcoeficiente o llamarlo asi!!!!!
 //    }
 //    else
 //    {
-//        bajarEcuacionSegundoGrado();
+//        ecuacionSegundoGrado Ecu2Auxiliar = getEcuacionSegundoGrado(e);
+//        ResolverSegundoGrado(Ecu2Auxiliar, DosResultados, Resu1, Resu2);
 //    }
 //}
 
-////PRECONDICIÓN: El archivo viene abierto para lectura
-//void levantar_cliente (cliente &c, FILE * f)
+// PRECONDICIï¿½N: El archivo viene abierto para escritura
+void bajarEcuacion(ecuacion e, FILE *f)
+{
+    bajarString(e.id, f);
+    fwrite(&e.discriminante, sizeof(tipoEcuacion), 1, f);
+
+    if (e.discriminante == PRIMER_GRADO)
+    {
+        fwrite(&e.datos.primerGrado, sizeof(ecuacionPrimerGrado), 1, f);
+    }
+    else
+    {
+        fwrite(&e.datos.segundoGrado, sizeof(ecuacionSegundoGrado), 1, f);
+    }
+}
+
+// PRECONDICIï¿½N: El archivo viene abierto para lectura
+// void levantar_cliente (cliente &c, FILE * f)
 //{
-//    fread(&c.ci,sizeof(long int),1,f);
-//    strcrear(c.nombre);
-//    levantar_string(c.nombre,f);
-//    strcrear(c.apellido);
-//    levantar_string(c.apellido,f);
-//    strcrear(c.direccion);
-//    levantar_string(c.direccion,f);
-//    fread(&c.telefono,sizeof(long int),1,f);
-//    fread(&c.cant_reclamos,sizeof(int),1,f);
-//}
+//     fread(&c.ci,sizeof(long int),1,f);
+//     strcrear(c.nombre);
+//     levantar_string(c.nombre,f);
+//     strcrear(c.apellido);
+//     levantar_string(c.apellido,f);
+//     strcrear(c.direccion);
+//     levantar_string(c.direccion,f);
+//     fread(&c.telefono,sizeof(long int),1,f);
+//     fread(&c.cant_reclamos,sizeof(int),1,f);
+// }
