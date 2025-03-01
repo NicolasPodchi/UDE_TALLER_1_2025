@@ -1,6 +1,7 @@
 #include "1.Auxiliares/listaStrDinamico.h"
 
 #include "2.Solucion/ecuacionPrimerGrado.h"
+#include"2.Solucion/ecuacion.h"
 
 int main()
 {
@@ -37,13 +38,34 @@ int main()
 //
 //    mostrarEcuacionPrimerGrado(nuevaEcuacion);
 
-    strDinamico coso;
-    strCrear(coso);
-    scan(coso);
 
-    listaStrDinamico cosoLista = parsing(coso);
+// PRUEBA PARSING
+//    strDinamico coso;
+//    strCrear(coso);
+//    scan(coso);
+//
+//    listaStrDinamico cosoLista = parsing(coso);
+//
+//    printf("cantidad parametros>>> %d\n", cantidadParametros(cosoLista));
+//
+//    mostrarLista(cosoLista);
 
-    printf("cantidad parametros>>> %d\n", cantidadParametros(cosoLista));
 
-    mostrarLista(cosoLista);
+//PRUEBA FILES
+//    strDinamico nombre = "coso";
+//
+//    boolean existe = existeIdEcuacionArchivo(nombre);
+//    if(existe == TRUE)
+//    {
+//        printf("SI");
+//    }
+//    else
+//    {
+//        printf("NO");
+//    }
+
+    ecuacion nueva = crearEcuacionPrimerGrado("ECUACION_PRUEBA", 1, 2);
+
+    bajarEcuacion(nueva);
+
 }

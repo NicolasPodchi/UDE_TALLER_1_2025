@@ -1,4 +1,5 @@
 #include <stdio.h>
+#include <cctype>
 #include "strDinamico.h"
 
 void strCrear (strDinamico &s)
@@ -83,6 +84,73 @@ boolean strEq (strDinamico s1, strDinamico s2)
         iguales = FALSE;
     return iguales;
 
+}
+
+
+//CONCATENAR SEGUNDO STRING AL FINAL DEL PRIMERO
+void strCon(strDinamico &cadenaConcatenada, strDinamico cadena1, strDinamico cadena2)
+{
+    strCrear(cadenaConcatenada);
+    int largoCadena1 = strLar(cadena1);
+    int largoCadena2 = strLar(cadena2);
+    int nuevoLargo = largoCadena1  + largoCadena2 + 1;
+
+    if(nuevoLargo > MAX)
+    {
+        nuevoLargo = MAX;
+    }
+
+    cadenaConcatenada = new char [nuevoLargo];
+
+    int copyIndex = 0;
+    for(int i = copyIndex; i < largoCadena1; i++)
+    {
+        cadenaConcatenada[i] = cadena1[i];
+        copyIndex++;
+    }
+
+    int copyIndex2 = 0;
+    int i = 0;
+    for(i = copyIndex; i < nuevoLargo - 1; i++)
+    {
+        cadenaConcatenada[i] = cadena2[copyIndex2];
+        copyIndex2++;
+    }
+
+    cadenaConcatenada[i] = '\0';
+}
+
+
+//PRIMER STRING MENOR AL SEGUNDO
+boolean strMen(strDinamico cadena1, strDinamico cadena2)
+{
+    int i = 0;
+
+    boolean menor = FALSE;
+    boolean terminar = FALSE;
+
+    while(cadena1[i] != '\0' && cadena2[i] != '\0' && terminar == FALSE)
+    {
+        if (toupper(cadena1[i]) == toupper(cadena2[i]))
+        {
+            i++;
+        }
+        else
+        {
+            terminar = TRUE;
+            if(toupper(cadena1[i]) < toupper(cadena2[i]))
+            {
+                menor = TRUE;
+            }
+        }
+    }
+
+    if(cadena1[i] == '\0' && cadena2[i] != '\0')
+    {
+        menor = TRUE;
+    }
+
+    return menor;
 }
 
 boolean validarStringAlfabetico(strDinamico s)
@@ -241,4 +309,14 @@ void levantarString(strDinamico &s,FILE * f)
     aux[i]='\0';
     strCop(s,aux);
     strDestruir(aux);
+}
+
+void convertirNombreArchivo(strDinamico nombreArchivo, strDinamico id){
+
+    strDinamico aux, rutaRelativa = "../", extension = ".dat";
+
+    strCrear(nombreArchivo);
+
+    strCon(aux, id, extension);
+    strCon(nombreArchivo, rutaRelativa, aux);
 }

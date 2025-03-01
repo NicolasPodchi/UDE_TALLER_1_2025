@@ -21,6 +21,12 @@ void strCop (strDinamico &s1, strDinamico s2);
 
 boolean strEq (strDinamico s1, strDinamico s2);
 
+//CONCATENAR SEGUNDO STRING AL FINAL DEL PRIMERO
+void strCon(strDinamico &cadenaConcatenada, strDinamico cadena1, strDinamico cadena2);
+
+//PRIMER STRING MENOR AL SEGUNDO
+boolean strMen(strDinamico cadena1, strDinamico cadena2);
+
 boolean validarStringAlfabetico(strDinamico s);
 
 boolean validarStringNumerico(strDinamico s);
@@ -41,5 +47,7 @@ void bajarString(strDinamico s, FILE * f);
 
 //Precondición: El archivo viene abierto para lectura.
 void levantarString(strDinamico &s,FILE * f);
+
+void convertirNombreArchivo(strDinamico nombreArchivo, strDinamico id);
 
 #endif // STRING_DINAMICO_H_INCLUDED
