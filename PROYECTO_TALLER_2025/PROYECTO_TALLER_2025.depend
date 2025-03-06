@@ -105,12 +105,14 @@
 	<cctype>
 	"strDinamico.h"
 
-1741212894 source:c:\users\felip\onedrive\escritorio\taller ahora si\ude_taller_1_2025\proyecto_taller_2025\2.solucion\arbolecuacion.cpp
+1741298827 source:c:\users\felip\onedrive\escritorio\taller ahora si\ude_taller_1_2025\proyecto_taller_2025\2.solucion\arbolecuacion.cpp
+	"arbolEcuacion.h"
 
 1741212894 source:c:\users\felip\onedrive\escritorio\taller ahora si\ude_taller_1_2025\proyecto_taller_2025\2.solucion\ecuacion.cpp
 	"ecuacion.h"
 
-1741212894 c:\users\felip\onedrive\escritorio\taller ahora si\ude_taller_1_2025\proyecto_taller_2025\2.solucion\ecuacion.h
+1741300381 c:\users\felip\onedrive\escritorio\taller ahora si\ude_taller_1_2025\proyecto_taller_2025\2.solucion\ecuacion.h
+	<cstdlib>
 	"../1.Auxiliares/strDinamico.h"
 	"tipoEcuacion.h"
 	"ecuacionPrimerGrado.h"
@@ -136,10 +138,13 @@
 	"2.Solucion/ecuacionPrimerGrado.h"
 	"2.Solucion/ecuacion.h"
 
-1741216427 source:c:\users\felip\onedrive\escritorio\taller ahora si\ude_taller_1_2025\proyecto_taller_2025\2.solucion\ecuacionsegundogrado.cpp
+1741298841 source:c:\users\felip\onedrive\escritorio\taller ahora si\ude_taller_1_2025\proyecto_taller_2025\2.solucion\ecuacionsegundogrado.cpp
 	<stdio.h>
 	"ecuacionSegundoGrado.h"
 
 1740181695 c:\ude\taller verano 2025\proyecto\ude_taller_1_2025\proyecto_taller_2025\2.solucion\arbolecuacion.h
+	"ecuacion.h"
+
+1741212894 c:\users\felip\onedrive\escritorio\taller ahora si\ude_taller_1_2025\proyecto_taller_2025\2.solucion\arbolecuacion.h
 	"ecuacion.h"
 

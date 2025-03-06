@@ -1,6 +1,8 @@
 #ifndef ECUACION_H_INCLUDED
 #define ECUACION_H_INCLUDED
 
+#include <cstdlib>
+
 #include "../1.Auxiliares/strDinamico.h"
 #include "tipoEcuacion.h"
 #include "ecuacionPrimerGrado.h"

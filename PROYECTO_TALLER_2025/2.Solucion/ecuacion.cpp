@@ -122,3 +122,58 @@ boolean existeIdEcuacionArchivo(strDinamico id)
 
     return existe;
 }
+
+ecuacion sumarEcuaciones(ecuacion e1, ecuacion e2, strDinamico id)
+{
+    ecuacion nuevaEcuacion;
+    strCrear(nuevaEcuacion.id);
+    strCop(nuevaEcuacion.id, id);
+
+    nuevaEcuacion.discriminante = PRIMER_GRADO;
+
+    if(e1.discriminante != e2.discriminante)
+    {
+        nuevaEcuacion.discriminante = SEGUNDO_GRADO;
+
+        if(e2.discriminante == SEGUNDO_GRADO)
+        {
+            ecuacion aux = e1;
+            e1 = e2;
+            e2 = aux;
+        }
+
+        //se suman dos ecucaciones distintas y tiene como resultado una de segundo grado
+        nuevaEcuacion.datos.segundoGrado.primerCoeficiente = e1.datos.segundoGrado.primerCoeficiente;
+        nuevaEcuacion.datos.segundoGrado.segundoCoeficiente = e1.datos.segundoGrado.segundoCoeficiente + e2.datos.primerGrado.primerCoeficiente;
+        nuevaEcuacion.datos.segundoGrado.tercerCoeficiente = e1.datos.segundoGrado.tercerCoeficiente + e2.datos.primerGrado.segundoCoeficiente;
+    }
+    else
+    {
+        if(e1.discriminante == SEGUNDO_GRADO)
+        {
+            if(abs(e1.datos.segundoGrado.primerCoeficiente) - abs(e2.datos.segundoGrado.primerCoeficiente) != 0)
+            {
+                // se suman dos ecuaciones de segundo grado pero no se anula el primer coeficiente
+                nuevaEcuacion.datos.segundoGrado.primerCoeficiente = e1.datos.segundoGrado.primerCoeficiente + e2.datos.segundoGrado.primerCoeficiente;
+                nuevaEcuacion.datos.segundoGrado.segundoCoeficiente = e1.datos.segundoGrado.segundoCoeficiente + e2.datos.segundoGrado.segundoCoeficiente;
+                nuevaEcuacion.datos.segundoGrado.tercerCoeficiente = e1.datos.segundoGrado.tercerCoeficiente + e2.datos.segundoGrado.tercerCoeficiente;
+
+                nuevaEcuacion.discriminante = SEGUNDO_GRADO;
+            }
+            else
+            {
+                // se anula primer coeficiente en suma de dos ecuaciones de segundo grado
+                nuevaEcuacion.datos.primerGrado.primerCoeficiente = e1.datos.segundoGrado.segundoCoeficiente + e2.datos.segundoGrado.segundoCoeficiente;
+                nuevaEcuacion.datos.primerGrado.segundoCoeficiente = e1.datos.segundoGrado.tercerCoeficiente + e2.datos.segundoGrado.tercerCoeficiente;
+            }
+        }
+        else
+        {
+            // son las dos de primer grado
+            nuevaEcuacion.datos.primerGrado.primerCoeficiente = e1.datos.primerGrado.primerCoeficiente + e2.datos.primerGrado.primerCoeficiente;
+            nuevaEcuacion.datos.primerGrado.segundoCoeficiente = e1.datos.primerGrado.segundoCoeficiente + e2.datos.primerGrado.segundoCoeficiente;
+        }
+    }
+
+    return nuevaEcuacion;
+}
