@@ -108,14 +108,19 @@ void ResolucionDiscriminanteMayora0(ecuacionSegundoGrado e, float discriminante,
     Resultado1 = (PrimerTermino + SegundoTermino) / divisor;
     Resultado2 = (PrimerTermino - SegundoTermino) / divisor;
 }
-void ResolverSegundoGrado(ecuacionSegundoGrado e, float &Resu1, float &Resu2)
+float resolverEcuacionDeUnSoloResultado (ecuacionSegundoGrado e)
+{
+    return(-e.segundoCoeficiente) / (2 * e.primerCoeficiente);
+}
+void ResolverSegundoGrado(ecuacionSegundoGrado e, float &Resu1, float &Resu2)// contemplar que el discriminante
 {
     int Resultado1, Resultado2;
-    float discriminante = ResolverDiscriminante(e);
-
-    //  evitar division por cero
-    if (e.primerCoeficiente == 0)
-        printf("ERROR: No es una ecuación de segundo grado.\n");
+    //LO COMENTADO VA EN EL MAIN
+  float discriminante = ResolverDiscriminante(e);
+//
+//    //  evitar division por cero
+//    if (e.primerCoeficiente == 0)
+//        printf("ERROR: No es una ecuación de segundo grado.\n");
 
     if (discriminante > 0)
     {
@@ -125,7 +130,7 @@ void ResolverSegundoGrado(ecuacionSegundoGrado e, float &Resu1, float &Resu2)
         printf("EXISTEN DOS SOLUCIONES \nRESULTADO 1: %d\nRESULTADO 2: %d\n", Resultado1, Resultado2);
     } else
     {
-        Resu1 = (-e.segundoCoeficiente) / (2 * e.primerCoeficiente);
+        Resu1 = resolverEcuacionDeUnSoloResultado (e);
         Resu2 = 0;  //  evitar basura
         printf("EXISTE UNA ÚNICA SOLUCIÓN \nRESULTADO: %f\n", Resu1);
     }
