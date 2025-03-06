@@ -80,3 +80,60 @@
 
 1740779190 c:\ude\taller verano 2025\proyecto\ude_taller_1_2025\proyecto_taller_2025\2.solucion\ecuacionsegundogrado.h
 
+1741212894 source:c:\users\felip\onedrive\escritorio\taller ahora si\ude_taller_1_2025\proyecto_taller_2025\1.auxiliares\boolean.cpp
+	<stdio.h>
+	"boolean.h"
+
+1741212894 c:\users\felip\onedrive\escritorio\taller ahora si\ude_taller_1_2025\proyecto_taller_2025\1.auxiliares\boolean.h
+
+1741212894 source:c:\users\felip\onedrive\escritorio\taller ahora si\ude_taller_1_2025\proyecto_taller_2025\1.auxiliares\listastrdinamico.cpp
+	<stdio.h>
+	"listaStrDinamico.h"
+
+1741212894 c:\users\felip\onedrive\escritorio\taller ahora si\ude_taller_1_2025\proyecto_taller_2025\1.auxiliares\listastrdinamico.h
+	"strDinamico.h"
+
+1741212894 c:\users\felip\onedrive\escritorio\taller ahora si\ude_taller_1_2025\proyecto_taller_2025\1.auxiliares\strdinamico.h
+	<stdio.h>
+	"boolean.h"
+
+1741212894 source:c:\users\felip\onedrive\escritorio\taller ahora si\ude_taller_1_2025\proyecto_taller_2025\1.auxiliares\strdinamico.cpp
+	<stdio.h>
+	<cctype>
+	"strDinamico.h"
+
+1741212894 source:c:\users\felip\onedrive\escritorio\taller ahora si\ude_taller_1_2025\proyecto_taller_2025\2.solucion\arbolecuacion.cpp
+
+1741212894 source:c:\users\felip\onedrive\escritorio\taller ahora si\ude_taller_1_2025\proyecto_taller_2025\2.solucion\ecuacion.cpp
+	"ecuacion.h"
+
+1741212894 c:\users\felip\onedrive\escritorio\taller ahora si\ude_taller_1_2025\proyecto_taller_2025\2.solucion\ecuacion.h
+	"../1.Auxiliares/strDinamico.h"
+	"tipoEcuacion.h"
+	"ecuacionPrimerGrado.h"
+	"ecuacionSegundoGrado.h"
+
+1741212894 c:\users\felip\onedrive\escritorio\taller ahora si\ude_taller_1_2025\proyecto_taller_2025\2.solucion\tipoecuacion.h
+
+1741212894 c:\users\felip\onedrive\escritorio\taller ahora si\ude_taller_1_2025\proyecto_taller_2025\2.solucion\ecuacionprimergrado.h
+	<math.h>
+
+1741216302 c:\users\felip\onedrive\escritorio\taller ahora si\ude_taller_1_2025\proyecto_taller_2025\2.solucion\ecuacionsegundogrado.h
+	"../1.Auxiliares/boolean.h"
+	<math.h>
+
+1741212894 source:c:\users\felip\onedrive\escritorio\taller ahora si\ude_taller_1_2025\proyecto_taller_2025\2.solucion\ecuacionprimergrado.cpp
+	<stdio.h>
+	"ecuacionPrimerGrado.h"
+
+1741212894 source:c:\users\felip\onedrive\escritorio\taller ahora si\ude_taller_1_2025\proyecto_taller_2025\2.solucion\tipoecuacion.cpp
+
+1741213783 source:c:\users\felip\onedrive\escritorio\taller ahora si\ude_taller_1_2025\proyecto_taller_2025\main.cpp
+	"1.Auxiliares/listaStrDinamico.h"
+	"2.Solucion/ecuacionPrimerGrado.h"
+	"2.Solucion/ecuacion.h"
+
+1741216254 source:c:\users\felip\onedrive\escritorio\taller ahora si\ude_taller_1_2025\proyecto_taller_2025\2.solucion\ecuacionsegundogrado.cpp
+	<stdio.h>
+	"ecuacionSegundoGrado.h"
+

@@ -92,18 +92,41 @@ void bajarEcuacionSegundoGrado(ecuacionSegundoGrado e, FILE *f)
     fwrite(&e.tercerCoeficiente, sizeof(int), 1, f);
 }
 
-//void ResolverSegundoGrado(ecuacionSegundoGrado e, boolean &DosResu, float &Resu1, float &Resu2) // no se contempla discriminante < 0 se debe controlar antes
-//{
-//    float discriminante = e.segundoCoeficiente * e.segundoCoeficiente;
-//    discriminante = discriminante - (4 * e.primerCoeficiente * e.tercerCoeficiente);
-//    if (discriminante > 0)
-//    {
-//        float PrimerTermino = e.segundoCoeficiente * -1;
-//        float SegundoTermino = sqrt(discriminante);
-//        DosResu = TRUE;
-//        Resu1 = PrimerTermino + SegundoTermino;
-//        Resu2 = PrimerTermino - SegundoTermino;
-//    }
-//    else
-//        Resu1 = e.segundoCoeficiente * -1 / e.primerCoeficiente * 2;
-//}
+float ResolverDiscriminante (ecuacionSegundoGrado e)
+{
+    float discriminante=e.segundoCoeficiente*e.segundoCoeficiente;
+     discriminante = discriminante - (4 * e.primerCoeficiente * e.tercerCoeficiente);
+     return discriminante;
+
+}
+
+void ResolucionDiscriminanteMayora0(ecuacionSegundoGrado e, float discriminante, int &Resultado1, int &Resultado2) {
+    float PrimerTermino = e.segundoCoeficiente * -1;
+    float SegundoTermino = sqrt(discriminante);
+    float divisor = 2 * e.primerCoeficiente;
+
+    Resultado1 = (PrimerTermino + SegundoTermino) / divisor;
+    Resultado2 = (PrimerTermino - SegundoTermino) / divisor;
+}
+void ResolverSegundoGrado(ecuacionSegundoGrado e, float &Resu1, float &Resu2)
+{
+    int Resultado1, Resultado2;
+    float discriminante = ResolverDiscriminante(e);
+
+    //  evitar division por cero
+    if (e.primerCoeficiente == 0)
+        printf("ERROR: No es una ecuación de segundo grado.\n");
+
+    if (discriminante > 0)
+    {
+        ResolucionDiscriminanteMayora0(e, discriminante, Resultado1, Resultado2);
+        Resu1 = Resultado1;
+        Resu2 = Resultado2;
+        printf("EXISTEN DOS SOLUCIONES \nRESULTADO 1: %d\nRESULTADO 2: %d\n", Resultado1, Resultado2);
+    } else
+    {
+        Resu1 = (-e.segundoCoeficiente) / (2 * e.primerCoeficiente);
+        Resu2 = 0;  //  evitar basura
+        printf("EXISTE UNA ÚNICA SOLUCIÓN \nRESULTADO: %f\n", Resu1);
+    }
+}

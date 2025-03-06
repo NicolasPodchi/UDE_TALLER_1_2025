@@ -64,8 +64,5 @@ int main()
 //        printf("NO");
 //    }
 
-    ecuacion nueva = crearEcuacionPrimerGrado("ECUACION_PRUEBA", 1, 2);
-
-    bajarEcuacion(nueva);
 
 }
