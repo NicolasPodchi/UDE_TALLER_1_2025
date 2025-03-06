@@ -31,7 +31,8 @@
 
 1740181695 c:\ude\taller verano 2025\proyecto\ude_taller_1_2025\proyecto_taller_2025\1.auxiliares\boolean.h
 
-1740181695 source:c:\ude\taller verano 2025\proyecto\ude_taller_1_2025\proyecto_taller_2025\2.solucion\arbolecuacion.cpp
+1741298768 source:c:\ude\taller verano 2025\proyecto\ude_taller_1_2025\proyecto_taller_2025\2.solucion\arbolecuacion.cpp
+	"arbolEcuacion.h"
 
 1740852492 source:c:\ude\taller verano 2025\proyecto\ude_taller_1_2025\proyecto_taller_2025\2.solucion\ecuacion.cpp
 	"ecuacion.h"
@@ -40,7 +41,7 @@
 	<stdio.h>
 	"ecuacionPrimerGrado.h"
 
-1740785384 source:c:\ude\taller verano 2025\proyecto\ude_taller_1_2025\proyecto_taller_2025\2.solucion\ecuacionsegundogrado.cpp
+1741298363 source:c:\ude\taller verano 2025\proyecto\ude_taller_1_2025\proyecto_taller_2025\2.solucion\ecuacionsegundogrado.cpp
 	<stdio.h>
 	"ecuacionSegundoGrado.h"
 
@@ -55,7 +56,7 @@
 	<stdio.h>
 	"boolean.h"
 
-1740852381 source:c:\ude\taller verano 2025\proyecto\ude_taller_1_2025\proyecto_taller_2025\main.cpp
+1741297463 source:c:\ude\taller verano 2025\proyecto\ude_taller_1_2025\proyecto_taller_2025\main.cpp
 	"1.Auxiliares/listaStrDinamico.h"
 	"2.Solucion/ecuacionPrimerGrado.h"
 	"2.Solucion/ecuacion.h"
@@ -78,7 +79,9 @@
 1740779117 c:\ude\taller verano 2025\proyecto\ude_taller_1_2025\proyecto_taller_2025\2.solucion\ecuacionprimergrado.h
 	<math.h>
 
-1740779190 c:\ude\taller verano 2025\proyecto\ude_taller_1_2025\proyecto_taller_2025\2.solucion\ecuacionsegundogrado.h
+1741297463 c:\ude\taller verano 2025\proyecto\ude_taller_1_2025\proyecto_taller_2025\2.solucion\ecuacionsegundogrado.h
+	"../1.Auxiliares/boolean.h"
+	<math.h>
 
 1741212894 source:c:\users\felip\onedrive\escritorio\taller ahora si\ude_taller_1_2025\proyecto_taller_2025\1.auxiliares\boolean.cpp
 	<stdio.h>
@@ -136,4 +139,7 @@
 1741216427 source:c:\users\felip\onedrive\escritorio\taller ahora si\ude_taller_1_2025\proyecto_taller_2025\2.solucion\ecuacionsegundogrado.cpp
 	<stdio.h>
 	"ecuacionSegundoGrado.h"
+
+1740181695 c:\ude\taller verano 2025\proyecto\ude_taller_1_2025\proyecto_taller_2025\2.solucion\arbolecuacion.h
+	"ecuacion.h"
 
