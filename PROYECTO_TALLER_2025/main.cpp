@@ -1,68 +1,139 @@
 #include "1.Auxiliares/listaStrDinamico.h"
-
-#include "2.Solucion/ecuacionPrimerGrado.h"
-#include"2.Solucion/ecuacion.h"
+#include "2.Solucion/arbolEcuacion.h"
 
 int main()
 {
-//    strDinamico s;
-//    strCrear(s);
-//    scan(s);
-//
-//    strDinamico aux;
-//    strCrear(aux);
-//
-////    strCop(aux, s);
-//    eliminarEspaciosVaciosAlInicio(aux, s);
-//
-//    strDinamico primerPalabra, resto;
-//    strCrear(primerPalabra);
-//    strCrear(resto);
-//
-//    obtenerPrimerPalabra(primerPalabra, resto, aux);
-//
-//    int coso = strLar(primerPalabra);
-//    printf(" \n cosooo %d ", coso);
-//
-//    print(primerPalabra);
-//
-//    int coso2 = strLar(resto);
-//    printf(" \n cosooo RESTOOO %d ", coso2);
-//
-//    printf(" \n RESTO > \n");
-//     print(resto);
+    arbolEcuacion arbolEcuaciones;
+    crear(arbolEcuaciones);
 
-//    ecuacionPrimerGrado nuevaEcuacion;
-//    nuevaEcuacion.primerCoeficiente = 8;
-//    nuevaEcuacion.segundoCoeficiente = -2;
-//
-//    mostrarEcuacionPrimerGrado(nuevaEcuacion);
+    listaStrDinamico parametros;
+    strDinamico comando, instruccion;
 
+    strCrear(comando);
+    strCrear(instruccion);
 
-// PRUEBA PARSING
-//    strDinamico coso;
-//    strCrear(coso);
-//    scan(coso);
-//
-//    listaStrDinamico cosoLista = parsing(coso);
-//
-//    printf("cantidad parametros>>> %d\n", cantidadParametros(cosoLista));
-//
-//    mostrarLista(cosoLista);
+    do
+    {
+        scan(comando);
+        parametros = parsing(comando);
+        obtenerParametroEnPosicion(parametros, 0, instruccion);
 
+        if(strEq(instruccion, "crear"))
+        {
+            //validar cantidad de parametros
+            if(cantidadParametros(parametros) < 4 || cantidadParametros(parametros) > 5)
+            {
+                printf("Cantidad de parametros incorrecta");
+            }
+            else
+            {
+                // validar tipo de parametros (numerico alfabetico)
+                    // param 1 debe ser alfabetico
+                    // para 2, 3 y 4 debe ser numerico
 
-//PRUEBA FILES
-//    strDinamico nombre = "coso";
-//
-//    boolean existe = existeIdEcuacionArchivo(nombre);
-//    if(existe == TRUE)
-//    {
-//        printf("SI");
-//    }
-//    else
-//    {
-//        printf("NO");
-//    }
+                //validaciones crear
+                    // el id de la ecuacion no puede existir en el arbol
+                    // el primer coeficiente debe ser distinto de 0
 
+                //FUNCIONALIDAD CREAR
 
+                printf("crear");
+            }
+        }
+        else if(strEq(instruccion, "mostrar"))
+        {
+            //validar cantidad de parametros
+            if(cantidadParametros(parametros) != 1)
+            {
+                printf("Cantidad de parametros incorrecta");
+            }
+            else
+            {
+                printf("mostrar");
+                // validar tipo de parametros (numerico alfabetico)
+                //validaciones crear
+                //FUNCIONALIDAD MOSTRAR
+            }
+        }
+        else if(strEq(instruccion, "resolver"))
+        {
+            //validar cantidad de parametros
+            if(cantidadParametros(parametros) != 2)
+            {
+                printf("Cantidad de parametros incorrecta");
+            }
+            else
+            {
+                printf("resolver");
+                // validar tipo de parametros (numerico alfabetico)
+                //validaciones crear
+                //FUNCIONALIDAD RESOLVER
+            }
+        }
+        else if(strEq(instruccion, "sumar"))
+        {
+            //validar cantidad de parametros
+            if(cantidadParametros(parametros) != 4)
+            {
+                printf("Cantidad de parametros incorrecta");
+            }
+            else
+            {
+                printf("sumar");
+                // validar tipo de parametros (numerico alfabetico)
+                //validaciones crear
+                //FUNCIONALIDAD sumar
+            }
+        }
+        else if(strEq(instruccion, "guardar"))
+        {
+            //validar cantidad de parametros
+            if(cantidadParametros(parametros) != 2)
+            {
+                printf("Cantidad de parametros incorrecta");
+            }
+            else
+            {
+                printf("guardar");
+                // validar tipo de parametros (numerico alfabetico)
+                //validaciones crear
+                //FUNCIONALIDAD guardar
+            }
+        }
+        else if(strEq(instruccion, "recuperar"))
+        {
+            //validar cantidad de parametros
+            if(cantidadParametros(parametros) != 2)
+            {
+                printf("Cantidad de parametros incorrecta");
+            }
+            else
+            {
+                printf("recuperar");
+                // validar tipo de parametros (numerico alfabetico)
+                //validaciones crear
+                //FUNCIONALIDAD recuperar
+            }
+        }
+        else if(strEq(instruccion, "salir"))
+        {
+            //validar cantidad de parametros
+            if(cantidadParametros(parametros) != 1)
+            {
+                printf("Cantidad de parametros incorrecta");
+            }
+            else
+            {
+                //LIBERAR ESPACIO EN MEMORIA
+                printf("salir");
+            }
+        }
+        else
+        {
+            system("cls");
+            printf("COMANDO NO RECONOCIDO \n");
+            system("pause");
+        }
+    }
+    while (strEq(instruccion, "salir") == FALSE);
 }
