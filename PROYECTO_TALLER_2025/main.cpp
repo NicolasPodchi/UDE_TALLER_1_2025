@@ -27,17 +27,30 @@ int main()
             }
             else
             {
-                // validar tipo de parametros (numerico alfabetico)
-                    // param 1 debe ser alfabetico
-                    // para 2, 3 y 4 debe ser numerico
+                obtenerParametroEnPosicion(parametros,1,instruccion);// validar tipo de parametros (numerico alfabetico) validaarstringalfabetico )parametro numero 1 que seria el id
+                if (!validarStringAlfabetico(instruccion))
+                    printf("El ID debe ser alfabetico");// param 1 debe ser alfabetico
+                else
+                {
+                    obtenerParametroEnPosicion(parametros,2,instruccion);
+                    if (validarStringNumerico(instruccion)==TRUE)
+                    {
+                        obtenerParametroEnPosicion(parametros,3,instruccion);
+                        if (validarStringNumerico(instruccion)==TRUE)
+                        {
+                            obtenerParametroEnPosicion(parametros, 4, instruccion);
+                            if (validarStringNumerico(instruccion)) // para 2, 3 y 4 debe ser numérico
+                            {
+                                obtenerParametroEnPosicion(parametros,1,instruccion);
+                                if (!existeIdEcuacion(arbolEcuaciones,instruccion)) // el id de la ecuacion no puede existir en el arbol
+                                //validaciones crear
+                                // el primer coeficiente debe ser distinto de 0
+                            }
+                        }
 
-                //validaciones crear
-                    // el id de la ecuacion no puede existir en el arbol
-                    // el primer coeficiente debe ser distinto de 0
-
-                //FUNCIONALIDAD CREAR
-
-                printf("crear");
+                }
+            //FUNCIONALIDAD CREAR
+            printf("crear");
             }
         }
         else if(strEq(instruccion, "mostrar"))
