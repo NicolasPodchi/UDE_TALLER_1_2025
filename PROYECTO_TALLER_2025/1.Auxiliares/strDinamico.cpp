@@ -311,7 +311,8 @@ void levantarString(strDinamico &s,FILE * f)
     strDestruir(aux);
 }
 
-void convertirNombreArchivo(strDinamico nombreArchivo, strDinamico id){
+void convertirNombreArchivo(strDinamico &nombreArchivo, strDinamico id)
+{
 
     strDinamico aux, rutaRelativa = "../", extension = ".dat";
 

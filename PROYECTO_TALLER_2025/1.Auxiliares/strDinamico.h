@@ -48,6 +48,6 @@ void bajarString(strDinamico s, FILE * f);
 //Precondición: El archivo viene abierto para lectura.
 void levantarString(strDinamico &s,FILE * f);
 
-void convertirNombreArchivo(strDinamico nombreArchivo, strDinamico id);
+void convertirNombreArchivo(strDinamico &nombreArchivo, strDinamico id);
 
 #endif // STRING_DINAMICO_H_INCLUDED
