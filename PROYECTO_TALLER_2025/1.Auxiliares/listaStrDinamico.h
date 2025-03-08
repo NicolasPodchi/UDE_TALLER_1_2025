@@ -13,6 +13,8 @@ typedef nodoLista * listaStrDinamico;
 
 void crearListaStrings (listaStrDinamico &l);
 
+void destruirListaStrings (listaStrDinamico &l);
+
 void insBack (listaStrDinamico &l, strDinamico s);
 
 listaStrDinamico parsing(strDinamico s);

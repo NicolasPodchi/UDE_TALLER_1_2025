@@ -15,6 +15,8 @@ typedef nodoArbol * arbolEcuacion;
 
 void crear (arbolEcuacion &a);
 
+void destruirArbol(arbolEcuacion &a);
+
 //PRECONDICION: El arbol debe haberse inicializado anteriormente
 //Saber si un �rbol est� vac�o
 boolean arbolVacio(arbolEcuacion a);

@@ -4,21 +4,18 @@ CRONOGRAMA: https://docs.google.com/spreadsheets/d/1fpNfVUlGLPTU7jaGP-HvtZcUJT9D
 
 DOCUMENTACION >>
 
-+ 	APLICAR FORMATO E/S/M A PSEUDOCÓDIGOS
-+ 	CORREGIR DIAGRAMA, EN ECUACION DE PRIMER Y SEGUNDO GRADO LAS FLECHAS NO PUEDEN SALIR DE LOS CPP
+    REVISAR VALIDACION DE EXISTE ID ECUACION EN CREAR 
+    CONTEMPLAR CASOS DONDE EL USUARIO PUEDE PONER ENTERO CON EL FORMATO 01
+    en ecuaciones de segundo grado, cuando el segundo coeficiente es 1 se muestra el 1
 
 
-al momento de mostrar ecuaciones de primer y segundo grado tener en cuenta casos donde coeficientes 1 y 2 son 1 (mostrar solo la x
-al momento de tener un numero negativo, ver si poner el guion o signo de suma para coeficientes que están en el medio
-
-
-al sumar dos ecuaciones de segundo grado donde se cancelan los primeros coeficientes al sumarlos, queda una ecuación de primer grado y hay que cambiarle el tipo tras la suma.
-
-dividir solucion de ecuacion en varias partes
+NOTAS
+    dividir solucion de ecuacion en varias partes
     funcion principal en modulo ecuacion -- se encarga de mostrar por pantall
     calculo de discriminante (en cada tipo de ecuacion)
     calculo final en cada tipo de ecuacion
 
-    REVISAR VALIDACION DE EXISTE ID ECUACION EN CREAR 
-    CONTEMPLAR CASOS DONDE EL USUARIO PUEDE PONER ENTERON CON EL FORMATO 01
-    en ecuaciones de segundo grado, cuando el segundo coeficiente es 1 se muestra el 1
+    al momento de mostrar ecuaciones de primer y segundo grado tener en cuenta casos donde coeficientes 1 y 2 son 1 (mostrar solo la x
+    al momento de tener un numero negativo, ver si poner el guion o signo de suma para coeficientes que están en el medio
+
+    al sumar dos ecuaciones de segundo grado donde se cancelan los primeros coeficientes al sumarlos, queda una ecuación de primer grado y hay que cambiarle el tipo tras la suma.

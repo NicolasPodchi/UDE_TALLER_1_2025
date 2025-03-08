@@ -123,5 +123,13 @@ void mostrarArbol(arbolEcuacion a)
     }
 }
 
-void destruirArbol(arbolEcuacion &a);
+void destruirArbol(arbolEcuacion &a)
+{
+    if(a != NULL)
+    {
+        destruirArbol(a ->hIzq);
+        destruirArbol(a ->hDer);
+        delete a;
+    }
+}
 

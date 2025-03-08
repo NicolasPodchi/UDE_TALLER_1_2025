@@ -52,7 +52,9 @@ void mostrarSegundoCoeficiente(ecuacionSegundoGrado e)
             printf("+ ");
         }
 
-        printf("%d", SegundoCoeficienteMostrar);
+        if (e.primerCoeficiente != 1)
+            printf("%d", SegundoCoeficienteMostrar);
+
         printf("x ");
     }
 }
@@ -95,12 +97,13 @@ void bajarEcuacionSegundoGrado(ecuacionSegundoGrado e, FILE *f)
 float ResolverDiscriminante (ecuacionSegundoGrado e)
 {
     float discriminante=e.segundoCoeficiente*e.segundoCoeficiente;
-     discriminante = discriminante - (4 * e.primerCoeficiente * e.tercerCoeficiente);
-     return discriminante;
+    discriminante = discriminante - (4 * e.primerCoeficiente * e.tercerCoeficiente);
+    return discriminante;
 
 }
 
-void ResolucionDiscriminanteMayora0(ecuacionSegundoGrado e, float discriminante, int &Resultado1, int &Resultado2) {
+void ResolucionDiscriminanteMayora0(ecuacionSegundoGrado e, float discriminante, int &Resultado1, int &Resultado2)
+{
     float PrimerTermino = e.segundoCoeficiente * -1;
     float SegundoTermino = sqrt(discriminante);
     float divisor = 2 * e.primerCoeficiente;

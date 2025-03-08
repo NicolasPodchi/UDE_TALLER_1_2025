@@ -6,6 +6,14 @@ void crearListaStrings (listaStrDinamico &l)
     l = NULL;
 }
 
+void destruirListaStrings (listaStrDinamico &l)
+{
+    if(l != NULL){
+        destruirListaStrings(l -> sig);
+        delete l;
+    }
+}
+
 //Precondici�n: La lista debe haberse inicializado anteriormente
 void insBack (listaStrDinamico &l, strDinamico s)
 {

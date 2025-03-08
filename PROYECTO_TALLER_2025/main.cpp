@@ -36,11 +36,11 @@ int main()
 
                 if (validarStringAlfabetico(param) == FALSE)// param 1 debe ser alfabetico
                     printf("El ID de la ecuacion debe ser alfabetico");
-//                else if (existeIdEcuacion(arbolEcuaciones, param) == TRUE)// el id de la ecuacion no puede existir en el arbol
-//                    printf("El ID de la ecuación ya existe");
+                else if (existeIdEcuacion(arbolEcuaciones, param) == TRUE)// el id de la ecuacion no puede existir en el arbol
+                    printf("El ID de la ecuaciï¿½n ya existe");
                 else
                 {
-                //    mostrarLista(parametros);
+                    //    mostrarLista(parametros);
 
                     int i = 2;
                     boolean valido = TRUE;
@@ -58,7 +58,7 @@ int main()
 
                     if(valido == FALSE)
                     {
-                        printf("Los coeficientes deben ser valores numéricos");
+                        printf("Los coeficientes deben ser valores numï¿½ricos");
                     }
                     else
                     {
@@ -177,15 +177,15 @@ int main()
                 obtenerParametroEnPosicion(parametros,1,param);
                 if(validarStringAlfabetico(param) == FALSE) // validar tipo de parametros (ALFABETICO)
                 {
-                    printf("El parametro debe ser un valor alfabético");
+                    printf("El parametro debe ser un valor alfabï¿½tico");
                 }
                 else if(existeIdEcuacion(arbolEcuaciones, param) == FALSE) //ID NO PUEDE EXISTIR EN MEMORIA
                 {
-                    printf("La ecuación que intenta recuperar no existe en memoria");
+                    printf("La ecuaciï¿½n que intenta recuperar no existe en memoria");
                 }
                 else if(existeIdEcuacionArchivo(param) == TRUE) //DEBE EXISTIR EL ARCHIVO CON EL ID
                 {
-                    printf("La ecuación que intenta recuperar ya se encuentra almacenada");
+                    printf("La ecuaciï¿½n que intenta recuperar ya se encuentra almacenada");
                 }
                 else
                 {
@@ -193,7 +193,7 @@ int main()
                     ecuacion ecuacionGuardar = obtenerEcuacionPorId(arbolEcuaciones, param);
                     bajarEcuacion(ecuacionGuardar);
 
-                    printf("Ecuación guardada existosamente");
+                    printf("Ecuaciï¿½n guardada existosamente");
                 }
             }
         }
@@ -209,15 +209,15 @@ int main()
                 obtenerParametroEnPosicion(parametros,1,param);
                 if(validarStringAlfabetico(param) == FALSE) // validar tipo de parametros (ALFABETICO)
                 {
-                    printf("El parametro debe ser un valor alfabético");
+                    printf("El parametro debe ser un valor alfabï¿½tico");
                 }
                 else if(existeIdEcuacion(arbolEcuaciones, param) == TRUE) //ID NO PUEDE EXISTIR EN MEMORIA
                 {
-                    printf("La ecuación que intenta recuperar ya existe en memoria");
+                    printf("La ecuaciï¿½n que intenta recuperar ya existe en memoria");
                 }
                 else if(existeIdEcuacionArchivo(param) == FALSE) //DEBE EXISTIR EL ARCHIVO CON EL ID
                 {
-                    printf("La ecuación que intenta recuperar no se encuentra almacenada");
+                    printf("La ecuaciï¿½n que intenta recuperar no se encuentra almacenada");
                 }
                 else
                 {
@@ -226,7 +226,7 @@ int main()
                     levantarEcuacion(param, ecuacionRecuperar);
                     insertarEcuacion(arbolEcuaciones, ecuacionRecuperar);
 
-                    printf("Ecuación recuperada existosamente");
+                    printf("Ecuaciï¿½n recuperada existosamente");
                 }
             }
         }
@@ -239,8 +239,16 @@ int main()
             }
             else
             {
-                //LIBERAR ESPACIO EN MEMORIA
-                printf("salir");
+                //destruir arbol de ecuaciones
+                destruirArbol(arbolEcuaciones);
+
+                //destruir lista de parametros
+                destruirListaStrings(parametros);
+
+                //destruir strings
+                strDestruir(comando);
+                strDestruir(instruccion);
+                strDestruir(param);
             }
         }
         else
