@@ -170,15 +170,31 @@ boolean validarStringAlfabetico(strDinamico s)
 boolean validarStringNumerico(strDinamico s)
 {
     boolean esNumerico = TRUE;
-    int i=0;
-    while(s[i]!='\0' && esNumerico)
+    int x=0;
+    while(s[x]!='\0' && esNumerico)
     {
-        if((s[i] >= 48 && s[i] <= 57) || (i == 0 && s[i] == 45))
-            i++;
+        if((s[x] >= 48 && s[x] <= 57) || (x == 0 && s[x] == 45))
+            x++;
         else
             esNumerico = FALSE;
     }
     return esNumerico;
+}
+
+boolean validarStringNumericoDistintoDeCero(strDinamico s)
+{
+    boolean distintoDeCero = FALSE;
+
+    int x=0;
+    while(s[x]!='\0' && distintoDeCero == FALSE)
+    {
+        if(s[x] == 48)
+            x++;
+        else
+            distintoDeCero = TRUE;
+    }
+
+    return distintoDeCero;
 }
 
 //Precondición: s no puede ser vac�o ni tener espacios vac�os al principio y/o al final, debe ser un string num�rico.

@@ -31,6 +31,8 @@ boolean validarStringAlfabetico(strDinamico s);
 
 boolean validarStringNumerico(strDinamico s);
 
+boolean validarStringNumericoDistintoDeCero(strDinamico s);
+
 //Precondición: s no puede ser vacío ni tener espacios vacíos al principio y/o al final, debe ser un string numérico.
 int convertirStringAEntero(strDinamico s);
 

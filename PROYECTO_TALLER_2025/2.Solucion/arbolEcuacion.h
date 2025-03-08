@@ -40,7 +40,7 @@ void insertarEcuacion (arbolEcuacion &a, ecuacion e);
 boolean existeIdEcuacion(arbolEcuacion a, strDinamico id);
 
 //Precondici�n: El ABB no puede estar vac�o e id debe existir en el ABB
-arbolEcuacion obtenerEcuacionPorId(arbolEcuacion a, strDinamico id);
+ecuacion obtenerEcuacionPorId(arbolEcuacion a, strDinamico id);
 
 
 //Precondici�n: El ABB de ecuaciones no debe estar vac�o

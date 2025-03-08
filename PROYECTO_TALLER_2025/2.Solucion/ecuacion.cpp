@@ -23,24 +23,34 @@ ecuacionSegundoGrado getEcuacionSegundoGrado(ecuacion e)
 ecuacion crearEcuacionPrimerGrado(strDinamico id, int primerCoeficiente, int segundoCoeficiente)
 {
     ecuacion nuevaEcuacion;
-    strCrear(nuevaEcuacion.id);
-
     nuevaEcuacion.discriminante = PRIMER_GRADO;
+
+    strCrear(nuevaEcuacion.id);
     strCop(nuevaEcuacion.id, id);
+
     nuevaEcuacion.datos.primerGrado = crearEcuacionPrimerGrado(primerCoeficiente, segundoCoeficiente);
+
+    return nuevaEcuacion;
 }
 
 ecuacion crearEcuacionSegundoGrado(strDinamico id, int primerCoeficiente, int segundCoeficiente, int tercerCoeficiente)
 {
     ecuacion nuevaEcuacion;
-
     nuevaEcuacion.discriminante = SEGUNDO_GRADO;
+
+    strCrear(nuevaEcuacion.id);
     strCop(nuevaEcuacion.id, id);
+
     nuevaEcuacion.datos.segundoGrado = crearEcuacionSegundoGrado(primerCoeficiente, segundCoeficiente, tercerCoeficiente);
+
+    return nuevaEcuacion;
 }
 
 void mostrarEcuacion(ecuacion e)
 {
+    print(e.id);
+    printf(": ");
+
     if (e.discriminante == PRIMER_GRADO)
         mostrarEcuacionPrimerGrado(e.datos.primerGrado);
     else
@@ -88,20 +98,26 @@ void bajarEcuacion(ecuacion e)
 }
 
 // PRECONDICI�N: El archivo viene abierto para lectura
-void levantarEcuacion(ecuacion &e, FILE * f)
+void levantarEcuacion(strDinamico id, ecuacion &e)
 {
-    strCrear(e.id);
-    levantarString(e.id,f);
+    strDinamico nombreArchivo;
+    convertirNombreArchivo(nombreArchivo, id);
 
-    fread(&e.discriminante,sizeof(tipoEcuacion),1,f);
+    FILE * a;
+    a = fopen(nombreArchivo, "rb");
+
+    strCrear(e.id);
+    levantarString(e.id,a);
+
+    fread(&e.discriminante,sizeof(tipoEcuacion),1,a);
 
     if (e.discriminante == PRIMER_GRADO)
     {
-        fread(&e.datos.primerGrado,sizeof(ecuacionPrimerGrado),1,f);
+        fread(&e.datos.primerGrado,sizeof(ecuacionPrimerGrado),1,a);
     }
     else
     {
-        fread(&e.datos.segundoGrado,sizeof(ecuacionSegundoGrado),1,f);
+        fread(&e.datos.segundoGrado,sizeof(ecuacionSegundoGrado),1,a);
     }
 }
 

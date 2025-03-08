@@ -50,7 +50,7 @@ void resolverEcuacion(ecuacion e, boolean &DosResultados, float &Resu1, float &R
 void bajarEcuacion (ecuacion e);
 
 //Precondici�n: El archivo viene abierto para escritura
-void levantarEcuacion (ecuacion &e, FILE * f);
+void levantarEcuacion (strDinamico id, ecuacion &e);
 
 boolean existeIdEcuacionArchivo(strDinamico id);
 

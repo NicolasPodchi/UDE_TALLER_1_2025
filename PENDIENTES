@@ -18,3 +18,7 @@ dividir solucion de ecuacion en varias partes
     funcion principal en modulo ecuacion -- se encarga de mostrar por pantall
     calculo de discriminante (en cada tipo de ecuacion)
     calculo final en cada tipo de ecuacion
+
+    REVISAR VALIDACION DE EXISTE ID ECUACION EN CREAR 
+    CONTEMPLAR CASOS DONDE EL USUARIO PUEDE PONER ENTERON CON EL FORMATO 01
+    en ecuaciones de segundo grado, cuando el segundo coeficiente es 1 se muestra el 1

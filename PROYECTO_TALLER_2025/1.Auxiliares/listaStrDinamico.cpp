@@ -43,12 +43,14 @@ int cantidadParametros(listaStrDinamico l)
 //Precondici�n: p debe pertenecer a una posici�n con datos dentro de l
 void obtenerParametroEnPosicion(listaStrDinamico l, int p, strDinamico & s)
 {
-    int i = 0;
+    int x = 0;
     listaStrDinamico aux = l;
 
-    while(i != p)
+    while(x != p)
     {
+        strCop(s, aux -> info);
         aux = aux -> sig;
+        x++;
     }
 
     strCop(s, aux -> info);

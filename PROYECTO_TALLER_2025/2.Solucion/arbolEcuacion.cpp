@@ -43,6 +43,8 @@ arbolEcuacion hijoDerecho (arbolEcuacion a)
 void insertarEcuacion (arbolEcuacion &a, ecuacion e)
 {
     strDinamico strAux1, strAux2;
+    strCrear(strAux1);
+    strCrear(strAux2);
 
     if (a==NULL)
     {
@@ -56,7 +58,7 @@ void insertarEcuacion (arbolEcuacion &a, ecuacion e)
         getId(a->info, strAux1);
         getId(e, strAux2);
 
-        if(strAux1 > strAux2)
+        if(strMen(strAux2, strAux1) == TRUE)
         {
             insertarEcuacion(a->hIzq,e);
         }
@@ -75,11 +77,11 @@ boolean existeIdEcuacion(arbolEcuacion a, strDinamico id)
     {
         getId(a->info, strAux);
 
-        if (id == strAux)
+        if (strEq(strAux, id))
             encontre = TRUE;
         else
         {
-            if (id < strAux)
+            if (strMen(id, strAux) == TRUE)
                 a=a -> hIzq;
             else
                 a=a -> hDer;
@@ -89,14 +91,15 @@ boolean existeIdEcuacion(arbolEcuacion a, strDinamico id)
 }
 
 //Precondici�n: El ABB no puede estar vac�o e id debe existir en el ABB
-arbolEcuacion obtenerEcuacionPorId(arbolEcuacion a, strDinamico id)
+ecuacion obtenerEcuacionPorId(arbolEcuacion a, strDinamico id)
 {
     strDinamico strAux;
+    strCrear(strAux);
 
     getId(a -> info, strAux);
-    while(a != NULL && strAux != id)
+    while(a != NULL && strEq(strAux, id) == FALSE)
     {
-        if(id < strAux)
+        if(strMen(id, strAux))
             a = a -> hIzq;
         else
             a = a -> hDer;
@@ -104,7 +107,7 @@ arbolEcuacion obtenerEcuacionPorId(arbolEcuacion a, strDinamico id)
         getId(a -> info, strAux);
     }
 
-    return a;
+    return a -> info;
 }
 
 
@@ -115,6 +118,7 @@ void mostrarArbol(arbolEcuacion a)
     {
         mostrarArbol(a ->hIzq);
         mostrarEcuacion(a->info);
+        printf("\n");
         mostrarArbol(a ->hDer);
     }
 }
