@@ -63,9 +63,12 @@ int main()
             else
             {
                 printf("mostrar");
-                // validar tipo de parametros (numerico alfabetico)
-                //validaciones crear
-                //FUNCIONALIDAD MOSTRAR
+                if(arbolVacio==FALSE)
+                {
+                    printf("No existen ecuaciones para mostrar.");
+                }
+                else
+                    mostrarArbol(arbolEcuaciones);
             }
         }
         else if(strEq(instruccion, "resolver"))
@@ -93,7 +96,21 @@ int main()
             else
             {
                 printf("sumar");
-                // validar tipo de parametros (numerico alfabetico)
+                int i = 1;
+                boolean esAlfabetico=TRUE;;
+                do
+                {
+                    obtenerParametroEnPosicion(parametros,i,instruccion);// validar tipo de parametros (numerico alfabetico) validaarstringalfabetico )parametro numero 1 que seria el id
+                    if(validarStringAlfabetico(instruccion)==TRUE)
+                        i++;
+                    else
+                        esAlfabetico==FALSE;
+                }while(i<5 && esAlfabetico==TRUE);
+                if(esAlfabetico)
+
+
+
+
                 //validaciones crear
                 //FUNCIONALIDAD sumar
             }
