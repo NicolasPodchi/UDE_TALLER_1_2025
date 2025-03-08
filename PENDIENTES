@@ -2,12 +2,15 @@ ZOOM: https://zoom.us/j/93647547019?pwd=LKj5zHUnDvl3J3XjWnxJBC2XBPGNo6.1
 DOCUMENTACION: https://docs.google.com/document/d/1F2HnvNZHLrS2K0qL9egjdZsNcU-7bl9eX9v3n5ItWq0/edit?tab=t.0
 CRONOGRAMA: https://docs.google.com/spreadsheets/d/1fpNfVUlGLPTU7jaGP-HvtZcUJT9DbfOv0nIqYazr4m4/edit?gid=0#gid=0
 
-DOCUMENTACION >>
+PENDIENTES
+    Sumar
+    Resolver
+    Revisar inclusiones entre módulos
+    Revisar precondiciones
 
-    REVISAR VALIDACION DE EXISTE ID ECUACION EN CREAR 
-    CONTEMPLAR CASOS DONDE EL USUARIO PUEDE PONER ENTERO CON EL FORMATO 01
-    en ecuaciones de segundo grado, cuando el segundo coeficiente es 1 se muestra el 1
-
+    Actualizar cabezales de la documentación
+    Agregar diagrama real
+    Ver de corregir diagramas de flujo
 
 NOTAS
     dividir solucion de ecuacion en varias partes
