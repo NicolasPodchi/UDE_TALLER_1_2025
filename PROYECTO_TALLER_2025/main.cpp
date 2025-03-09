@@ -140,14 +140,12 @@ int main()
             }
             else
             {
-                printf("sumar");
                 int i = 1;
                 boolean valido = TRUE;
                 do
                 {
-                    // validar tipo de parametros (numerico alfabetico) validaarstringalfabetico )parametro numero 1 que seria el id
                     obtenerParametroEnPosicion(parametros, i, param);
-                    if(validarStringAlfabetico(param) == TRUE)
+                    if(validarStringAlfabetico(param) == TRUE) //Validar que todos los parametros sean strings
                         i++;
                     else
                         valido == FALSE;
@@ -156,12 +154,44 @@ int main()
 
                 if(valido == FALSE)
                 {
-                    //MENSAJE DE ERROR
+                    printf("El ID de las ecuaciones debe ser alfabetico.");
                 }
                 else
                 {
-                    //validaciones crear
-                    //FUNCIONALIDAD sumar
+                    strDinamico idUno, idDos, idTres;
+                    strCrear(idUno);
+                    strCrear(idDos);
+                    strCrear(idTres);
+
+                    obtenerParametroEnPosicion(parametros, 1, idUno); //Validar que existe la primer ecuacion
+                    if(existeIdEcuacion(arbolEcuaciones, param)==FALSE)
+                    {
+                        printf("El primer ID no existe");
+                    }
+                    else
+                    {
+                        obtenerParametroEnPosicion(parametros, 2, idDos); //Validar que existe la segunda ecuacion
+                        if(existeIdEcuacion(arbolEcuaciones, param)==FALSE)
+                        {
+                            printf("El segundo ID no existe");
+                        }
+                        else
+                        {
+                            obtenerParametroEnPosicion(parametros, 3, idTres); //Validar que NO existe el ID para la nueva ecuacion
+                            if(existeIdEcuacion(arbolEcuaciones,param)==TRUE)
+                            {
+                                printf("El nuevo ID ingresado ya existe.");
+                            }
+                            else
+                            {
+                                ecuacion ecuacionUno = obtenerEcuacionPorId(arbolEcuaciones,idUno);
+                                ecuacion ecuacionDos = obtenerEcuacionPorId(arbolEcuaciones,idDos);
+
+                                sumarEcuaciones(ecuacionUno, ecuacionDos, idTres);
+                            }
+
+                        }
+                    }
                 }
             }
         }

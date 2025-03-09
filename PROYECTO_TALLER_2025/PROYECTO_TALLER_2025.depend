@@ -19,7 +19,9 @@
 
 1739131425 source:c:\users\fauss\onedrive\escritorio\lic inf ude\2025\taller i\ude_taller_1_2025\proyecto_taller_2025\2.solucion\ecuacion.cpp
 
-1739131425 source:c:\users\fauss\onedrive\escritorio\lic inf ude\2025\taller i\ude_taller_1_2025\proyecto_taller_2025\2.solucion\ecuacionprimergrado.cpp
+1741396980 source:c:\users\fauss\onedrive\escritorio\lic inf ude\2025\taller i\ude_taller_1_2025\proyecto_taller_2025\2.solucion\ecuacionprimergrado.cpp
+	<stdio.h>
+	"ecuacionPrimerGrado.h"
 
 1739131425 source:c:\users\fauss\onedrive\escritorio\lic inf ude\2025\taller i\ude_taller_1_2025\proyecto_taller_2025\2.solucion\ecuacionsegundogrado.cpp
 
@@ -147,4 +149,7 @@
 
 1741385056 c:\users\felip\onedrive\escritorio\taller ahora si\ude_taller_1_2025\proyecto_taller_2025\2.solucion\arbolecuacion.h
 	"ecuacion.h"
+
+1741396980 c:\users\fauss\onedrive\escritorio\lic inf ude\2025\taller i\ude_taller_1_2025\proyecto_taller_2025\2.solucion\ecuacionprimergrado.h
+	<math.h>
 
