@@ -7,23 +7,28 @@
 
 1739482218 source:c:\users\fauss\onedrive\escritorio\lic inf ude\2025\taller i\ude_taller_1_2025\proyecto_taller_2025\1.auxiliares\listastrings.cpp
 
-1740007289 source:c:\users\fauss\onedrive\escritorio\lic inf ude\2025\taller i\ude_taller_1_2025\proyecto_taller_2025\1.auxiliares\strdinamico.cpp
+1741480355 source:c:\users\fauss\onedrive\escritorio\lic inf ude\2025\taller i\ude_taller_1_2025\proyecto_taller_2025\1.auxiliares\strdinamico.cpp
+	<stdio.h>
+	<cctype>
 	"strDinamico.h"
-	<stdio.h>
 
-1740007289 c:\users\fauss\onedrive\escritorio\lic inf ude\2025\taller i\ude_taller_1_2025\proyecto_taller_2025\1.auxiliares\strdinamico.h
+1741480355 c:\users\fauss\onedrive\escritorio\lic inf ude\2025\taller i\ude_taller_1_2025\proyecto_taller_2025\1.auxiliares\strdinamico.h
+	<stdio.h>
 	"boolean.h"
-	<stdio.h>
 
-1739131425 source:c:\users\fauss\onedrive\escritorio\lic inf ude\2025\taller i\ude_taller_1_2025\proyecto_taller_2025\2.solucion\arbolecuacion.cpp
+1741480355 source:c:\users\fauss\onedrive\escritorio\lic inf ude\2025\taller i\ude_taller_1_2025\proyecto_taller_2025\2.solucion\arbolecuacion.cpp
+	"arbolEcuacion.h"
 
-1739131425 source:c:\users\fauss\onedrive\escritorio\lic inf ude\2025\taller i\ude_taller_1_2025\proyecto_taller_2025\2.solucion\ecuacion.cpp
+1741480355 source:c:\users\fauss\onedrive\escritorio\lic inf ude\2025\taller i\ude_taller_1_2025\proyecto_taller_2025\2.solucion\ecuacion.cpp
+	"ecuacion.h"
 
 1741396980 source:c:\users\fauss\onedrive\escritorio\lic inf ude\2025\taller i\ude_taller_1_2025\proyecto_taller_2025\2.solucion\ecuacionprimergrado.cpp
 	<stdio.h>
 	"ecuacionPrimerGrado.h"
 
-1739131425 source:c:\users\fauss\onedrive\escritorio\lic inf ude\2025\taller i\ude_taller_1_2025\proyecto_taller_2025\2.solucion\ecuacionsegundogrado.cpp
+1741480356 source:c:\users\fauss\onedrive\escritorio\lic inf ude\2025\taller i\ude_taller_1_2025\proyecto_taller_2025\2.solucion\ecuacionsegundogrado.cpp
+	<stdio.h>
+	"ecuacionSegundoGrado.h"
 
 1739131425 source:c:\users\fauss\onedrive\escritorio\lic inf ude\2025\taller i\ude_taller_1_2025\proyecto_taller_2025\2.solucion\tipoecuacion.cpp
 
@@ -152,4 +157,31 @@
 
 1741396980 c:\users\fauss\onedrive\escritorio\lic inf ude\2025\taller i\ude_taller_1_2025\proyecto_taller_2025\2.solucion\ecuacionprimergrado.h
 	<math.h>
+
+1741480355 source:c:\users\fauss\onedrive\escritorio\lic inf ude\2025\taller i\ude_taller_1_2025\proyecto_taller_2025\1.auxiliares\listastrdinamico.cpp
+	<stdio.h>
+	"listaStrDinamico.h"
+
+1741480355 c:\users\fauss\onedrive\escritorio\lic inf ude\2025\taller i\ude_taller_1_2025\proyecto_taller_2025\1.auxiliares\listastrdinamico.h
+	"strDinamico.h"
+
+1741480355 c:\users\fauss\onedrive\escritorio\lic inf ude\2025\taller i\ude_taller_1_2025\proyecto_taller_2025\2.solucion\arbolecuacion.h
+	"ecuacion.h"
+
+1741480355 c:\users\fauss\onedrive\escritorio\lic inf ude\2025\taller i\ude_taller_1_2025\proyecto_taller_2025\2.solucion\ecuacion.h
+	<cstdlib>
+	"../1.Auxiliares/strDinamico.h"
+	"tipoEcuacion.h"
+	"ecuacionPrimerGrado.h"
+	"ecuacionSegundoGrado.h"
+
+1739131425 c:\users\fauss\onedrive\escritorio\lic inf ude\2025\taller i\ude_taller_1_2025\proyecto_taller_2025\2.solucion\tipoecuacion.h
+
+1741396980 c:\users\fauss\onedrive\escritorio\lic inf ude\2025\taller i\ude_taller_1_2025\proyecto_taller_2025\2.solucion\ecuacionsegundogrado.h
+	"../1.Auxiliares/boolean.h"
+	<math.h>
+
+1741532425 source:c:\users\fauss\onedrive\escritorio\lic inf ude\2025\taller i\ude_taller_1_2025\proyecto_taller_2025\main.cpp
+	"1.Auxiliares/listaStrDinamico.h"
+	"2.Solucion/arbolEcuacion.h"
 

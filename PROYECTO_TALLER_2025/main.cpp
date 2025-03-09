@@ -15,6 +15,7 @@ int main()
 
     do
     {
+        printf("Ingresar comando y parametros: ");
         scan(comando);
         crearListaStrings(parametros);
         parametros = parsing(comando);
@@ -36,11 +37,11 @@ int main()
 
                 if (validarStringAlfabetico(param) == FALSE)// param 1 debe ser alfabetico
                     printf("El ID de la ecuacion debe ser alfabetico");
-                else if (existeIdEcuacion(arbolEcuaciones, param) == TRUE)// el id de la ecuacion no puede existir en el arbol
-                    printf("El ID de la ecuaci�n ya existe");
+                //else if (existeIdEcuacion(arbolEcuaciones, param) == TRUE)// el id de la ecuacion no puede existir en el arbol
+                  //printf("El ID de la ecuacion ya existe");
                 else
                 {
-                    //    mostrarLista(parametros);
+                    //mostrarLista(parametros);
 
                     int i = 2;
                     boolean valido = TRUE;
@@ -58,7 +59,7 @@ int main()
 
                     if(valido == FALSE)
                     {
-                        printf("Los coeficientes deben ser valores num�ricos");
+                        printf("Los coeficientes deben ser valores numericos");
                     }
                     else
                     {
@@ -150,7 +151,7 @@ int main()
                     else
                         valido == FALSE;
                 }
-                while(i < 5 && valido == TRUE);
+                while(i < 4 && valido == TRUE);
 
                 if(valido == FALSE)
                 {
@@ -164,21 +165,21 @@ int main()
                     strCrear(idTres);
 
                     obtenerParametroEnPosicion(parametros, 1, idUno); //Validar que existe la primer ecuacion
-                    if(existeIdEcuacion(arbolEcuaciones, param)==FALSE)
+                    if(existeIdEcuacion(arbolEcuaciones, idUno)==FALSE)
                     {
                         printf("El primer ID no existe");
                     }
                     else
                     {
                         obtenerParametroEnPosicion(parametros, 2, idDos); //Validar que existe la segunda ecuacion
-                        if(existeIdEcuacion(arbolEcuaciones, param)==FALSE)
+                        if(existeIdEcuacion(arbolEcuaciones, idDos)==FALSE)
                         {
                             printf("El segundo ID no existe");
                         }
                         else
                         {
                             obtenerParametroEnPosicion(parametros, 3, idTres); //Validar que NO existe el ID para la nueva ecuacion
-                            if(existeIdEcuacion(arbolEcuaciones,param)==TRUE)
+                            if(existeIdEcuacion(arbolEcuaciones,idTres)==TRUE)
                             {
                                 printf("El nuevo ID ingresado ya existe.");
                             }
@@ -187,9 +188,10 @@ int main()
                                 ecuacion ecuacionUno = obtenerEcuacionPorId(arbolEcuaciones,idUno);
                                 ecuacion ecuacionDos = obtenerEcuacionPorId(arbolEcuaciones,idDos);
 
-                                sumarEcuaciones(ecuacionUno, ecuacionDos, idTres);
+                                ecuacion ecuacionResultado = sumarEcuaciones(ecuacionUno, ecuacionDos, idTres);
+                                mostrarEcuacion(ecuacionResultado);
+                                insertarEcuacion(arbolEcuaciones, ecuacionResultado);
                             }
-
                         }
                     }
                 }

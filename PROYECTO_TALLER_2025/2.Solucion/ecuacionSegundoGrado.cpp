@@ -52,7 +52,7 @@ void mostrarSegundoCoeficiente(ecuacionSegundoGrado e)
             printf("+ ");
         }
 
-        if (e.primerCoeficiente != 1)
+        if ( e.segundoCoeficiente != 1)
             printf("%d", SegundoCoeficienteMostrar);
 
         printf("x ");
@@ -63,19 +63,19 @@ void mostrarTercerCoeficiente(ecuacionSegundoGrado e)
 {
     if (e.tercerCoeficiente != 0)
     {
-        int tercercoeficienteMOtrar = e.tercerCoeficiente;
+        int tercercoeficienteMostrar = e.tercerCoeficiente;
 
         if (e.tercerCoeficiente < 0)
         {
             printf("- ");
-            tercercoeficienteMOtrar = tercercoeficienteMOtrar * -1;
+            tercercoeficienteMostrar = tercercoeficienteMostrar * -1;
         }
         else
         {
             printf("+ ");
         }
 
-        printf("%d ", tercercoeficienteMOtrar);
+        printf("%d ", tercercoeficienteMostrar);
     }
 }
 
