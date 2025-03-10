@@ -27,7 +27,10 @@ void mostrarEcuacionSegundoGrado (ecuacionSegundoGrado NuevaEcuacion);
 
 void bajarEcuacionSegundoGrado (ecuacionSegundoGrado e, FILE * f);
 
-void ResolverSegundoGrado(ecuacionSegundoGrado e, float &Resu1, float &Resu2);
+float resolverDiscriminante (ecuacionSegundoGrado e);
 
-void ResolucionDiscriminanteMayora0(ecuacionSegundoGrado e, float discriminante, int &Resultado1, int &Resultado2);
+void resolverEcuacionDeDosResultados(ecuacionSegundoGrado e, float discriminante, float &resultado1, float &resultado2);
+
+float resolverEcuacionDeUnSoloResultado (ecuacionSegundoGrado e);
+
 #endif // ECUACIONSEGUNDOGRADO_H_INCLUDED

@@ -3,7 +3,8 @@ DOCUMENTACION: https://docs.google.com/document/d/1F2HnvNZHLrS2K0qL9egjdZsNcU-7b
 CRONOGRAMA: https://docs.google.com/spreadsheets/d/1fpNfVUlGLPTU7jaGP-HvtZcUJT9DbfOv0nIqYazr4m4/edit?gid=0#gid=0
 
 PENDIENTES
-    Resolver
+    Revisar error en crear al validar ID existente
+    Resolver (limitar los resultados con dos decimales luego de la coma)
     Revisar inclusiones entre módulos
     Revisar precondiciones
     Actualizar cabezales de la documentación

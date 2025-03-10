@@ -38,7 +38,7 @@ int main()
                 if (validarStringAlfabetico(param) == FALSE)// param 1 debe ser alfabetico
                     printf("El ID de la ecuacion debe ser alfabetico");
                 //else if (existeIdEcuacion(arbolEcuaciones, param) == TRUE)// el id de la ecuacion no puede existir en el arbol
-                  //printf("El ID de la ecuacion ya existe");
+                //printf("El ID de la ecuacion ya existe");
                 else
                 {
                     //mostrarLista(parametros);
@@ -127,9 +127,42 @@ int main()
             else
             {
                 printf("resolver");
-                // validar tipo de parametros (numerico alfabetico)
-                //validaciones crear
-                //FUNCIONALIDAD RESOLVER
+
+                obtenerParametroEnPosicion(parametros, 1, param); //Validar que existe la primer ecuacion
+
+                if (validarStringAlfabetico(param) == FALSE)
+                    printf("El ID de la ecuacion debe ser alfabetico");
+                else if(existeIdEcuacion(arbolEcuaciones, param)==FALSE)
+                    printf("El ID ingresado no existe en memoria");
+                else
+                {
+                    //FUNCIONALIDAD RESOLVER
+                    ecuacion ecuacionResolver = obtenerEcuacionPorId(arbolEcuaciones, param);
+
+                    if(getTipo(ecuacionResolver) == PRIMER_GRADO)
+                    {
+                        float resultado = resolverPrimerGrado(getEcuacionPrimerGrado(ecuacionResolver));
+                        printf("RESULTADO: %f\n", resultado);
+                    }
+                    else
+                    {
+                        float discriminante = resolverDiscriminante(getEcuacionSegundoGrado(ecuacionResolver));
+
+                        if (discriminante == 0)
+                            printf("La ecuacion no tiene solucion");
+                        else if (discriminante > 0)
+                        {
+                            float resultado1, resultado2;
+                            resolverEcuacionDeDosResultados(getEcuacionSegundoGrado(ecuacionResolver), discriminante, resultado1, resultado2);
+                            printf("EXISTEN DOS SOLUCIONES \nRESULTADO 1: %d\nRESULTADO 2: %d\n", resultado1, resultado2);
+                        }
+                        else
+                        {
+                            float resultado = resolverEcuacionDeUnSoloResultado (getEcuacionSegundoGrado(ecuacionResolver));
+                            printf("EXISTE UNA ÚNICA SOLUCIÓN \nRESULTADO: %f\n", resultado);
+                        }
+                    }
+                }
             }
         }
         else if(strEq(instruccion, "sumar")) ////////////////////////////////////////////////////////////////////// SUMAR //////////

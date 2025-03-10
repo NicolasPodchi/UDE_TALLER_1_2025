@@ -21,4 +21,6 @@ void mostrarEcuacionPrimerGrado(ecuacionPrimerGrado e);
 
 void bajarEcuacionPrimerGrado (ecuacionPrimerGrado e, FILE * f);
 
+float resolverPrimerGrado(ecuacionPrimerGrado e);
+
 #endif // ECUACIONPRIMERGRADO_H_INCLUDED

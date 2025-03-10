@@ -57,22 +57,6 @@ void mostrarEcuacion(ecuacion e)
         mostrarEcuacionSegundoGrado(e.datos.segundoGrado);
 }
 
-// void resolverEcuacion(ecuacion e, boolean &DosResultados, float &Resu1, float &Resu2)
-//{
-//
-//     ecuacionPrimerGrado EcuacionAuxiliar;
-//     if (getTipo(e) == PRIMER_GRADO)
-//     {
-//         EcuacionAuxiliar = getEcuacionPrimerGrado(e);  //-b/a
-//         Resu1 = ResolverPrimerGrado(EcuacionAuxiliar); // fijarse si es mejor usar el getcoeficiente o llamarlo asi!!!!!
-//     }
-//     else
-//     {
-//         ecuacionSegundoGrado Ecu2Auxiliar = getEcuacionSegundoGrado(e);
-//         ResolverSegundoGrado(Ecu2Auxiliar, DosResultados, Resu1, Resu2);
-//     }
-// }
-
 // PRECONDICI�N: El archivo viene abierto para escritura
 void bajarEcuacion(ecuacion e)
 {

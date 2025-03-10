@@ -65,7 +65,7 @@ void bajarEcuacionPrimerGrado(ecuacionPrimerGrado e, FILE *f)
     fwrite(&e.segundoCoeficiente, sizeof(int), 1, f);
 }
 
-float ResolverPrimerGrado(ecuacionPrimerGrado e)
+float resolverPrimerGrado(ecuacionPrimerGrado e)
 {
     return e.segundoCoeficiente * -1 / e.primerCoeficiente; // fijarse si es mejor usar el getcoeficiente o llamarlo asi!!!!!
 }

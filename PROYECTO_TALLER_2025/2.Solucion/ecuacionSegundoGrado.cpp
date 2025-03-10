@@ -94,47 +94,24 @@ void bajarEcuacionSegundoGrado(ecuacionSegundoGrado e, FILE *f)
     fwrite(&e.tercerCoeficiente, sizeof(int), 1, f);
 }
 
-float ResolverDiscriminante (ecuacionSegundoGrado e)
+float resolverDiscriminante (ecuacionSegundoGrado e)
 {
     float discriminante=e.segundoCoeficiente*e.segundoCoeficiente;
     discriminante = discriminante - (4 * e.primerCoeficiente * e.tercerCoeficiente);
     return discriminante;
-
 }
 
-void ResolucionDiscriminanteMayora0(ecuacionSegundoGrado e, float discriminante, int &Resultado1, int &Resultado2)
+void resolverEcuacionDeDosResultados(ecuacionSegundoGrado e, float discriminante, float &resultado1, float &resultado2)
 {
-    float PrimerTermino = e.segundoCoeficiente * -1;
-    float SegundoTermino = sqrt(discriminante);
+    float primerTermino = e.segundoCoeficiente * -1;
+    float segundoTermino = sqrt(discriminante);
     float divisor = 2 * e.primerCoeficiente;
 
-    Resultado1 = (PrimerTermino + SegundoTermino) / divisor;
-    Resultado2 = (PrimerTermino - SegundoTermino) / divisor;
+    resultado1 = (primerTermino + segundoTermino) / divisor;
+    resultado2 = (primerTermino - segundoTermino) / divisor;
 }
+
 float resolverEcuacionDeUnSoloResultado (ecuacionSegundoGrado e)
 {
     return(-e.segundoCoeficiente) / (2 * e.primerCoeficiente);
 }
-//void ResolverSegundoGrado(ecuacionSegundoGrado e, float &Resu1, float &Resu2)// contemplar que el discriminante
-//{
-//    int Resultado1, Resultado2;
-//    //LO COMENTADO VA EN EL MAIN
-////  float discriminante = ResolverDiscriminante(e);
-////
-////    //  evitar division por cero
-////    if (e.primerCoeficiente == 0)
-////        printf("ERROR: No es una ecuación de segundo grado.\n");
-//
-////    if (discriminante > 0)
-////    {
-////        ResolucionDiscriminanteMayora0(e, discriminante, Resultado1, Resultado2);
-////        Resu1 = Resultado1;
-////        Resu2 = Resultado2;
-////        printf("EXISTEN DOS SOLUCIONES \nRESULTADO 1: %d\nRESULTADO 2: %d\n", Resultado1, Resultado2);
-////    } else
-////    {
-////        Resu1 = resolverEcuacionDeUnSoloResultado (e);
-////        Resu2 = 0;  //  evitar basura
-////        printf("EXISTE UNA ÚNICA SOLUCIÓN \nRESULTADO: %f\n", Resu1);
-////    }
-////}
