@@ -15,7 +15,7 @@ int main()
 
     do
     {
-        printf("Ingresar comando y parametros: ");
+        printf("Ingrese comando: ");
         scan(comando);
         crearListaStrings(parametros);
         parametros = parsing(comando);
@@ -93,7 +93,8 @@ int main()
 
                                 nuevaEcuacion = crearEcuacionSegundoGrado(idNuevaEcuacion, primerCoeficiente, segundoCoeficiente, tercerCoeficiente);
                             }
-
+                            printf("Resultado: ");
+                            mostrarEcuacion(nuevaEcuacion);
                             insertarEcuacion(arbolEcuaciones, nuevaEcuacion);
                         }
                     }
@@ -114,6 +115,7 @@ int main()
                     printf("No existen ecuaciones para mostrar");
                 }
                 else
+                    printf("Resultado: ");
                     mostrarArbol(arbolEcuaciones);
             }
         }
@@ -142,7 +144,7 @@ int main()
                     if(getTipo(ecuacionResolver) == PRIMER_GRADO)
                     {
                         float resultado = resolverPrimerGrado(getEcuacionPrimerGrado(ecuacionResolver));
-                        printf("RESULTADO: %f\n", resultado);
+                        printf("Resultado: x = %.2f\n", resultado);
                     }
                     else
                     {
@@ -154,12 +156,12 @@ int main()
                         {
                             float resultado1, resultado2;
                             resolverEcuacionDeDosResultados(getEcuacionSegundoGrado(ecuacionResolver), discriminante, resultado1, resultado2);
-                            printf("EXISTEN DOS SOLUCIONES \nRESULTADO 1: %d\nRESULTADO 2: %d\n", resultado1, resultado2);
+                            printf("Resultado: x1 = %.2f\nx2 = %.2f\n", resultado1, resultado2);
                         }
                         else
                         {
                             float resultado = resolverEcuacionDeUnSoloResultado (getEcuacionSegundoGrado(ecuacionResolver));
-                            printf("EXISTE UNA ÚNICA SOLUCIÓN \nRESULTADO: %f\n", resultado);
+                            printf("Resultado: x = %.2f\n", resultado);
                         }
                     }
                 }
@@ -242,15 +244,15 @@ int main()
                 obtenerParametroEnPosicion(parametros,1,param);
                 if(validarStringAlfabetico(param) == FALSE) // validar tipo de parametros (ALFABETICO)
                 {
-                    printf("El parametro debe ser un valor alfab�tico");
+                    printf("El parametro debe ser un valor alfabetico");
                 }
                 else if(existeIdEcuacion(arbolEcuaciones, param) == FALSE) //ID NO PUEDE EXISTIR EN MEMORIA
                 {
-                    printf("La ecuaci�n que intenta recuperar no existe en memoria");
+                    printf("La ecuacion que intenta recuperar no existe en memoria");
                 }
                 else if(existeIdEcuacionArchivo(param) == TRUE) //DEBE EXISTIR EL ARCHIVO CON EL ID
                 {
-                    printf("La ecuaci�n que intenta recuperar ya se encuentra almacenada");
+                    printf("La ecuacion que intenta recuperar ya se encuentra almacenada");
                 }
                 else
                 {
@@ -258,7 +260,7 @@ int main()
                     ecuacion ecuacionGuardar = obtenerEcuacionPorId(arbolEcuaciones, param);
                     bajarEcuacion(ecuacionGuardar);
 
-                    printf("Ecuaci�n guardada existosamente");
+                    printf("Resultado: ecuacion guardada existosamente en ");
                 }
             }
         }
@@ -278,11 +280,11 @@ int main()
                 }
                 else if(existeIdEcuacion(arbolEcuaciones, param) == TRUE) //ID NO PUEDE EXISTIR EN MEMORIA
                 {
-                    printf("La ecuaci�n que intenta recuperar ya existe en memoria");
+                    printf("La ecuacion que intenta recuperar ya existe en memoria");
                 }
                 else if(existeIdEcuacionArchivo(param) == FALSE) //DEBE EXISTIR EL ARCHIVO CON EL ID
                 {
-                    printf("La ecuaci�n que intenta recuperar no se encuentra almacenada");
+                    printf("La ecuacion que intenta recuperar no se encuentra almacenada");
                 }
                 else
                 {
@@ -291,7 +293,7 @@ int main()
                     levantarEcuacion(param, ecuacionRecuperar);
                     insertarEcuacion(arbolEcuaciones, ecuacionRecuperar);
 
-                    printf("Ecuaci�n recuperada existosamente");
+                    printf("Ecuacion recuperada existosamente");
                 }
             }
         }
