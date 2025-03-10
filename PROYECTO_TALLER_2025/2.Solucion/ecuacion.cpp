@@ -57,6 +57,53 @@ void mostrarEcuacion(ecuacion e)
         mostrarEcuacionSegundoGrado(e.datos.segundoGrado);
 }
 
+
+
+void sumarDistintosGrados(ecuacion esg, ecuacion epg, strDinamico id, ecuacion &nuevaEcuacion) {
+    nuevaEcuacion.discriminante = SEGUNDO_GRADO;
+    nuevaEcuacion.datos.segundoGrado.primerCoeficiente = esg.datos.segundoGrado.primerCoeficiente;
+    nuevaEcuacion.datos.segundoGrado.segundoCoeficiente = esg.datos.segundoGrado.segundoCoeficiente + epg.datos.primerGrado.primerCoeficiente;
+    nuevaEcuacion.datos.segundoGrado.tercerCoeficiente = esg.datos.segundoGrado.tercerCoeficiente + epg.datos.primerGrado.segundoCoeficiente;
+}
+
+void sumarMismoGrado(ecuacion e1, ecuacion e2, strDinamico id, ecuacion &nuevaEcuacion) {
+    if (e1.discriminante == SEGUNDO_GRADO) {
+        float nuevoPrimerCoef = e1.datos.segundoGrado.primerCoeficiente + e2.datos.segundoGrado.primerCoeficiente;
+
+        if (nuevoPrimerCoef != 0) {
+            nuevaEcuacion.discriminante = SEGUNDO_GRADO;
+            nuevaEcuacion.datos.segundoGrado.primerCoeficiente = nuevoPrimerCoef;
+            nuevaEcuacion.datos.segundoGrado.segundoCoeficiente = e1.datos.segundoGrado.segundoCoeficiente + e2.datos.segundoGrado.segundoCoeficiente;
+            nuevaEcuacion.datos.segundoGrado.tercerCoeficiente = e1.datos.segundoGrado.tercerCoeficiente + e2.datos.segundoGrado.tercerCoeficiente;
+        } else {
+            nuevaEcuacion.discriminante = PRIMER_GRADO;
+            nuevaEcuacion.datos.primerGrado.primerCoeficiente = e1.datos.segundoGrado.segundoCoeficiente + e2.datos.segundoGrado.segundoCoeficiente;
+            nuevaEcuacion.datos.primerGrado.segundoCoeficiente = e1.datos.segundoGrado.tercerCoeficiente + e2.datos.segundoGrado.tercerCoeficiente;
+        }
+    } else {
+        nuevaEcuacion.discriminante = PRIMER_GRADO;
+        nuevaEcuacion.datos.primerGrado.primerCoeficiente = e1.datos.primerGrado.primerCoeficiente + e2.datos.primerGrado.primerCoeficiente;
+        nuevaEcuacion.datos.primerGrado.segundoCoeficiente = e1.datos.primerGrado.segundoCoeficiente + e2.datos.primerGrado.segundoCoeficiente;
+    }
+}
+
+ecuacion sumarEcuaciones(ecuacion e1, ecuacion e2, strDinamico id) {
+    ecuacion nuevaEcuacion;
+    strCrear(nuevaEcuacion.id);
+    strCop(nuevaEcuacion.id, id);
+
+    if (e1.discriminante != e2.discriminante) {
+        if (e1.discriminante == SEGUNDO_GRADO) {
+            sumarDistintosGrados(e1, e2, id, nuevaEcuacion);
+        } else {
+            sumarDistintosGrados(e2, e1, id, nuevaEcuacion);
+        }
+    } else {
+        sumarMismoGrado(e1, e2, id, nuevaEcuacion);
+    }
+
+    return nuevaEcuacion;
+}
 // PRECONDICI�N: El archivo viene abierto para escritura
 void bajarEcuacion(ecuacion e)
 {
@@ -121,50 +168,4 @@ boolean existeIdEcuacionArchivo(strDinamico id)
     fclose(a);
 
     return existe;
-}
-
-void sumarDistintosGrados(ecuacion esg, ecuacion epg, strDinamico id, ecuacion &nuevaEcuacion) {
-    nuevaEcuacion.discriminante = SEGUNDO_GRADO;
-    nuevaEcuacion.datos.segundoGrado.primerCoeficiente = esg.datos.segundoGrado.primerCoeficiente;
-    nuevaEcuacion.datos.segundoGrado.segundoCoeficiente = esg.datos.segundoGrado.segundoCoeficiente + epg.datos.primerGrado.primerCoeficiente;
-    nuevaEcuacion.datos.segundoGrado.tercerCoeficiente = esg.datos.segundoGrado.tercerCoeficiente + epg.datos.primerGrado.segundoCoeficiente;
-}
-
-void sumarMismoGrado(ecuacion e1, ecuacion e2, strDinamico id, ecuacion &nuevaEcuacion) {
-    if (e1.discriminante == SEGUNDO_GRADO) {
-        float nuevoPrimerCoef = e1.datos.segundoGrado.primerCoeficiente + e2.datos.segundoGrado.primerCoeficiente;
-
-        if (nuevoPrimerCoef != 0) {
-            nuevaEcuacion.discriminante = SEGUNDO_GRADO;
-            nuevaEcuacion.datos.segundoGrado.primerCoeficiente = nuevoPrimerCoef;
-            nuevaEcuacion.datos.segundoGrado.segundoCoeficiente = e1.datos.segundoGrado.segundoCoeficiente + e2.datos.segundoGrado.segundoCoeficiente;
-            nuevaEcuacion.datos.segundoGrado.tercerCoeficiente = e1.datos.segundoGrado.tercerCoeficiente + e2.datos.segundoGrado.tercerCoeficiente;
-        } else {
-            nuevaEcuacion.discriminante = PRIMER_GRADO;
-            nuevaEcuacion.datos.primerGrado.primerCoeficiente = e1.datos.segundoGrado.segundoCoeficiente + e2.datos.segundoGrado.segundoCoeficiente;
-            nuevaEcuacion.datos.primerGrado.segundoCoeficiente = e1.datos.segundoGrado.tercerCoeficiente + e2.datos.segundoGrado.tercerCoeficiente;
-        }
-    } else {
-        nuevaEcuacion.discriminante = PRIMER_GRADO;
-        nuevaEcuacion.datos.primerGrado.primerCoeficiente = e1.datos.primerGrado.primerCoeficiente + e2.datos.primerGrado.primerCoeficiente;
-        nuevaEcuacion.datos.primerGrado.segundoCoeficiente = e1.datos.primerGrado.segundoCoeficiente + e2.datos.primerGrado.segundoCoeficiente;
-    }
-}
-
-ecuacion sumarEcuaciones(ecuacion e1, ecuacion e2, strDinamico id) {
-    ecuacion nuevaEcuacion;
-    strCrear(nuevaEcuacion.id);
-    strCop(nuevaEcuacion.id, id);
-
-    if (e1.discriminante != e2.discriminante) {
-        if (e1.discriminante == SEGUNDO_GRADO) {
-            sumarDistintosGrados(e1, e2, id, nuevaEcuacion);
-        } else {
-            sumarDistintosGrados(e2, e1, id, nuevaEcuacion);
-        }
-    } else {
-        sumarMismoGrado(e1, e2, id, nuevaEcuacion);
-    }
-
-    return nuevaEcuacion;
 }

@@ -1,6 +1,6 @@
 #ifndef LISTASTRINGS_H_INCLUDED
 #define LISTASTRINGS_H_INCLUDED
-
+#include <stdio.h>
 #include "strDinamico.h"
 
 typedef struct nodoL
@@ -16,8 +16,6 @@ void crearListaStrings (listaStrDinamico &l);
 void destruirListaStrings (listaStrDinamico &l);
 
 void insBack (listaStrDinamico &l, strDinamico s);
-
-listaStrDinamico parsing(strDinamico s);
 
 int cantidadParametros(listaStrDinamico l);
 

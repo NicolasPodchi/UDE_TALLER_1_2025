@@ -36,15 +36,12 @@ ecuacion crearEcuacionSegundoGrado(strDinamico id, int primerCoeficiente, int se
 
 void mostrarEcuacion(ecuacion e);
 
-//Precondicion: La ecuaci�n debe existir en el ABB de ecuaciones
-void resolverEcuacion(ecuacion e);
+void sumarDistintosGrados(ecuacion esg, ecuacion epg, strDinamico id, ecuacion &nuevaEcuacion);
 
-void mostrarEcuacion(ecuacion e);
+void sumarMismoGrado(ecuacion e1, ecuacion e2, strDinamico id, ecuacion &nuevaEcuacion);
 
 //Precondicion: e1 y e2 EXISTEN en el ABB de ecuaciones e id NO existe en el ABB
 ecuacion sumarEcuaciones(ecuacion e1, ecuacion e2, strDinamico id);
-
-void resolverEcuacion(ecuacion e, boolean &DosResultados, float &Resu1, float &Resu2);
 
 //Precondici�n: El archivo viene abierto para escritura
 void bajarEcuacion (ecuacion e);

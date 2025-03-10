@@ -1,14 +1,5 @@
-#include <stdio.h>
 #include "ecuacionPrimerGrado.h"
 
-ecuacionPrimerGrado crearEcuacionPrimerGrado(int primerCoeficiente, int segundoCoeficiente)
-{
-    ecuacionPrimerGrado nuevaEcuacion;
-    nuevaEcuacion.primerCoeficiente = primerCoeficiente;
-    nuevaEcuacion.segundoCoeficiente = segundoCoeficiente;
-
-    return nuevaEcuacion;
-}
 
 int getPrimerCoeficiente(ecuacionPrimerGrado e)
 {
@@ -18,6 +9,15 @@ int getPrimerCoeficiente(ecuacionPrimerGrado e)
 int getSegundoCoeficiente(ecuacionPrimerGrado e)
 {
     return e.segundoCoeficiente;
+}
+
+ecuacionPrimerGrado crearEcuacionPrimerGrado(int primerCoeficiente, int segundoCoeficiente)
+{
+    ecuacionPrimerGrado nuevaEcuacion;
+    nuevaEcuacion.primerCoeficiente = primerCoeficiente;
+    nuevaEcuacion.segundoCoeficiente = segundoCoeficiente;
+
+    return nuevaEcuacion;
 }
 
 // Precondici�n: primerCoeficiente de e debe ser distinto de 0
@@ -57,12 +57,6 @@ void mostrarEcuacionPrimerGrado(ecuacionPrimerGrado e)
     mostrarSegundoCoeficiente(e);
 
     printf("= 0");
-}
-
-void bajarEcuacionPrimerGrado(ecuacionPrimerGrado e, FILE *f)
-{
-    fwrite(&e.primerCoeficiente, sizeof(int), 1, f);
-    fwrite(&e.segundoCoeficiente, sizeof(int), 1, f);
 }
 
 float resolverPrimerGrado(ecuacionPrimerGrado e)

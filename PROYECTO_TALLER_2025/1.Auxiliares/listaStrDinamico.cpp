@@ -1,4 +1,3 @@
-#include <stdio.h>
 #include "listaStrDinamico.h"
 
 void crearListaStrings (listaStrDinamico &l)
@@ -48,7 +47,7 @@ int cantidadParametros(listaStrDinamico l)
         return 1 + cantidadParametros(l -> sig);
 }
 
-//Precondici�n: p debe pertenecer a una posici�n con datos dentro de l
+//Precondicion: p debe pertenecer a una posici�n con datos dentro de l
 void obtenerParametroEnPosicion(listaStrDinamico l, int p, strDinamico & s)
 {
     int x = 0;

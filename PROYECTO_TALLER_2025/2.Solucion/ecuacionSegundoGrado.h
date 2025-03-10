@@ -1,6 +1,6 @@
 #ifndef ECUACIONSEGUNDOGRADO_H_INCLUDED
 #define ECUACIONSEGUNDOGRADO_H_INCLUDED
-#include "../1.Auxiliares/boolean.h"
+#include <stdio.h>
 #include <math.h>
 
 typedef struct {
@@ -9,13 +9,14 @@ typedef struct {
     int tercerCoeficiente;
 } ecuacionSegundoGrado;
 
-ecuacionSegundoGrado crearEcuacionSegundoGrado (int primerCoeficiente, int segundoCoeficiente, int tercerCoeficiente);
 
 int getPrimerCoeficiente (ecuacionSegundoGrado e);
 
 int getSegundoCoeficiente (ecuacionSegundoGrado e);
 
 int getTercerCoeficiente (ecuacionSegundoGrado e);
+
+ecuacionSegundoGrado crearEcuacionSegundoGrado (int primerCoeficiente, int segundoCoeficiente, int tercerCoeficiente);
 
 void mostrarPrimerCoeficiente (ecuacionSegundoGrado e);
 
@@ -24,8 +25,6 @@ void mostrarSegundoCoeficiente (ecuacionSegundoGrado e);
 void mostrarTercerCoeficiente (ecuacionSegundoGrado e);
 
 void mostrarEcuacionSegundoGrado (ecuacionSegundoGrado NuevaEcuacion);
-
-void bajarEcuacionSegundoGrado (ecuacionSegundoGrado e, FILE * f);
 
 float resolverDiscriminante (ecuacionSegundoGrado e);
 

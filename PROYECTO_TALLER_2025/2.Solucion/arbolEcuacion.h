@@ -12,43 +12,36 @@ typedef struct nodoA
 
 typedef nodoArbol * arbolEcuacion;
 
-
 void crear (arbolEcuacion &a);
-
-void destruirArbol(arbolEcuacion &a);
-
 //PRECONDICION: El arbol debe haberse inicializado anteriormente
-//Saber si un �rbol est� vac�o
+//Saber si un arbol esta vacio
 boolean arbolVacio(arbolEcuacion a);
 
-
-//PRECONDICION: el �rbol no es nulo
-//Obtener la ra�z del �rbol
+//PRECONDICION: el arbol no es nulo
+//Obtener la raiz del arbol
 ecuacion darRaiz (arbolEcuacion a);
 
-//PRECONDICION: el �rbol no es nulo
-//Devolver un sub�rbol izquierdo
+//PRECONDICION: el arbol no es nulo
+//Devolver un subarbol izquierdo
 arbolEcuacion hijoIzquierdo (arbolEcuacion a);
 
-//PRECONDICION: el �rbol no es nulo
-//Devolver un sub�rbol derecho
+//PRECONDICION: el arbol no es nulo
+//Devolver un subarbol derecho
 arbolEcuacion hijoDerecho (arbolEcuacion a);
 
 //PRECONDICION: El arbol debe haberse inicializado anteriormente
-//Precondici�n: El id de la nueva ecuaci�n no debe existir dentro del ABB
+//Precondicion: El id de la nueva ecuacion no debe existir dentro del ABB
 void insertarEcuacion (arbolEcuacion &a, ecuacion e);
 
-//Precondici�n: El ABB de ecuaciones no debe estar vac�o
+//Precondicion: El ABB de ecuaciones no debe estar vacio
 boolean existeIdEcuacion(arbolEcuacion a, strDinamico id);
 
-//Precondici�n: El ABB no puede estar vac�o e id debe existir en el ABB
+//Precondicion: El ABB no puede estar vacio e id debe existir en el ABB
 ecuacion obtenerEcuacionPorId(arbolEcuacion a, strDinamico id);
 
-
-//Precondici�n: El ABB de ecuaciones no debe estar vac�o
+//Precondicion: El ABB de ecuaciones no debe estar vacio
 void mostrarArbol(arbolEcuacion a);
 
 void destruirArbol(arbolEcuacion &a);
-
 
 #endif // ARBOLECUACION_H_INCLUDED

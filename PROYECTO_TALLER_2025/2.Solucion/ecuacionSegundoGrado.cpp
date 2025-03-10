@@ -1,15 +1,5 @@
-#include <stdio.h>
 #include "ecuacionSegundoGrado.h"
 
-ecuacionSegundoGrado crearEcuacionSegundoGrado(int primerCoeficiente, int segundoCoeficiente, int tercerCoeficiente)
-{
-    ecuacionSegundoGrado nuevaEcuacion;
-    nuevaEcuacion.primerCoeficiente = primerCoeficiente;
-    nuevaEcuacion.segundoCoeficiente = segundoCoeficiente;
-    nuevaEcuacion.tercerCoeficiente = tercerCoeficiente;
-
-    return nuevaEcuacion;
-}
 
 int getPrimerCoeficiente(ecuacionSegundoGrado e)
 {
@@ -24,6 +14,16 @@ int getSegundoCoeficiente(ecuacionSegundoGrado e)
 int getTercerCoeficiente(ecuacionSegundoGrado e)
 {
     return e.tercerCoeficiente;
+}
+
+ecuacionSegundoGrado crearEcuacionSegundoGrado(int primerCoeficiente, int segundoCoeficiente, int tercerCoeficiente)
+{
+    ecuacionSegundoGrado nuevaEcuacion;
+    nuevaEcuacion.primerCoeficiente = primerCoeficiente;
+    nuevaEcuacion.segundoCoeficiente = segundoCoeficiente;
+    nuevaEcuacion.tercerCoeficiente = tercerCoeficiente;
+
+    return nuevaEcuacion;
 }
 
 void mostrarPrimerCoeficiente(ecuacionSegundoGrado e)
@@ -85,13 +85,6 @@ void mostrarEcuacionSegundoGrado(ecuacionSegundoGrado NuevaEcuacion)
     mostrarSegundoCoeficiente(NuevaEcuacion);
     mostrarTercerCoeficiente(NuevaEcuacion);
     printf("= 0");
-}
-
-void bajarEcuacionSegundoGrado(ecuacionSegundoGrado e, FILE *f)
-{
-    fwrite(&e.primerCoeficiente, sizeof(int), 1, f);
-    fwrite(&e.segundoCoeficiente, sizeof(int), 1, f);
-    fwrite(&e.tercerCoeficiente, sizeof(int), 1, f);
 }
 
 float resolverDiscriminante (ecuacionSegundoGrado e)
