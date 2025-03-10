@@ -21,7 +21,7 @@ int main()
         parametros = parsing(comando);
         obtenerParametroEnPosicion(parametros, 0, instruccion);
 
-        if(strEq(instruccion, "crear")) ////////////////////////////////////////////////////////////////////// CREAR
+        if(strEq(instruccion, "crear")||strEq(instruccion, "CREAR")) ////////////////////////////////////////////////////////////////////// CREAR
         {
             //validar cantidad de parametros
             int cantParametros = cantidadParametros(parametros);
@@ -101,7 +101,7 @@ int main()
                 }
             }
         }
-        else if(strEq(instruccion, "mostrar")) ////////////////////////////////////////////////////////////////////// MOSTRAR //////////
+        else if(strEq(instruccion, "mostrar")||(strEq(instruccion, "MOSTRAR"))) ////////////////////////////////////////////////////////////////////// MOSTRAR //////////
         {
             //validar cantidad de parametros
             if(cantidadParametros(parametros) != 1)
@@ -119,7 +119,7 @@ int main()
                     mostrarArbol(arbolEcuaciones);
             }
         }
-        else if(strEq(instruccion, "resolver")) ////////////////////////////////////////////////////////////////////// RESOLVER //////////
+        else if(strEq(instruccion, "resolver")||(strEq(instruccion, "RESOLVER"))) ////////////////////////////////////////////////////////////////////// RESOLVER //////////
         {
             //validar cantidad de parametros
             if(cantidadParametros(parametros) != 2)
@@ -167,7 +167,7 @@ int main()
                 }
             }
         }
-        else if(strEq(instruccion, "sumar")) ////////////////////////////////////////////////////////////////////// SUMAR //////////
+        else if(strEq(instruccion, "sumar")||(strEq(instruccion, "SUMAR"))) ////////////////////////////////////////////////////////////////////// SUMAR //////////
         {
             //validar cantidad de parametros
             if(cantidadParametros(parametros) != 4)
@@ -232,7 +232,7 @@ int main()
                 }
             }
         }
-        else if(strEq(instruccion, "guardar")) ////////////////////////////////////////////////////////////////////// GUARDAR //////////
+        else if(strEq(instruccion, "guardar")||(strEq(instruccion, "GUARDAR"))) ////////////////////////////////////////////////////////////////////// GUARDAR //////////
         {
             //validar cantidad de parametros
             if(cantidadParametros(parametros) != 2)
@@ -264,7 +264,7 @@ int main()
                 }
             }
         }
-        else if(strEq(instruccion, "recuperar")) ////////////////////////////////////////////////////////////////////// RECUPERAR //////////
+        else if(strEq(instruccion, "recuperar")||(strEq(instruccion, "RECUPERAR"))) ////////////////////////////////////////////////////////////////////// RECUPERAR //////////
         {
             //validar cantidad de parametros
             if(cantidadParametros(parametros) != 2)
@@ -297,7 +297,7 @@ int main()
                 }
             }
         }
-        else if(strEq(instruccion, "salir")) ////////////////////////////////////////////////////////////////////// SALIR //////////
+        else if(strEq(instruccion, "salir")||(strEq(instruccion, "SALIR"))) ////////////////////////////////////////////////////////////////////// SALIR //////////
         {
             //validar cantidad de parametros
             if(cantidadParametros(parametros) != 1)
@@ -327,5 +327,5 @@ int main()
 
         printf("\n");
     }
-    while (strEq(instruccion, "salir") == FALSE);
+    while (!strEq(instruccion, "salir")||(!strEq(instruccion, "SALIR")));
 }
