@@ -36,9 +36,9 @@ ecuacion crearEcuacionSegundoGrado(strDinamico id, int primerCoeficiente, int se
 
 void mostrarEcuacion(ecuacion e);
 
-void sumarDistintosGrados(ecuacion esg, ecuacion epg, strDinamico id, ecuacion &nuevaEcuacion);
+void sumarDistintosGrados(ecuacion esg, ecuacion epg, ecuacion &nuevaEcuacion);
 
-void sumarMismoGrado(ecuacion e1, ecuacion e2, strDinamico id, ecuacion &nuevaEcuacion);
+void sumarMismoGrado(ecuacion e1, ecuacion e2, ecuacion &nuevaEcuacion);
 
 //Precondicion: e1 y e2 EXISTEN en el ABB de ecuaciones e id NO existe en el ABB
 ecuacion sumarEcuaciones(ecuacion e1, ecuacion e2, strDinamico id);

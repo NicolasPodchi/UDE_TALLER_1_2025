@@ -59,7 +59,7 @@ void mostrarEcuacion(ecuacion e)
 
 
 
-void sumarDistintosGrados(ecuacion esg, ecuacion epg, strDinamico id, ecuacion &nuevaEcuacion)
+void sumarDistintosGrados(ecuacion esg, ecuacion epg, ecuacion &nuevaEcuacion)
 {
     nuevaEcuacion.discriminante = SEGUNDO_GRADO;
     nuevaEcuacion.datos.segundoGrado.primerCoeficiente = esg.datos.segundoGrado.primerCoeficiente;
@@ -67,7 +67,7 @@ void sumarDistintosGrados(ecuacion esg, ecuacion epg, strDinamico id, ecuacion &
     nuevaEcuacion.datos.segundoGrado.tercerCoeficiente = esg.datos.segundoGrado.tercerCoeficiente + epg.datos.primerGrado.segundoCoeficiente;
 }
 
-void sumarMismoGrado(ecuacion e1, ecuacion e2, strDinamico id, ecuacion &nuevaEcuacion)
+void sumarMismoGrado(ecuacion e1, ecuacion e2, ecuacion &nuevaEcuacion)
 {
     if (e1.discriminante == SEGUNDO_GRADO)
     {
@@ -103,16 +103,16 @@ ecuacion sumarEcuaciones(ecuacion e1, ecuacion e2, strDinamico id)
     {
         if (e1.discriminante == SEGUNDO_GRADO)
         {
-            sumarDistintosGrados(e1, e2, id, nuevaEcuacion);
+            sumarDistintosGrados(e1, e2, nuevaEcuacion);
         }
         else
         {
-            sumarDistintosGrados(e2, e1, id, nuevaEcuacion);
+            sumarDistintosGrados(e2, e1, nuevaEcuacion);
         }
     }
     else
     {
-        sumarMismoGrado(e1, e2, id, nuevaEcuacion);
+        sumarMismoGrado(e1, e2, nuevaEcuacion);
     }
 
     return nuevaEcuacion;

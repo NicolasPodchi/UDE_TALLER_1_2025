@@ -9,22 +9,11 @@ void destruirListaStrings (listaStrDinamico &l)
 {
     if(l != NULL){
         destruirListaStrings(l -> sig);
-        //strDestruir(l -> info);
+        strDestruir(l -> info);
         delete l;
         l = NULL;
     }
 
-    /*while(l != NULL)
-    {
-        listaStrDinamico aux = l;
-        l = aux -> sig;
-        aux -> sig = NULL;
-
-        if(aux -> info != NULL)
-            strDestruir(aux -> info);
-
-        delete aux;
-    }*/
 }
 
 //Precondici�n: La lista debe haberse inicializado anteriormente
@@ -69,7 +58,6 @@ void obtenerParametroEnPosicion(listaStrDinamico l, int p, strDinamico & s)
 
     while(x != p)
     {
-        //strCop(s, aux -> info);
         aux = aux -> sig;
         x++;
     }

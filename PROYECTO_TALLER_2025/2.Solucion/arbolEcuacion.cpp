@@ -42,10 +42,6 @@ arbolEcuacion hijoDerecho (arbolEcuacion a)
 //Precondici�n: El id de la nueva ecuaci�n no debe existir dentro del ABB
 void insertarEcuacion (arbolEcuacion &a, ecuacion e)
 {
-    strDinamico strAux1, strAux2;
-    strCrear(strAux1);
-    strCrear(strAux2);
-
     if (a==NULL)
     {
         a=new nodoArbol;
@@ -55,15 +51,24 @@ void insertarEcuacion (arbolEcuacion &a, ecuacion e)
     }
     else
     {
+        strDinamico strAux1, strAux2;
+        strCrear(strAux1);
+        strCrear(strAux2);
         getId(a->info, strAux1);
         getId(e, strAux2);
 
         if(strMen(strAux2, strAux1) == TRUE)
         {
+            strDestruir(strAux1);
+            strDestruir(strAux2);
             insertarEcuacion(a->hIzq,e);
         }
         else
+        {
+            strDestruir(strAux1);
+            strDestruir(strAux2);
             insertarEcuacion(a->hDer,e);
+        }
     }
 }
 
@@ -71,10 +76,11 @@ void insertarEcuacion (arbolEcuacion &a, ecuacion e)
 boolean existeIdEcuacion(arbolEcuacion a, strDinamico id)
 {
     boolean encontre = FALSE;
-    strDinamico strAux;
 
     while(a!=NULL && !encontre)
     {
+        strDinamico strAux;
+        strCrear(strAux);
         getId(a->info, strAux);
 
         if (strEq(strAux, id))
@@ -86,6 +92,7 @@ boolean existeIdEcuacion(arbolEcuacion a, strDinamico id)
             else
                 a=a -> hDer;
         }
+        strDestruir(strAux);
     }
     return encontre;
 }
@@ -93,18 +100,23 @@ boolean existeIdEcuacion(arbolEcuacion a, strDinamico id)
 //Precondici�n: El ABB no puede estar vac�o e id debe existir en el ABB
 ecuacion obtenerEcuacionPorId(arbolEcuacion a, strDinamico id)
 {
-    strDinamico strAux;
-    strCrear(strAux);
-
-    getId(a -> info, strAux);
-    while(a != NULL && strEq(strAux, id) == FALSE)
+    boolean encontre = FALSE;
+    while(a != NULL && !encontre)
     {
-        if(strMen(id, strAux))
-            a = a -> hIzq;
-        else
-            a = a -> hDer;
-
+        strDinamico strAux;
+        strCrear(strAux);
         getId(a -> info, strAux);
+
+        if (strEq(strAux, id))
+            encontre = TRUE;
+        else
+        {
+            if(strMen(id, strAux))
+                a = a -> hIzq;
+            else
+                a = a -> hDer;
+        }
+        strDestruir(strAux);
     }
 
     return a -> info;

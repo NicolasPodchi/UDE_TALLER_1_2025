@@ -234,11 +234,12 @@ void eliminarEspaciosVaciosAlInicio(strDinamico &s1, strDinamico s2)
 
     while(s2[i] != '\0')
     {
-        if(espacioEliminado == TRUE || s2[i] != 32)
+        if(espacioEliminado == TRUE || s2[i] != ' ')
         {
             if(espacioEliminado == FALSE)
             {
-                s1 = new char[(strLar(s2) - i) + 1];
+                int tam = (strLar(s2) - i);
+                s1 = new char[ tam + 1];
                 espacioEliminado = TRUE;
             }
 
@@ -272,7 +273,8 @@ void obtenerPrimerPalabra(strDinamico &s1, strDinamico &s2, strDinamico sEntrada
 
     int largoPrimerPalabra = strLarPrimerPalabra(sEntrada);// CANTIDAD DE CARACTERES DE LA PRIMER PALABRA DE sEntrada
     s1 = new char[largoPrimerPalabra + 1];// CANTIDAD DE CARACTERES DE LA PRIMER PALABRA DE sEntrada + 1 PARA EL CARACTER NULO
-    s2 = new char[(strLar(sEntrada) - largoPrimerPalabra) + 1];// CANTIDAD DE CARACTERES QUE OCUPA EL RESTO DEL STRING + 1 PARA EL CARACTER NULO
+    int tam = (strLar(sEntrada) - largoPrimerPalabra);
+    s2 = new char[tam + 1];// CANTIDAD DE CARACTERES QUE OCUPA EL RESTO DEL STRING + 1 PARA EL CARACTER NULO
 
     int i = 0, iInsertar = 0; // i UTILIZADO PARA RECORRER sEntrada, iInsertar utilizado para inserción en s1 y s2
     boolean resto = FALSE;

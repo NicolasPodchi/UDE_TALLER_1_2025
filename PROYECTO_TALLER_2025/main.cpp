@@ -7,19 +7,21 @@ int main()
     crear(arbolEcuaciones);
 
     listaStrDinamico parametros;
+    crearListaStrings(parametros);
 
-    strDinamico comando, instruccion, param;
-    strCrear(comando);
-    strCrear(instruccion);
-    strCrear(param);
+    strDinamico instruccion;
 
     do
     {
-        crearListaStrings(parametros);
 
+        strDinamico comando;
+        strCrear(comando);
         printf("Ingrese comando: ");
         scan(comando);
         parsing(comando, parametros);
+        strDestruir(comando);
+
+        strCrear(instruccion);
         obtenerParametroEnPosicion(parametros, 0, instruccion);
 
         if(strEq(instruccion, "crear")||strEq(instruccion, "CREAR")) ////////////////////////////////////////////////////////////////////// CREAR
@@ -34,11 +36,13 @@ int main()
             else
             {
                 // validar tipo de parametros (numerico alfabetico) validaarstringalfabetico ) parametro numero 1 que seria el id
-                obtenerParametroEnPosicion(parametros,1,param);
+                strDinamico paramId;
+                strCrear(paramId);
+                obtenerParametroEnPosicion(parametros,1,paramId);
 
-                if (validarStringAlfabetico(param) == FALSE)// param 1 debe ser alfabetico
+                if (validarStringAlfabetico(paramId) == FALSE)// param 1 debe ser alfabetico
                     printf("El ID de la ecuacion debe ser alfabetico");
-                else if (existeIdEcuacion(arbolEcuaciones, param) == TRUE)// el id de la ecuacion no puede existir en el arbol
+                else if (existeIdEcuacion(arbolEcuaciones, paramId) == TRUE)// el id de la ecuacion no puede existir en el arbol
                     printf("El ID de la ecuacion ya existe");
                 else
                 {
@@ -46,9 +50,11 @@ int main()
                     boolean valido = TRUE;
                     do
                     {
-                        obtenerParametroEnPosicion(parametros, i, param);
-                        valido = validarStringNumerico(param);
-
+                        strDinamico paramAux;
+                        strCrear(paramAux);
+                        obtenerParametroEnPosicion(parametros, i, paramAux);
+                        valido = validarStringNumerico(paramAux);
+                        strDestruir(paramAux);
                         i++;
                     }
                     while(i < cantParametros && valido == TRUE);
@@ -59,9 +65,11 @@ int main()
                     }
                     else
                     {
-                        obtenerParametroEnPosicion(parametros, 2, param);
+                        strDinamico paramAux;
+                        strCrear(paramAux);
+                        obtenerParametroEnPosicion(parametros, 2, paramAux);
 
-                        if(validarStringNumericoDistintoDeCero(param) == FALSE)
+                        if(validarStringNumericoDistintoDeCero(paramAux) == FALSE)
                             printf("El coeficiente principal debe ser distinto de cero");
                         else
                         {
@@ -70,13 +78,19 @@ int main()
 
                             strDinamico idNuevaEcuacion;
                             strCrear(idNuevaEcuacion);
-                            obtenerParametroEnPosicion(parametros,1,idNuevaEcuacion);
+                            strCop(idNuevaEcuacion, paramId);
 
-                            obtenerParametroEnPosicion(parametros,2,param);
-                            int primerCoeficiente = convertirStringAEntero(param);
+                            strDinamico paramCoef1;
+                            strCrear(paramCoef1);
+                            obtenerParametroEnPosicion(parametros,2,paramCoef1);
+                            int primerCoeficiente = convertirStringAEntero(paramCoef1);
+                            strDestruir(paramCoef1);
 
-                            obtenerParametroEnPosicion(parametros,3,param);
-                            int segundoCoeficiente = convertirStringAEntero(param);
+                            strDinamico paramCoef2;
+                            strCrear(paramCoef2);
+                            obtenerParametroEnPosicion(parametros,3,paramCoef2);
+                            int segundoCoeficiente = convertirStringAEntero(paramCoef2);
+                            strDestruir(paramCoef2);
 
                             if(cantParametros == 4)
                             {
@@ -84,8 +98,11 @@ int main()
                             }
                             else
                             {
-                                obtenerParametroEnPosicion(parametros,4,param);
-                                int tercerCoeficiente = convertirStringAEntero(param);
+                                strDinamico paramCoef3;
+                                strCrear(paramCoef3);
+                                obtenerParametroEnPosicion(parametros,4,paramCoef3);
+                                int tercerCoeficiente = convertirStringAEntero(paramCoef3);
+                                strDestruir(paramCoef3);
 
                                 nuevaEcuacion = crearEcuacionSegundoGrado(idNuevaEcuacion, primerCoeficiente, segundoCoeficiente, tercerCoeficiente);
                             }
@@ -95,8 +112,10 @@ int main()
 
                             strDestruir(idNuevaEcuacion);
                         }
+                        strDestruir(paramAux);
                     }
                 }
+                strDestruir(paramId);
             }
         }
         else if(strEq(instruccion, "mostrar")||(strEq(instruccion, "MOSTRAR"))) ////////////////////////////////////////////////////////////////////// MOSTRAR //////////
@@ -126,16 +145,18 @@ int main()
             }
             else
             {
-                obtenerParametroEnPosicion(parametros, 1, param); //Validar que existe la primer ecuacion
+                strDinamico paramId;
+                strCrear(paramId);
+                obtenerParametroEnPosicion(parametros, 1, paramId); //Validar que existe la primer ecuacion
 
-                if (validarStringAlfabetico(param) == FALSE)
+                if (validarStringAlfabetico(paramId) == FALSE)
                     printf("El ID de la ecuacion debe ser alfabetico");
-                else if(existeIdEcuacion(arbolEcuaciones, param)==FALSE)
+                else if(existeIdEcuacion(arbolEcuaciones, paramId)==FALSE)
                     printf("El ID ingresado no existe en memoria");
                 else
                 {
                     //FUNCIONALIDAD RESOLVER
-                    ecuacion ecuacionResolver = obtenerEcuacionPorId(arbolEcuaciones, param);
+                    ecuacion ecuacionResolver = obtenerEcuacionPorId(arbolEcuaciones, paramId);
 
                     if(getTipo(ecuacionResolver) == PRIMER_GRADO)
                     {
@@ -161,6 +182,7 @@ int main()
                         }
                     }
                 }
+                strDestruir(paramId);
             }
         }
         else if(strEq(instruccion, "sumar")||(strEq(instruccion, "SUMAR"))) ////////////////////////////////////////////////////////////////////// SUMAR //////////
@@ -176,11 +198,14 @@ int main()
                 boolean valido = TRUE;
                 do
                 {
-                    obtenerParametroEnPosicion(parametros, i, param);
-                    if(validarStringAlfabetico(param) == TRUE) //Validar que todos los parametros sean strings
+                    strDinamico paramId;
+                    strCrear(paramId);
+                    obtenerParametroEnPosicion(parametros, i, paramId);
+                    if(validarStringAlfabetico(paramId) == TRUE) //Validar que todos los parametros sean strings
                         i++;
                     else
                         valido == FALSE;
+                    strDestruir(paramId);
                 }
                 while(i < 4 && valido == TRUE);
 
@@ -249,27 +274,30 @@ int main()
             }
             else
             {
-                obtenerParametroEnPosicion(parametros,1,param);
-                if(validarStringAlfabetico(param) == FALSE) // validar tipo de parametros (ALFABETICO)
+                strDinamico paramId;
+                strCrear(paramId);
+                obtenerParametroEnPosicion(parametros,1,paramId);
+                if(validarStringAlfabetico(paramId) == FALSE) // validar tipo de parametros (ALFABETICO)
                 {
                     printf("El parametro debe ser un valor alfabetico");
                 }
-                else if(existeIdEcuacion(arbolEcuaciones, param) == FALSE) //ID NO PUEDE EXISTIR EN MEMORIA
+                else if(existeIdEcuacion(arbolEcuaciones, paramId) == FALSE) //ID NO PUEDE EXISTIR EN MEMORIA
                 {
                     printf("La ecuacion que intenta recuperar no existe en memoria");
                 }
-                else if(existeIdEcuacionArchivo(param) == TRUE) //DEBE EXISTIR EL ARCHIVO CON EL ID
+                else if(existeIdEcuacionArchivo(paramId) == TRUE) //DEBE EXISTIR EL ARCHIVO CON EL ID
                 {
                     printf("La ecuacion que intenta recuperar ya se encuentra almacenada");
                 }
                 else
                 {
                     // GUARDAR
-                    ecuacion ecuacionGuardar = obtenerEcuacionPorId(arbolEcuaciones, param);
+                    ecuacion ecuacionGuardar = obtenerEcuacionPorId(arbolEcuaciones, paramId);
                     bajarEcuacion(ecuacionGuardar);
 
                     printf("Resultado: Ecuacion guardada con exito");
                 }
+                strDestruir(paramId);
             }
         }
         else if(strEq(instruccion, "recuperar")||(strEq(instruccion, "RECUPERAR"))) ////////////////////////////////////////////////////////////////////// RECUPERAR //////////
@@ -281,16 +309,18 @@ int main()
             }
             else
             {
-                obtenerParametroEnPosicion(parametros,1,param);
-                if(validarStringAlfabetico(param) == FALSE) // validar tipo de parametros (ALFABETICO)
+                strDinamico paramId;
+                strCrear(paramId);
+                obtenerParametroEnPosicion(parametros,1,paramId);
+                if(validarStringAlfabetico(paramId) == FALSE) // validar tipo de parametros (ALFABETICO)
                 {
                     printf("El parametro debe ser un valor alfab�tico");
                 }
-                else if(existeIdEcuacion(arbolEcuaciones, param) == TRUE) //ID NO PUEDE EXISTIR EN MEMORIA
+                else if(existeIdEcuacion(arbolEcuaciones, paramId) == TRUE) //ID NO PUEDE EXISTIR EN MEMORIA
                 {
                     printf("La ecuacion que intenta recuperar ya existe en memoria");
                 }
-                else if(existeIdEcuacionArchivo(param) == FALSE) //DEBE EXISTIR EL ARCHIVO CON EL ID
+                else if(existeIdEcuacionArchivo(paramId) == FALSE) //DEBE EXISTIR EL ARCHIVO CON EL ID
                 {
                     printf("La ecuacion que intenta recuperar no se encuentra almacenada");
                 }
@@ -298,11 +328,12 @@ int main()
                 {
                     // RECUPERAR
                     ecuacion ecuacionRecuperar;
-                    levantarEcuacion(param, ecuacionRecuperar);
+                    levantarEcuacion(paramId, ecuacionRecuperar);
                     insertarEcuacion(arbolEcuaciones, ecuacionRecuperar);
 
                     printf("Resultado: Ecuacion recuperada con exito");
                 }
+                strDestruir(paramId);
             }
         }
         else if(strEq(instruccion, "salir")||(strEq(instruccion, "SALIR"))) ////////////////////////////////////////////////////////////////////// SALIR //////////
@@ -316,10 +347,6 @@ int main()
             {
                 //destruir arbol de ecuaciones
                 destruirArbol(arbolEcuaciones);
-
-                //destruir strings
-                strDestruir(comando);
-                strDestruir(param);
             }
         }
         else
@@ -329,11 +356,7 @@ int main()
         }
 
         //destruir lista de parametros
-        //destruirListaStrings(parametros);
-
-        mostrarLista(parametros);
-        int cantidadParametroAux = cantidadParametros(parametros);
-        printf("\n  CANTIDAD PARAMETROSS >> %d", cantidadParametroAux);
+        destruirListaStrings(parametros);
 
         printf("\n");
     }
