@@ -43,6 +43,8 @@ void sumarMismoGrado(ecuacion e1, ecuacion e2, strDinamico id, ecuacion &nuevaEc
 //Precondicion: e1 y e2 EXISTEN en el ABB de ecuaciones e id NO existe en el ABB
 ecuacion sumarEcuaciones(ecuacion e1, ecuacion e2, strDinamico id);
 
+void destruirEcuacion(ecuacion &e);
+
 //Precondici�n: El archivo viene abierto para escritura
 void bajarEcuacion (ecuacion e);
 

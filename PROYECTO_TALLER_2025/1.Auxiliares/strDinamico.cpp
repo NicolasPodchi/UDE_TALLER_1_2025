@@ -173,7 +173,7 @@ boolean validarStringNumerico(strDinamico s)
     int x=0;
     while(s[x]!='\0' && esNumerico)
     {
-        if((s[x] >= 48 && s[x] <= 57) || (x == 0 && s[x] == 45))
+        if((s[x] >= 48 && s[x] <= 57) || (x == 0 && s[x] == 45 && strLar(s) != 1))
             x++;
         else
             esNumerico = FALSE;
@@ -227,6 +227,8 @@ int convertirStringAEntero(strDinamico s)
 //Precondición: s2 es un string alfabetico no vacío.
 void eliminarEspaciosVaciosAlInicio(strDinamico &s1, strDinamico s2)
 {
+    strDestruir(s1);
+
     int i = 0, iInsertar = 0; // i UTILIZADO PARA RECORRER s2, iInsertar utilizado para inserción en s1
     boolean espacioEliminado = FALSE;
 
@@ -264,6 +266,10 @@ int strLarPrimerPalabra (strDinamico s)
 //Precondición: s es un string alfabetico no vacío y el primer caracter no es un espácio.
 void obtenerPrimerPalabra(strDinamico &s1, strDinamico &s2, strDinamico sEntrada)
 {
+    //se elimina contenido anterior
+    strDestruir(s1);
+    strDestruir(s2);
+
     int largoPrimerPalabra = strLarPrimerPalabra(sEntrada);// CANTIDAD DE CARACTERES DE LA PRIMER PALABRA DE sEntrada
     s1 = new char[largoPrimerPalabra + 1];// CANTIDAD DE CARACTERES DE LA PRIMER PALABRA DE sEntrada + 1 PARA EL CARACTER NULO
     s2 = new char[(strLar(sEntrada) - largoPrimerPalabra) + 1];// CANTIDAD DE CARACTERES QUE OCUPA EL RESTO DEL STRING + 1 PARA EL CARACTER NULO

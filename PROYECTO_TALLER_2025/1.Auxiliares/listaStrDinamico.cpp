@@ -9,8 +9,22 @@ void destruirListaStrings (listaStrDinamico &l)
 {
     if(l != NULL){
         destruirListaStrings(l -> sig);
+        //strDestruir(l -> info);
         delete l;
+        l = NULL;
     }
+
+    /*while(l != NULL)
+    {
+        listaStrDinamico aux = l;
+        l = aux -> sig;
+        aux -> sig = NULL;
+
+        if(aux -> info != NULL)
+            strDestruir(aux -> info);
+
+        delete aux;
+    }*/
 }
 
 //Precondici�n: La lista debe haberse inicializado anteriormente
@@ -55,7 +69,7 @@ void obtenerParametroEnPosicion(listaStrDinamico l, int p, strDinamico & s)
 
     while(x != p)
     {
-        strCop(s, aux -> info);
+        //strCop(s, aux -> info);
         aux = aux -> sig;
         x++;
     }
@@ -63,12 +77,12 @@ void obtenerParametroEnPosicion(listaStrDinamico l, int p, strDinamico & s)
     strCop(s, aux -> info);
 }
 
-listaStrDinamico parsing(strDinamico s)
+void parsing(strDinamico s, listaStrDinamico &l)
 {
     strDinamico sSinEspacios, primerPalabra, resto;
-
-    listaStrDinamico l;
-    crearListaStrings(l);
+    strCrear(sSinEspacios);
+    strCrear(primerPalabra);
+    strCrear(resto);
 
     eliminarEspaciosVaciosAlInicio(sSinEspacios, s);
 
@@ -80,7 +94,9 @@ listaStrDinamico parsing(strDinamico s)
         eliminarEspaciosVaciosAlInicio(sSinEspacios, resto);
     }
 
-    return l;
+    strDestruir(sSinEspacios);
+    strDestruir(primerPalabra);
+    strDestruir(resto);
 }
 
 //PRECONDICION: La lista debe haberse inicializado anteriormente
@@ -88,10 +104,6 @@ void mostrarLista (listaStrDinamico l)
 {
     while (l!=NULL)
     {
-        strDinamico prueba;
-        strCrear(prueba);
-        strCop(prueba, l->info);
-
         print(l->info);
         printf("\n");
 

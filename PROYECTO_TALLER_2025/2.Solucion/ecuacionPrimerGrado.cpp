@@ -23,9 +23,13 @@ ecuacionPrimerGrado crearEcuacionPrimerGrado(int primerCoeficiente, int segundoC
 // Precondici�n: primerCoeficiente de e debe ser distinto de 0
 void mostrarPrimerCoeficiente(ecuacionPrimerGrado e)
 {
-    if (e.primerCoeficiente != 1)
+    if (abs(e.primerCoeficiente)!= 1)
     {
         printf("%d", e.primerCoeficiente);
+    }
+    else if(e.primerCoeficiente == -1)
+    {
+        printf("-");
     }
 
     printf("x ");

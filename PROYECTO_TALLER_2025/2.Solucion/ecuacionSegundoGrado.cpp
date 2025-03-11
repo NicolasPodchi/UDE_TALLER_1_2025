@@ -28,9 +28,13 @@ ecuacionSegundoGrado crearEcuacionSegundoGrado(int primerCoeficiente, int segund
 
 void mostrarPrimerCoeficiente(ecuacionSegundoGrado e)
 {
-    if (e.primerCoeficiente != 1)
+    if (abs(e.primerCoeficiente) != 1)
     {
         printf("%d", e.primerCoeficiente);
+    }
+    else if(e.primerCoeficiente == -1)
+    {
+        printf("-");
     }
 
     printf("x^2 ");
@@ -52,7 +56,7 @@ void mostrarSegundoCoeficiente(ecuacionSegundoGrado e)
             printf("+ ");
         }
 
-        if ( e.segundoCoeficiente != 1)
+        if (abs(e.segundoCoeficiente) != 1)
             printf("%d", SegundoCoeficienteMostrar);
 
         printf("x ");

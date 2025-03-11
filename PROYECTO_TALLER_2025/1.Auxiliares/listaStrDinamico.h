@@ -22,7 +22,7 @@ int cantidadParametros(listaStrDinamico l);
 //Precondición: p debe pertenecer a una posición con datos dentro de l
 void obtenerParametroEnPosicion(listaStrDinamico l, int p, strDinamico & s);
 
-listaStrDinamico parsing(strDinamico s);
+void parsing(strDinamico s, listaStrDinamico &l);
 
 void mostrarLista (listaStrDinamico l);
 

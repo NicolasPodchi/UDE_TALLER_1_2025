@@ -7,18 +7,19 @@ int main()
     crear(arbolEcuaciones);
 
     listaStrDinamico parametros;
-    strDinamico comando, instruccion, param;
 
+    strDinamico comando, instruccion, param;
     strCrear(comando);
     strCrear(instruccion);
     strCrear(param);
 
     do
     {
+        crearListaStrings(parametros);
+
         printf("Ingrese comando: ");
         scan(comando);
-        crearListaStrings(parametros);
-        parametros = parsing(comando);
+        parsing(comando, parametros);
         obtenerParametroEnPosicion(parametros, 0, instruccion);
 
         if(strEq(instruccion, "crear")||strEq(instruccion, "CREAR")) ////////////////////////////////////////////////////////////////////// CREAR
@@ -37,21 +38,16 @@ int main()
 
                 if (validarStringAlfabetico(param) == FALSE)// param 1 debe ser alfabetico
                     printf("El ID de la ecuacion debe ser alfabetico");
-                //else if (existeIdEcuacion(arbolEcuaciones, param) == TRUE)// el id de la ecuacion no puede existir en el arbol
-                //printf("El ID de la ecuacion ya existe");
+                else if (existeIdEcuacion(arbolEcuaciones, param) == TRUE)// el id de la ecuacion no puede existir en el arbol
+                    printf("El ID de la ecuacion ya existe");
                 else
                 {
-                    //mostrarLista(parametros);
-
                     int i = 2;
                     boolean valido = TRUE;
                     do
                     {
                         obtenerParametroEnPosicion(parametros, i, param);
-                        if(validarStringNumerico(param) == FALSE)// validar tipo de parametros (numerico alfabetico)
-                        {
-                            valido == FALSE;
-                        }
+                        valido = validarStringNumerico(param);
 
                         i++;
                     }
@@ -59,7 +55,7 @@ int main()
 
                     if(valido == FALSE)
                     {
-                        printf("Los coeficientes deben ser valores numericos");
+                        printf("Los coeficientes deben ser valores numericos enteros");
                     }
                     else
                     {
@@ -96,6 +92,8 @@ int main()
                             printf("Resultado: ");
                             mostrarEcuacion(nuevaEcuacion);
                             insertarEcuacion(arbolEcuaciones, nuevaEcuacion);
+
+                            strDestruir(idNuevaEcuacion);
                         }
                     }
                 }
@@ -115,8 +113,8 @@ int main()
                     printf("No existen ecuaciones para mostrar");
                 }
                 else
-                    printf("Resultado: ");
-                    mostrarArbol(arbolEcuaciones);
+                    printf("Resultado: \n");
+                mostrarArbol(arbolEcuaciones);
             }
         }
         else if(strEq(instruccion, "resolver")||(strEq(instruccion, "RESOLVER"))) ////////////////////////////////////////////////////////////////////// RESOLVER //////////
@@ -128,8 +126,6 @@ int main()
             }
             else
             {
-                printf("resolver");
-
                 obtenerParametroEnPosicion(parametros, 1, param); //Validar que existe la primer ecuacion
 
                 if (validarStringAlfabetico(param) == FALSE)
@@ -150,13 +146,13 @@ int main()
                     {
                         float discriminante = resolverDiscriminante(getEcuacionSegundoGrado(ecuacionResolver));
 
-                        if (discriminante == 0)
+                        if (discriminante < 0)
                             printf("La ecuacion no tiene solucion");
                         else if (discriminante > 0)
                         {
                             float resultado1, resultado2;
                             resolverEcuacionDeDosResultados(getEcuacionSegundoGrado(ecuacionResolver), discriminante, resultado1, resultado2);
-                            printf("Resultado: x1 = %.2f\nx2 = %.2f\n", resultado1, resultado2);
+                            printf("Resultado: x1 = %.2f / x2 = %.2f\n", resultado1, resultado2);
                         }
                         else
                         {
@@ -190,7 +186,7 @@ int main()
 
                 if(valido == FALSE)
                 {
-                    printf("El ID de las ecuaciones debe ser alfabetico.");
+                    printf("El ID de las ecuaciones debe ser alfabetico");
                 }
                 else
                 {
@@ -216,7 +212,7 @@ int main()
                             obtenerParametroEnPosicion(parametros, 3, idTres); //Validar que NO existe el ID para la nueva ecuacion
                             if(existeIdEcuacion(arbolEcuaciones,idTres)==TRUE)
                             {
-                                printf("El nuevo ID ingresado ya existe.");
+                                printf("El nuevo ID ingresado ya existe");
                             }
                             else
                             {
@@ -224,11 +220,23 @@ int main()
                                 ecuacion ecuacionDos = obtenerEcuacionPorId(arbolEcuaciones,idDos);
 
                                 ecuacion ecuacionResultado = sumarEcuaciones(ecuacionUno, ecuacionDos, idTres);
-                                mostrarEcuacion(ecuacionResultado);
-                                insertarEcuacion(arbolEcuaciones, ecuacionResultado);
+
+                                if(getTipo(ecuacionResultado) == PRIMER_GRADO && getPrimerCoeficiente(getEcuacionPrimerGrado(ecuacionResultado)) == 0)
+                                {
+                                    printf("Suma invalida, el resultado no puede ser un termino independiente");
+                                }
+                                else
+                                {
+                                    mostrarEcuacion(ecuacionResultado);
+                                    insertarEcuacion(arbolEcuaciones, ecuacionResultado);
+                                }
                             }
                         }
                     }
+
+                    strDestruir(idUno);
+                    strDestruir(idDos);
+                    strDestruir(idTres);
                 }
             }
         }
@@ -260,7 +268,7 @@ int main()
                     ecuacion ecuacionGuardar = obtenerEcuacionPorId(arbolEcuaciones, param);
                     bajarEcuacion(ecuacionGuardar);
 
-                    printf("Resultado: ecuacion guardada existosamente en ");
+                    printf("Resultado: Ecuacion guardada con exito");
                 }
             }
         }
@@ -293,7 +301,7 @@ int main()
                     levantarEcuacion(param, ecuacionRecuperar);
                     insertarEcuacion(arbolEcuaciones, ecuacionRecuperar);
 
-                    printf("Ecuacion recuperada existosamente");
+                    printf("Resultado: Ecuacion recuperada con exito");
                 }
             }
         }
@@ -309,23 +317,27 @@ int main()
                 //destruir arbol de ecuaciones
                 destruirArbol(arbolEcuaciones);
 
-                //destruir lista de parametros
-                destruirListaStrings(parametros);
-
                 //destruir strings
                 strDestruir(comando);
-                strDestruir(instruccion);
                 strDestruir(param);
             }
         }
         else
         {
-            system("cls");
-            printf("COMANDO NO RECONOCIDO");
+            printf("COMANDO NO RECONOCIDO\n");
             system("pause");
         }
 
+        //destruir lista de parametros
+        //destruirListaStrings(parametros);
+
+        mostrarLista(parametros);
+        int cantidadParametroAux = cantidadParametros(parametros);
+        printf("\n  CANTIDAD PARAMETROSS >> %d", cantidadParametroAux);
+
         printf("\n");
     }
-    while (!strEq(instruccion, "salir")||(!strEq(instruccion, "SALIR")));
+    while (!strEq(instruccion, "salir") && (!strEq(instruccion, "SALIR")));
+
+    strDestruir(instruccion);
 }

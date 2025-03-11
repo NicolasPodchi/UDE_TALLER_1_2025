@@ -129,7 +129,9 @@ void destruirArbol(arbolEcuacion &a)
     {
         destruirArbol(a ->hIzq);
         destruirArbol(a ->hDer);
+        destruirEcuacion(a -> info);
         delete a;
+        a = NULL;
     }
 }
 
