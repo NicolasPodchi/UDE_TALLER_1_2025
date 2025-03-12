@@ -108,7 +108,6 @@ int main()
 
                                     nuevaEcuacion = crearEcuacionSegundoGrado(idNuevaEcuacion, primerCoeficiente, segundoCoeficiente, tercerCoeficiente);
                                 }
-                                printf("Resultado: ");
                                 mostrarEcuacion(nuevaEcuacion);
                                 insertarEcuacion(arbolEcuaciones, nuevaEcuacion);
 
@@ -134,8 +133,10 @@ int main()
                         printf("No existen ecuaciones para mostrar");
                     }
                     else
-                        printf("Resultado: \n");
-                    mostrarArbol(arbolEcuaciones);
+                    {
+                        printf("\n");
+                        mostrarArbol(arbolEcuaciones);
+                    }
                 }
             }
             else if(strEq(instruccion, "resolver")||(strEq(instruccion, "RESOLVER"))) ////////////////////////////////////////////////////////////////////// RESOLVER //////////
@@ -163,7 +164,7 @@ int main()
                         if(getTipo(ecuacionResolver) == PRIMER_GRADO)
                         {
                             float resultado = resolverPrimerGrado(getEcuacionPrimerGrado(ecuacionResolver));
-                            printf("Resultado: x = %.2f\n", resultado);
+                            printf("Resultado: x = %.2f", resultado);
                         }
                         else
                         {
@@ -175,12 +176,12 @@ int main()
                             {
                                 float resultado1, resultado2;
                                 resolverEcuacionDeDosResultados(getEcuacionSegundoGrado(ecuacionResolver), discriminante, resultado1, resultado2);
-                                printf("Resultado: x1 = %.2f / x2 = %.2f\n", resultado1, resultado2);
+                                printf("Resultado: x1 = %.2f / x2 = %.2f", resultado1, resultado2);
                             }
                             else
                             {
                                 float resultado = resolverEcuacionDeUnSoloResultado (getEcuacionSegundoGrado(ecuacionResolver));
-                                printf("Resultado: x = %.2f\n", resultado);
+                                printf("Resultado: x = %.2f", resultado);
                             }
                         }
                     }
@@ -360,14 +361,13 @@ int main()
             //destruir lista de parametros
             destruirListaStrings(parametros);
 
-            printf("\n");
+            printf("\n\n");
         }
         else
         {
             printf("Debe ingresar un comando\n");
             system("pause");
         }
-
     }
     while (!strEq(instruccion, "salir") && (!strEq(instruccion, "SALIR")));
 
