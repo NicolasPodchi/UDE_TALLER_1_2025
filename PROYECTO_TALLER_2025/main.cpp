@@ -370,6 +370,6 @@ int main()
         }
     }
     while (!strEq(instruccion, "salir") && (!strEq(instruccion, "SALIR")));
-
+    printf("\nPrograma cerrado exitosamente");
     strDestruir(instruccion);
 }
