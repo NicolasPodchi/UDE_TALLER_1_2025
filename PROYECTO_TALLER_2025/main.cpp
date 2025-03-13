@@ -251,7 +251,7 @@ int main()
 
                                     if(getTipo(ecuacionResultado) == PRIMER_GRADO && getPrimerCoeficiente(getEcuacionPrimerGrado(ecuacionResultado)) == 0)
                                     {
-                                        printf("Suma invalida, el resultado no puede ser un termino independiente");
+                                        printf("Resultado invalido");
                                     }
                                     else
                                     {
@@ -362,6 +362,7 @@ int main()
             destruirListaStrings(parametros);
 
             printf("\n\n");
+            printf("\nPrograma cerrado exitosamente");
         }
         else
         {
@@ -370,6 +371,5 @@ int main()
         }
     }
     while (!strEq(instruccion, "salir") && (!strEq(instruccion, "SALIR")));
-    printf("\nPrograma cerrado exitosamente");
     strDestruir(instruccion);
 }
