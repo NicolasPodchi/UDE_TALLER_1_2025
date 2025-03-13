@@ -362,7 +362,7 @@ int main()
             destruirListaStrings(parametros);
 
             printf("\n\n");
-            printf("\nPrograma cerrado exitosamente");
+
         }
         else
         {
@@ -371,5 +371,6 @@ int main()
         }
     }
     while (!strEq(instruccion, "salir") && (!strEq(instruccion, "SALIR")));
+    printf("Programa cerrado exitosamente");
     strDestruir(instruccion);
 }
